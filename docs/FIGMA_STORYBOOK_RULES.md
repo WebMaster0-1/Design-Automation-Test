@@ -4,7 +4,7 @@ alwaysApply: true
 
 # Figma-to-Storybook Component Mapping Rule
 
-> **This rule applies at every point in time.** Cursor must follow it for all Figma/Storybook work in this project.
+> **This rule applies at every point in time.** It must be followed for all Figma/Storybook work in this project.
 
 ## Core Principle
 
@@ -58,7 +58,7 @@ Query Figma first. Build second. Verify always. Never guess or invent values.
 
 - Component file names and export names must match Figma component names
 - Prop names should mirror Figma property names
-- Story titles follow the pattern `Platter/{FigmaComponentName}` (matches `docs/FIGMA_STORYBOOK_MAPPING.md`)
+- Story titles follow the pattern `FMDQ DS/{FigmaComponentName}` (matches `docs/FIGMA_STORYBOOK_MAPPING.md`)
 
 ## 9. Verification (mandatory before marking a component complete)
 

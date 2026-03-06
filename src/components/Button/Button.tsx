@@ -22,7 +22,7 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const isDeactivated = state === 'de-activated' || disabled;
-  
+
   const classNames = [
     'qasah-button',
     `qasah-button--${variant}`,
@@ -33,8 +33,8 @@ export const Button: React.FC<ButtonProps> = ({
   ].filter(Boolean).join(' ');
 
   return (
-    <button 
-      className={classNames} 
+    <button
+      className={classNames}
       disabled={isDeactivated}
       {...props}
     >
