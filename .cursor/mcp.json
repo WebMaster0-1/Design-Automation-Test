@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "storybook": {
+      "command": "node",
+      "args": ["mcp/storybook.mjs"],
+      "env": {
+        "STORYBOOK_URL": "http://localhost:6006"
+      }
+    }
+  }
+}
+

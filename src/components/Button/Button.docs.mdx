@@ -1,0 +1,37 @@
+import { Meta, Title, Subtitle, Description, Primary, Controls, Stories, Canvas, Source } from '@storybook/blocks';
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+<Title>Button</Title>
+<Subtitle>Standard interactive element used for actions.</Subtitle>
+
+<Description>
+  The button component from the Qasah Design System, mapped 1:1 from Figma (Node ID: 2002:42944).
+</Description>
+
+## Overview
+<Canvas of={ButtonStories.Primary} />
+
+## Properties
+<Controls />
+
+## Variants
+
+### Secondary
+<Canvas of={ButtonStories.Secondary} />
+
+### Icons
+<Stories includePrimary={false} title="Icon Variants" />
+
+## Usage Guidelines
+- Use **Primary** for the main call to action on a page.
+- Use **Secondary** for alternative or secondary actions.
+- **Hover** and **Focused** states are automatically handled by the component.
+- **De-activated** buttons should be used when an action is unavailable.
+
+## Parity Note
+This component matches the Figma specification exactly.
+- **Colors**: Mapped to `--color-primary-*` and `--color-secondary-*`
+- **Typography**: Clash Grotesk Semibold, 14px.
+- **Sizing**: 35px height for SM variant.

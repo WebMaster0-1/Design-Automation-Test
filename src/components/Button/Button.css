@@ -1,0 +1,81 @@
+@import '../../tokens.css';
+
+.qasah-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: var(--font-family-primary);
+    border-radius: var(--radius-8);
+    font-weight: 600;
+    /* Semibold */
+    letter-spacing: var(--font-letter-spacing-tight);
+    gap: var(--spacing-gap-10);
+    box-sizing: border-box;
+}
+
+/* Sizes */
+.qasah-button--sm {
+    height: 35px;
+    padding: var(--spacing-8) var(--spacing-16);
+    font-size: var(--font-size-sm);
+    line-height: var(--font-line-height-standard);
+}
+
+.qasah-button--lg {
+    /* Future: Extract lg specific values if needed, defaulting to sm for now per analysis */
+    height: 44px;
+    padding: 12px 20px;
+    font-size: 16px;
+}
+
+/* Primary Variant */
+.qasah-button--primary {
+    background-color: var(--color-primary-default);
+    color: #ffffff;
+}
+
+.qasah-button--primary:hover,
+.qasah-button--primary.qasah-button--state-hover {
+    background-color: var(--color-primary-hover);
+}
+
+.qasah-button--primary:focus,
+.qasah-button--primary.qasah-button--state-focused {
+    outline: none;
+    background-color: var(--color-primary-focused);
+}
+
+.qasah-button--primary:disabled,
+.qasah-button--primary.qasah-button--state-de-activated {
+    background-color: var(--color-primary-deactivated);
+    cursor: not-allowed;
+}
+
+/* Secondary Variant */
+.qasah-button--secondary {
+    background-color: #ffffff;
+    color: var(--color-secondary-text);
+    border: 1.5px solid var(--color-secondary-border);
+}
+
+.qasah-button--secondary:hover {
+    opacity: 0.8;
+    /* Placeholder for secondary hover if not defined */
+}
+
+/* Icon Styles */
+.qasah-button__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+.qasah-button--icon-icon-only {
+    padding: var(--spacing-8);
+    width: 35px;
+}

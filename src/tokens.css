@@ -1,0 +1,25 @@
+:root {
+  /* Colors - Brand Primary */
+  --color-primary-default: #eb5017;
+  --color-primary-hover: #344054;
+  --color-primary-focused: #ae3307;
+  --color-primary-deactivated: #d0d5dd;
+
+  /* Colors - Secondary */
+  --color-secondary-border: #cc400c;
+  --color-secondary-text: #cc400c;
+
+  /* Typography */
+  --font-family-primary: 'Clash Grotesk', sans-serif;
+  --font-size-sm: 14px;
+  --font-line-height-standard: 145%;
+  --font-letter-spacing-tight: 0.01em;
+
+  /* Spacing */
+  --spacing-8: 8px;
+  --spacing-16: 16px;
+  --spacing-gap-10: 10px;
+
+  /* Radii */
+  --radius-8: 8px;
+}
