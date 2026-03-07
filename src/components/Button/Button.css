@@ -8,53 +8,90 @@
     cursor: pointer;
     transition: all 0.2s ease;
     font-family: var(--font-family-primary);
-    border-radius: var(--radius-8);
     font-weight: 600;
-    /* Semibold */
     letter-spacing: var(--font-letter-spacing-tight);
     gap: var(--spacing-gap-10);
     box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
 }
 
-/* Sizes */
+/* --- Sizes & Corner Radii --- */
 .qasah-button--sm {
     height: 35px;
-    padding: var(--spacing-8) var(--spacing-16);
     font-size: var(--font-size-sm);
-    line-height: var(--font-line-height-standard);
+    border-radius: var(--radius-8);
 }
 
 .qasah-button--lg {
-    /* Future: Extract lg specific values if needed, defaulting to sm for now per analysis */
     height: 44px;
-    padding: 12px 20px;
-    font-size: 16px;
+    font-size: var(--font-size-lg);
+    border-radius: var(--radius-16);
 }
 
-/* Primary Variant */
+/* --- Pading Logic (per icon-style) --- */
+/* sm */
+.qasah-button--sm.qasah-button--icon-none {
+    padding: var(--spacing-8) var(--spacing-16);
+}
+
+.qasah-button--sm.qasah-button--icon-leading icon,
+.qasah-button--sm.qasah-button--icon-trailing icon {
+    padding: var(--spacing-8) var(--spacing-12);
+}
+
+.qasah-button--sm.qasah-button--icon-icon-only {
+    padding: var(--spacing-8);
+    width: 35px;
+}
+
+/* lg */
+.qasah-button--lg.qasah-button--icon-none {
+    padding: var(--spacing-16) var(--spacing-24);
+    height: 48px;
+}
+
+.qasah-button--lg.qasah-button--icon-leading icon,
+.qasah-button--lg.qasah-button--icon-trailing icon,
+.qasah-button--lg.qasah-button--icon-icon-only {
+    padding: var(--spacing-16);
+    height: 48px;
+}
+
+.qasah-button--lg.qasah-button--icon-icon-only {
+    width: 48px;
+}
+
+/* --- Variants --- */
+
+/* Primary */
 .qasah-button--primary {
     background-color: var(--color-primary-default);
     color: #ffffff;
 }
 
-.qasah-button--primary:hover,
-.qasah-button--primary.qasah-button--state-hover {
+.qasah-button--primary.qasah-button--lg {
+    background: var(--gradient-primary-lg);
+}
+
+.qasah-button--primary:hover {
     background-color: var(--color-primary-hover);
 }
 
-.qasah-button--primary:focus,
-.qasah-button--primary.qasah-button--state-focused {
-    outline: none;
+.qasah-button--primary.qasah-button--lg:hover {
+    background: var(--color-primary-hover);
+}
+
+.qasah-button--primary:focus {
     background-color: var(--color-primary-focused);
 }
 
-.qasah-button--primary:disabled,
-.qasah-button--primary.qasah-button--state-de-activated {
+.qasah-button--primary:disabled {
     background-color: var(--color-primary-deactivated);
     cursor: not-allowed;
 }
 
-/* Secondary Variant */
+/* Secondary */
 .qasah-button--secondary {
     background-color: #ffffff;
     color: var(--color-secondary-text);
@@ -62,11 +99,55 @@
 }
 
 .qasah-button--secondary:hover {
-    opacity: 0.8;
-    /* Placeholder for secondary hover if not defined */
+    background-color: var(--color-secondary-hover-bg);
 }
 
-/* Icon Styles */
+/* Destructive */
+.qasah-button--destructive {
+    background-color: var(--color-destructive-default);
+    color: #ffffff;
+}
+
+.qasah-button--destructive.qasah-button--outline {
+    background-color: transparent;
+    color: var(--color-destructive-default);
+    border: 1.5px solid var(--color-destructive-default);
+}
+
+.qasah-button--destructive:hover {
+    background-color: var(--color-destructive-hover);
+}
+
+/* Grey */
+.qasah-button--grey {
+    background-color: var(--color-grey-default);
+    color: #ffffff;
+    border-radius: var(--radius-24);
+    /* Special rounded style for greys in Figma sm */
+}
+
+.qasah-button--grey.qasah-button--outline {
+    background-color: transparent;
+    color: var(--color-grey-default);
+    border: 1.5px solid var(--color-grey-default);
+}
+
+/* Text */
+.qasah-button--text {
+    background: transparent;
+    padding: 0 !important;
+    height: auto;
+}
+
+.qasah-button--text-primary {
+    color: var(--color-text-primary);
+}
+
+.qasah-button--text-secondary {
+    color: var(--color-text-secondary);
+}
+
+/* Icons */
 .qasah-button__icon {
     display: flex;
     align-items: center;
@@ -75,7 +156,7 @@
     height: 20px;
 }
 
-.qasah-button--icon-icon-only {
-    padding: var(--spacing-8);
-    width: 35px;
+.qasah-button__icon svg {
+    width: 100%;
+    height: 100%;
 }

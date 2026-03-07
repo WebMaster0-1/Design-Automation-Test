@@ -1,6 +1,7 @@
 :root {
   /* Colors - Brand Primary */
-  --color-primary-default: #eb5017;
+  --color-primary-default: #034591;
+  /* Deep Blue (per Figma sm default) */
   --color-primary-hover: #344054;
   --color-primary-focused: #ae3307;
   --color-primary-deactivated: #d0d5dd;
@@ -8,18 +9,42 @@
   /* Colors - Secondary */
   --color-secondary-border: #cc400c;
   --color-secondary-text: #cc400c;
+  --color-secondary-hover-bg: #fff5f2;
+
+  /* Colors - Destructive */
+  --color-destructive-default: #cb1a14;
+  --color-destructive-hover: #dd524d;
+  --color-destructive-focused: #9e0a05;
+
+  /* Colors - Greys */
+  --color-grey-default: #667185;
+  --color-grey-hover: #344054;
+  --color-grey-focused: #101928;
+
+  /* Colors - Text Buttons */
+  --color-text-primary: #eb5017;
+  --color-text-secondary: #667185;
+
+  /* Gradients */
+  --gradient-primary-lg: linear-gradient(180deg, #ffd859 0%, #ff8a00 100%);
+  --gradient-primary-lg-alt: linear-gradient(180deg, #ffbc65 0%, #ff940c 100%);
 
   /* Typography */
   --font-family-primary: 'Clash Grotesk', sans-serif;
   --font-size-sm: 14px;
+  --font-size-lg: 16px;
   --font-line-height-standard: 145%;
   --font-letter-spacing-tight: 0.01em;
 
   /* Spacing */
   --spacing-8: 8px;
+  --spacing-12: 12px;
   --spacing-16: 16px;
+  --spacing-24: 24px;
   --spacing-gap-10: 10px;
 
   /* Radii */
   --radius-8: 8px;
+  --radius-16: 16px;
+  --radius-24: 24px;
 }

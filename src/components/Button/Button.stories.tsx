@@ -2,16 +2,28 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './Button';
 
 const meta: Meta<typeof Button> = {
-    title: 'FMDQ DS/Button',
+    title: 'Components/Button',
     component: Button,
     parameters: {
         layout: 'centered',
     },
+    tags: ['autodocs'],
     argTypes: {
-        variant: { control: 'select', options: ['primary', 'secondary'] },
-        size: { control: 'select', options: ['sm', 'lg'] },
-        state: { control: 'select', options: ['default', 'hover', 'focused', 'de-activated'] },
-        iconStyle: { control: 'select', options: ['none', 'leading', 'trailing', 'icon-only'] },
+        variant: {
+            control: 'select',
+            options: ['primary', 'secondary', 'destructive', 'grey', 'text', 'success', 'warning', 'info'],
+        },
+        size: {
+            control: 'radio',
+            options: ['sm', 'lg'],
+        },
+        iconStyle: {
+            control: 'select',
+            options: ['none', 'leading icon', 'trailing icon', 'icon-only'],
+        },
+        outline: {
+            control: 'boolean',
+        },
     },
 };
 
@@ -21,47 +33,65 @@ type Story = StoryObj<typeof Button>;
 export const Primary: Story = {
     args: {
         variant: 'primary',
-        label: "My name is marvin",
+        label: 'Button',
+        size: 'sm',
+    },
+};
+
+export const LargeGradient: Story = {
+    args: {
+        variant: 'primary',
+        label: 'Large Button',
+        size: 'lg',
     },
 };
 
 export const Secondary: Story = {
     args: {
         variant: 'secondary',
-        label: 'Label',
+        label: 'Button',
     },
 };
 
-export const Hover: Story = {
+export const Destructive: Story = {
     args: {
-        variant: 'primary',
-        label: 'Hover State',
-        state: 'hover',
+        variant: 'destructive',
+        label: 'Delete',
     },
 };
 
-export const Focused: Story = {
+export const GreyRounded: Story = {
     args: {
-        variant: 'primary',
-        label: 'Focused State',
-        state: 'focused',
+        variant: 'grey',
+        label: 'Select',
     },
 };
 
-export const Disabled: Story = {
+export const TextButton: Story = {
     args: {
-        variant: 'primary',
-        label: 'Disabled',
-        state: 'de-activated',
+        variant: 'text',
+        label: 'Click me',
+    },
+};
+
+export const Success: Story = {
+    args: {
+        variant: 'success',
+        label: 'Confirmed',
     },
 };
 
 export const LeadingIcon: Story = {
     args: {
-        variant: 'primary',
-        label: 'Leading Icon',
-        iconStyle: 'leading',
-        icon: <span>★</span>,
+        label: 'Download',
+        iconStyle: 'leading icon',
+    },
+};
+
+export const IconOnly: Story = {
+    args: {
+        iconStyle: 'icon-only',
+        'aria-label': 'Next',
     },
 };
 
@@ -69,15 +99,7 @@ export const TrailingIcon: Story = {
     args: {
         variant: 'primary',
         label: 'Trailing Icon',
-        iconStyle: 'trailing',
+        iconStyle: 'trailing icon',
         icon: <span>→</span>,
-    },
-};
-
-export const IconOnly: Story = {
-    args: {
-        variant: 'primary',
-        iconStyle: 'icon-only',
-        icon: <span>★</span>,
     },
 };
