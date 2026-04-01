@@ -1,0 +1,36 @@
+import { Meta, Canvas, Story } from '@storybook/blocks';
+import * as TypographyStories from './Typography.stories';
+
+<Meta of={TypographyStories} />
+
+# Typography
+
+FMDQ UI provides dedicated descriptive components for text representation: `Heading`, `Text`, and `Label`.
+
+## Headings
+Use the `Heading` component for section titles. Use the `level` prop to determine the HTML element (`h1` - `h6`).
+
+<Canvas>
+  <Story of={TypographyStories.Headings} />
+</Canvas>
+
+## Text
+Use the `Text` component for paragraphs, descriptions, and general body text. Modify its size using the `size` prop.
+
+<Canvas>
+  <Story of={TypographyStories.Texts} />
+</Canvas>
+
+## Text Weights
+You can apply different weights to standard text by passing the `weight` prop.
+
+<Canvas>
+  <Story of={TypographyStories.TextWeights} />
+</Canvas>
+
+## Labels
+Use the `Label` component specifically for forms or small UI notations.
+
+<Canvas>
+  <Story of={TypographyStories.Labels} />
+</Canvas>

@@ -1,0 +1,61 @@
+.qasah-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family-primary);
+  font-weight: 500;
+  white-space: nowrap;
+  border-radius: var(--radius-8);
+  border: 1px solid transparent;
+}
+
+.qasah-badge--rounded {
+  border-radius: 9999px;
+}
+
+/* Sizes */
+.qasah-badge--sm {
+  font-size: 11px;
+  padding: 2px 6px;
+}
+
+.qasah-badge--md {
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+.qasah-badge--lg {
+  font-size: 14px;
+  padding: 6px 12px;
+}
+
+/* Variants */
+.qasah-badge--grey {
+  background-color: var(--color-grey-deactivated, #e4e7ec);
+  color: var(--color-grey-focused, #101928);
+}
+
+.qasah-badge--primary {
+  background-color: #e0f2fe;
+  color: var(--color-primary-default, #034591);
+}
+
+.qasah-badge--success {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.qasah-badge--warning {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.qasah-badge--destructive {
+  background-color: #fee2e2;
+  color: var(--color-destructive-default, #cb1a14);
+}
+
+.qasah-badge--info {
+  background-color: #e0e7ff;
+  color: #3730a3;
+}

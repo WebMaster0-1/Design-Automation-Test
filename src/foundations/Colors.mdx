@@ -1,0 +1,77 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+
+<Meta title="Foundations/Colors" />
+
+# Colors
+
+The FMDQ Design System employs a consistent, standardized color palette tailored to distinct brand functions. All tokens are available via CSS variables in `tokens.css`.
+
+## Brand Primary
+
+<ColorPalette>
+  <ColorItem 
+    title="Primary" 
+    subtitle="--color-primary-*" 
+    colors={{ 
+      Default: '#034591', 
+      Hover: '#344054', 
+      Focused: '#ae3307', 
+      Deactivated: '#d0d5dd' 
+    }} 
+  />
+</ColorPalette>
+
+## Secondary
+
+<ColorPalette>
+  <ColorItem 
+    title="Secondary" 
+    subtitle="--color-secondary-*" 
+    colors={{ 
+      Border: '#cc400c', 
+      Text: '#cc400c', 
+      'Hover BG': '#fff5f2' 
+    }} 
+  />
+</ColorPalette>
+
+## Destructive
+
+<ColorPalette>
+  <ColorItem 
+    title="Destructive" 
+    subtitle="--color-destructive-*" 
+    colors={{ 
+      Default: '#cb1a14', 
+      Hover: '#dd524d', 
+      Focused: '#9e0a05' 
+    }} 
+  />
+</ColorPalette>
+
+## Greys
+
+<ColorPalette>
+  <ColorItem 
+    title="Greys" 
+    subtitle="--color-grey-*" 
+    colors={{ 
+      Default: '#667185', 
+      Hover: '#344054', 
+      Focused: '#101928' 
+    }} 
+  />
+</ColorPalette>
+
+## Text Colors
+
+<ColorPalette>
+  <ColorItem 
+    title="Text Actions" 
+    subtitle="--color-text-*" 
+    colors={{ 
+      Primary: '#eb5017', 
+      Secondary: '#667185' 
+    }} 
+  />
+</ColorPalette>

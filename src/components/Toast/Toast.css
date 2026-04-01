@@ -1,0 +1,83 @@
+.qasah-toast-container {
+  position: fixed;
+  bottom: var(--spacing-24);
+  right: var(--spacing-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.qasah-toast {
+  pointer-events: auto;
+  min-width: 300px;
+  max-width: 400px;
+  background-color: #ffffff;
+  border-radius: var(--radius-8);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: var(--spacing-16);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-left: 4px solid var(--color-grey-deactivated);
+  animation: slideIn 0.3s ease forwards;
+  font-family: var(--font-family-primary);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.qasah-toast--success { border-left-color: #10b981; }
+.qasah-toast--error { border-left-color: var(--color-destructive-default, #cb1a14); }
+.qasah-toast--warning { border-left-color: #f59e0b; }
+.qasah-toast--info { border-left-color: var(--color-primary-default, #034591); }
+
+.qasah-toast-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.qasah-toast-title {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-grey-focused, #101928);
+}
+
+.qasah-toast-desc {
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-grey-default, #667185);
+  line-height: var(--font-line-height-standard);
+}
+
+.qasah-toast-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-grey-default, #667185);
+  padding: 4px;
+  margin-left: var(--spacing-12);
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.qasah-toast-close:hover {
+  background-color: #f3f4f6;
+  color: var(--color-grey-focused, #101928);
+}
+
+.qasah-toast-close svg {
+  width: 16px;
+  height: 16px;
+}

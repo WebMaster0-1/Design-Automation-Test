@@ -1,0 +1,49 @@
+.qasah-tabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.qasah-tab-list {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--color-grey-deactivated, #e4e7ec);
+  gap: var(--spacing-24);
+  overflow-x: auto;
+}
+
+.qasah-tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: var(--spacing-12) 0;
+  margin-bottom: -2px;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-grey-default);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.qasah-tab:hover:not(:disabled) {
+  color: var(--color-primary-hover);
+}
+
+.qasah-tab--active {
+  color: var(--color-primary-default);
+  border-bottom-color: var(--color-primary-default);
+}
+
+.qasah-tab:disabled {
+  color: var(--color-grey-deactivated);
+  cursor: not-allowed;
+}
+
+.qasah-tab-panel {
+  padding: var(--spacing-24) 0;
+  color: var(--color-grey-focused);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-sm);
+}

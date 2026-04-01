@@ -1,0 +1,166 @@
+@import '../../tokens.css';
+
+/* Container */
+.qasah-input-container {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px; /* Space between input and helper text */
+  font-family: var(--font-family-primary);
+  box-sizing: border-box;
+}
+
+.qasah-input-container--full-width {
+  display: flex;
+  width: 100%;
+}
+
+/* Wrapper (holds input + icons) */
+.qasah-input-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid var(--color-grey-deactivated, #d0d5dd); /* Fallback to standard grey if not defined */
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  overflow: hidden; /* Ensure focus ring respects border radius */
+}
+
+/* Base Sizing matching Buttons */
+.qasah-input-wrapper--sm {
+  height: 35px;
+  border-radius: var(--radius-8);
+}
+
+.qasah-input-wrapper--lg {
+  height: 48px;
+  border-radius: var(--radius-16);
+}
+
+/* Default Variant States */
+.qasah-input-wrapper--default:hover:not(.qasah-input-wrapper--disabled) {
+  border-color: var(--color-grey-hover);
+}
+
+.qasah-input-wrapper--default:focus-within:not(.qasah-input-wrapper--disabled) {
+  border-color: var(--color-primary-default);
+  outline: 2px solid var(--color-primary-default);
+  outline-offset: -1px;
+}
+
+/* Error Variant States */
+.qasah-input-wrapper--error {
+  border-color: var(--color-destructive-default);
+}
+
+.qasah-input-wrapper--error:hover:not(.qasah-input-wrapper--disabled) {
+  border-color: var(--color-destructive-hover);
+}
+
+.qasah-input-wrapper--error:focus-within:not(.qasah-input-wrapper--disabled) {
+  outline: 2px solid var(--color-destructive-default);
+  outline-offset: -1px;
+}
+
+/* Disabled State */
+.qasah-input-wrapper--disabled {
+  background-color: #f2f4f7; /* Standard light grey disabled bg */
+  border-color: #eaecf0;
+  cursor: not-allowed;
+}
+
+.qasah-input-container--disabled .qasah-input__message {
+  color: var(--color-grey-default);
+  opacity: 0.7;
+}
+
+/* Actual input field */
+.qasah-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0 var(--spacing-16); /* Matches Button padding */
+  font-family: inherit;
+  color: var(--color-grey-focused); /* Dark text for readability */
+  box-sizing: border-box;
+}
+
+.qasah-input-wrapper--sm .qasah-input {
+  font-size: var(--font-size-sm);
+}
+
+.qasah-input-wrapper--lg .qasah-input {
+  font-size: var(--font-size-lg);
+}
+
+/* Padding adjustments for icons */
+.qasah-input-wrapper--has-leading-icon .qasah-input {
+  padding-left: calc(var(--spacing-16) + 24px); /* Extra space for icon */
+}
+
+.qasah-input-wrapper--has-trailing-icon .qasah-input {
+  padding-right: calc(var(--spacing-16) + 24px); /* Extra space for icon */
+}
+
+.qasah-input::placeholder {
+  color: var(--color-grey-default);
+  opacity: 0.8;
+}
+
+.qasah-input:disabled {
+  cursor: not-allowed;
+  color: var(--color-grey-default);
+}
+
+/* Icons */
+.qasah-input__icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-grey-default);
+  height: 100%;
+  width: 20px;
+  pointer-events: none; /* Let clicks pass through to input */
+}
+
+.qasah-input__icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.qasah-input-wrapper--sm .qasah-input__icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.qasah-input-wrapper--lg .qasah-input__icon svg {
+  width: 20px;
+  height: 20px;
+  width: 24px;
+}
+
+.qasah-input__icon--leading {
+  left: var(--spacing-12);
+}
+
+.qasah-input__icon--trailing {
+  right: var(--spacing-12);
+}
+
+/* Helper & Error Messages */
+.qasah-input__message {
+  font-size: 12px;
+  line-height: var(--font-line-height-standard);
+  margin-left: 2px;
+}
+
+.qasah-input__message--helper {
+  color: var(--color-grey-default);
+}
+
+.qasah-input__message--error {
+  color: var(--color-destructive-default);
+}

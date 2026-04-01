@@ -1,0 +1,100 @@
+.qasah-table-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid var(--color-grey-deactivated, #e4e7ec);
+  border-radius: var(--radius-8);
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.qasah-table-scroll-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.qasah-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-sm);
+  color: var(--color-grey-focused);
+}
+
+.qasah-table-head {
+  background-color: #f9fafb;
+  border-bottom: 1px solid var(--color-grey-deactivated, #e4e7ec);
+}
+
+.qasah-table-header-cell {
+  padding: var(--spacing-12) var(--spacing-16);
+  font-weight: 500;
+  color: var(--color-grey-default);
+  white-space: nowrap;
+}
+
+.qasah-table-body .qasah-table-row {
+  border-bottom: 1px solid var(--color-grey-deactivated, #e4e7ec);
+  transition: background-color 0.2s ease;
+}
+
+.qasah-table-body .qasah-table-row:last-child {
+  border-bottom: none;
+}
+
+.qasah-table-body .qasah-table-row:hover {
+  background-color: var(--color-secondary-hover-bg, #f9fafb);
+}
+
+.qasah-table-cell {
+  padding: var(--spacing-16);
+  color: var(--color-grey-focused);
+}
+
+.qasah-table-empty {
+  text-align: center;
+  padding: var(--spacing-24);
+  color: var(--color-grey-default);
+}
+
+/* Pagination */
+.qasah-table-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-12) var(--spacing-16);
+  border-top: 1px solid var(--color-grey-deactivated, #e4e7ec);
+  background-color: #ffffff;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-sm);
+  color: var(--color-grey-default);
+}
+
+.qasah-table-pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-24);
+}
+
+.qasah-table-page-size {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+.qasah-table-page-size-label {
+  white-space: nowrap;
+}
+
+.qasah-table-page-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+}
+
+.qasah-table-page-current {
+  font-weight: 500;
+  color: var(--color-grey-focused);
+  white-space: nowrap;
+}

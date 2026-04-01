@@ -1,0 +1,41 @@
+.qasah-card {
+  background-color: #ffffff;
+  border-radius: var(--radius-16);
+  border: 1px solid var(--color-grey-deactivated, #e4e7ec);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: var(--font-family-primary);
+}
+
+.qasah-card-header {
+  padding: var(--spacing-24) var(--spacing-24) var(--spacing-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.qasah-card-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-grey-focused);
+  line-height: var(--font-line-height-standard);
+}
+
+.qasah-card-body {
+  padding: 0 var(--spacing-24) var(--spacing-24);
+  color: var(--color-grey-default);
+  font-size: var(--font-size-sm);
+  flex-grow: 1;
+}
+
+.qasah-card-footer {
+  padding: var(--spacing-16) var(--spacing-24);
+  background-color: #f9fafb;
+  border-top: 1px solid var(--color-grey-deactivated, #e4e7ec);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+}

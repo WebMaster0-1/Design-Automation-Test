@@ -1,0 +1,89 @@
+.qasah-nav-menu {
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+  background-color: #ffffff;
+  border-right: 1px solid var(--color-grey-deactivated, #e4e7ec);
+  height: 100%;
+  padding: var(--spacing-16) 0;
+}
+
+.qasah-nav-group {
+  margin-bottom: var(--spacing-8);
+}
+
+.qasah-nav-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--spacing-8) var(--spacing-16);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-grey-default);
+  font-family: var(--font-family-primary);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+}
+
+.qasah-nav-group-header:hover {
+  color: var(--color-primary-hover);
+}
+
+.qasah-nav-group-icon {
+  transition: transform 0.2s ease;
+}
+
+.qasah-nav-group-icon--expanded {
+  transform: rotate(180deg);
+}
+
+.qasah-nav-group-content {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-8) 0;
+}
+
+.qasah-nav-item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-12) var(--spacing-16);
+  margin: 0 var(--spacing-8) 2px var(--spacing-8);
+  border-radius: var(--radius-8);
+  text-decoration: none;
+  color: var(--color-secondary-text, var(--color-grey-focused));
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.qasah-nav-item:hover {
+  background-color: var(--color-secondary-hover-bg, #f9fafb);
+  color: var(--color-primary-hover);
+}
+
+.qasah-nav-item--active {
+  background-color: var(--color-secondary-hover-bg, #f9fafb);
+  color: var(--color-primary-default);
+  font-weight: 600;
+}
+
+.qasah-nav-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--spacing-12);
+  width: 20px;
+  height: 20px;
+  color: inherit;
+}
+
+.qasah-nav-item--active .qasah-nav-item-icon {
+  color: var(--color-primary-default);
+}

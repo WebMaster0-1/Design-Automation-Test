@@ -1,0 +1,24 @@
+import { Meta, Typeset } from '@storybook/blocks';
+
+<Meta title="Foundations/Typography Token" />
+
+# Typography Tokens
+
+Typography variables dictate consistent type scaling and legibility throughout the FMDQ application environment. Note: See the **Typography** under the Components section for React component documentation.
+
+## Font Family
+`--font-family-primary`: 'Clash Grotesk', sans-serif;
+
+## Font Scale
+Current established tokens in the root:
+- `--font-size-sm`: 14px
+- `--font-size-lg`: 16px
+
+<br />
+
+<Typeset 
+  fontSizes={[14, 16, 18, 24, 30, 36, 48]} 
+  fontWeight="400" 
+  sampleText="The quick brown fox jumps over the lazy dog." 
+  fontFamily="'Clash Grotesk', sans-serif" 
+/>
