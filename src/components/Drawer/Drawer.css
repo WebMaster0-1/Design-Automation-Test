@@ -4,9 +4,9 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(16, 25, 40, 0.4);
+  background-color: rgba(10, 15, 25, 0.6);
   z-index: 9999;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(8px);
 }
 
 .qasah-drawer-panel {
@@ -14,20 +14,19 @@
   top: 0;
   height: 100%;
   background-color: #ffffff;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--shadow-xl);
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .qasah-drawer-panel--right {
   right: 0;
-  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: slideInRight 0.4s var(--transition-smooth) forwards;
 }
 
 .qasah-drawer-panel--left {
   left: 0;
-  animation: slideInLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: slideInLeft 0.4s var(--transition-smooth) forwards;
 }
 
 @keyframes slideInRight {
@@ -51,7 +50,7 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--spacing-24);
-  border-bottom: 1px solid var(--color-grey-deactivated, #e4e7ec);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .qasah-drawer-header-actions {
@@ -79,11 +78,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast);
 }
 
 .qasah-drawer-close-btn:hover {
-  background-color: var(--color-grey-deactivated, #e4e7ec);
+  background-color: var(--color-secondary-hover-bg, #f9fafb);
   color: var(--color-grey-focused, #101928);
 }
 
@@ -104,7 +103,7 @@
 
 .qasah-drawer-footer {
   padding: var(--spacing-24);
-  border-top: 1px solid var(--color-grey-deactivated, #e4e7ec);
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
   display: flex;
   align-items: center;
   justify-content: flex-end;

@@ -7,9 +7,9 @@
   --color-primary-deactivated: #d0d5dd;
 
   /* Colors - Secondary */
-  --color-secondary-border: #cc400c;
-  --color-secondary-text: #cc400c;
-  --color-secondary-hover-bg: #fff5f2;
+  --color-secondary-border: #D29729;
+  --color-secondary-text: #B6811E;
+  --color-secondary-hover-bg: #fffbf0;
 
   /* Colors - Destructive */
   --color-destructive-default: #cb1a14;
@@ -47,4 +47,16 @@
   --radius-8: 8px;
   --radius-16: 16px;
   --radius-24: 24px;
+
+  /* Shadows (Premium Aesthetics) */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
+  --shadow-glow-primary: 0 0 0 3px rgba(3, 69, 145, 0.15);
+  --shadow-glow-destructive: 0 0 0 3px rgba(203, 26, 20, 0.15);
+
+  /* Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }

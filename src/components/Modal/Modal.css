@@ -4,23 +4,29 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(16, 25, 40, 0.4);
+  background-color: rgba(10, 15, 25, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
   padding: var(--spacing-24);
+}
+
+@keyframes modalScaleIn {
+  from { opacity: 0; transform: scale(0.96) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 .qasah-modal-dialog {
   background-color: #ffffff;
   border-radius: var(--radius-16);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-xl);
   display: flex;
   flex-direction: column;
   max-height: 90vh;
   width: 100%;
+  animation: modalScaleIn 0.4s var(--transition-smooth) forwards;
 }
 
 .qasah-modal-dialog--sm { max-width: 400px; }
@@ -32,7 +38,7 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--spacing-24);
-  border-bottom: 1px solid var(--color-grey-deactivated, #e4e7ec);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .qasah-modal-title {
@@ -54,11 +60,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast);
 }
 
 .qasah-modal-close-btn:hover {
-  background-color: var(--color-grey-deactivated, #e4e7ec);
+  background-color: var(--color-secondary-hover-bg, #f9fafb);
   color: var(--color-grey-focused);
 }
 
@@ -78,9 +84,10 @@
 
 .qasah-modal-footer {
   padding: var(--spacing-24);
-  border-top: 1px solid var(--color-grey-deactivated, #e4e7ec);
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: var(--spacing-12);
+  background-color: #f9fafb;
 }

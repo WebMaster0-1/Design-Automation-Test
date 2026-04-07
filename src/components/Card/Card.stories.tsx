@@ -2,7 +2,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Card, CardHeader, CardTitle, CardBody, CardFooter } from './Card';
 import { Button } from '../Button';
-import { Typography } from '../Typography';
+import { Text, Heading } from '../Typography';
 
 const meta: Meta<typeof Card> = {
   title: 'Components/Card',
@@ -18,9 +18,9 @@ export const Default: Story = {
     <Card style={{ maxWidth: '400px' }}>
       <CardHeader>
         <CardTitle>Trade Execution</CardTitle>
-        <Typography variant="body" color="secondary" size="sm">
+        <Text color="secondary" size="sm">
           Review details before confirming the trade.
-        </Typography>
+        </Text>
       </CardHeader>
       <CardBody>
         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
@@ -48,8 +48,8 @@ export const Simple: Story = {
   render: () => (
     <Card style={{ maxWidth: '300px' }}>
       <CardBody style={{ paddingTop: '24px' }}>
-        <Typography variant="h3" style={{ margin: '0 0 8px 0' }}>$1.2M</Typography>
-        <Typography variant="body" color="secondary" size="sm">Total Traded Volume (Today)</Typography>
+        <Heading level={3} style={{ margin: '0 0 8px 0' }}>$1.2M</Heading>
+        <Text color="secondary" size="sm">Total Traded Volume (Today)</Text>
       </CardBody>
     </Card>
   )

@@ -4,7 +4,7 @@
 .qasah-input-container {
   display: inline-flex;
   flex-direction: column;
-  gap: 4px; /* Space between input and helper text */
+  gap: 4px;
   font-family: var(--font-family-primary);
   box-sizing: border-box;
 }
@@ -14,19 +14,19 @@
   width: 100%;
 }
 
-/* Wrapper (holds input + icons) */
+/* Wrapper */
 .qasah-input-wrapper {
   display: flex;
   align-items: center;
   position: relative;
   background-color: #ffffff;
-  border: 1px solid var(--color-grey-deactivated, #d0d5dd); /* Fallback to standard grey if not defined */
-  transition: all 0.2s ease;
+  border: 1px solid var(--color-grey-deactivated, #d0d5dd);
+  transition: all var(--transition-fast);
   box-sizing: border-box;
-  overflow: hidden; /* Ensure focus ring respects border radius */
+  overflow: hidden;
 }
 
-/* Base Sizing matching Buttons */
+/* Base Sizing */
 .qasah-input-wrapper--sm {
   height: 35px;
   border-radius: var(--radius-8);
@@ -44,8 +44,7 @@
 
 .qasah-input-wrapper--default:focus-within:not(.qasah-input-wrapper--disabled) {
   border-color: var(--color-primary-default);
-  outline: 2px solid var(--color-primary-default);
-  outline-offset: -1px;
+  box-shadow: var(--shadow-glow-primary);
 }
 
 /* Error Variant States */
@@ -58,13 +57,12 @@
 }
 
 .qasah-input-wrapper--error:focus-within:not(.qasah-input-wrapper--disabled) {
-  outline: 2px solid var(--color-destructive-default);
-  outline-offset: -1px;
+  box-shadow: var(--shadow-glow-destructive);
 }
 
 /* Disabled State */
 .qasah-input-wrapper--disabled {
-  background-color: #f2f4f7; /* Standard light grey disabled bg */
+  background-color: #f2f4f7;
   border-color: #eaecf0;
   cursor: not-allowed;
 }
@@ -81,9 +79,9 @@
   border: none;
   outline: none;
   background: transparent;
-  padding: 0 var(--spacing-16); /* Matches Button padding */
+  padding: 0 var(--spacing-16);
   font-family: inherit;
-  color: var(--color-grey-focused); /* Dark text for readability */
+  color: var(--color-grey-focused);
   box-sizing: border-box;
 }
 
@@ -97,11 +95,11 @@
 
 /* Padding adjustments for icons */
 .qasah-input-wrapper--has-leading-icon .qasah-input {
-  padding-left: calc(var(--spacing-16) + 24px); /* Extra space for icon */
+  padding-left: calc(var(--spacing-16) + 24px);
 }
 
 .qasah-input-wrapper--has-trailing-icon .qasah-input {
-  padding-right: calc(var(--spacing-16) + 24px); /* Extra space for icon */
+  padding-right: calc(var(--spacing-16) + 24px);
 }
 
 .qasah-input::placeholder {
@@ -123,7 +121,7 @@
   color: var(--color-grey-default);
   height: 100%;
   width: 20px;
-  pointer-events: none; /* Let clicks pass through to input */
+  pointer-events: none;
 }
 
 .qasah-input__icon svg {
@@ -139,7 +137,6 @@
 .qasah-input-wrapper--lg .qasah-input__icon svg {
   width: 20px;
   height: 20px;
-  width: 24px;
 }
 
 .qasah-input__icon--leading {

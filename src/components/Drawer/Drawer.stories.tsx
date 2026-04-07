@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Drawer, DrawerHeader, DrawerBody, DrawerFooter } from './Drawer';
 import { Button } from '../Button';
-import { Typography } from '../Typography';
+import { Text } from '../Typography';
 import { Input } from '../Input';
 
 const meta: Meta<typeof Drawer> = {
@@ -23,9 +23,9 @@ export const Default: Story = {
         <Drawer isOpen={isOpen} onClose={() => setIsOpen(false)}>
           <DrawerHeader title="Quick Actions" onClose={() => setIsOpen(false)} />
           <DrawerBody>
-            <Typography variant="body" color="secondary" style={{ marginBottom: '24px' }}>
+            <Text color="secondary" style={{ display: 'block', marginBottom: '24px' }}>
               Select an action below to manage the selected record.
-            </Typography>
+            </Text>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <Button variant="secondary" outline>Download Report</Button>
               <Button variant="secondary" outline>Share Record</Button>

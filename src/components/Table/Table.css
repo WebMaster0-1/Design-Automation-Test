@@ -2,10 +2,11 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  border: 1px solid var(--color-grey-deactivated, #e4e7ec);
+  border: 1px solid rgba(0, 0, 0, 0.04);
   border-radius: var(--radius-8);
   background-color: #ffffff;
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
 }
 
 .qasah-table-scroll-wrapper {
@@ -24,7 +25,7 @@
 
 .qasah-table-head {
   background-color: #f9fafb;
-  border-bottom: 1px solid var(--color-grey-deactivated, #e4e7ec);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .qasah-table-header-cell {
@@ -34,10 +35,24 @@
   white-space: nowrap;
 }
 
-.qasah-table-body .qasah-table-row {
-  border-bottom: 1px solid var(--color-grey-deactivated, #e4e7ec);
-  transition: background-color 0.2s ease;
+@keyframes tableRowFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
 }
+
+.qasah-table-body .qasah-table-row {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all var(--transition-fast);
+  animation: tableRowFadeIn 0.3s var(--transition-smooth) backwards;
+}
+
+.qasah-table-body .qasah-table-row:nth-child(1) { animation-delay: 20ms; }
+.qasah-table-body .qasah-table-row:nth-child(2) { animation-delay: 50ms; }
+.qasah-table-body .qasah-table-row:nth-child(3) { animation-delay: 80ms; }
+.qasah-table-body .qasah-table-row:nth-child(4) { animation-delay: 110ms; }
+.qasah-table-body .qasah-table-row:nth-child(5) { animation-delay: 140ms; }
+.qasah-table-body .qasah-table-row:nth-child(6) { animation-delay: 170ms; }
+.qasah-table-body .qasah-table-row:nth-child(7) { animation-delay: 200ms; }
 
 .qasah-table-body .qasah-table-row:last-child {
   border-bottom: none;
@@ -45,6 +60,10 @@
 
 .qasah-table-body .qasah-table-row:hover {
   background-color: var(--color-secondary-hover-bg, #f9fafb);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -4px rgba(0,0,0,0.05);
+  position: relative;
+  z-index: 10;
 }
 
 .qasah-table-cell {
@@ -64,7 +83,7 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--spacing-12) var(--spacing-16);
-  border-top: 1px solid var(--color-grey-deactivated, #e4e7ec);
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
   background-color: #ffffff;
   font-family: var(--font-family-primary);
   font-size: var(--font-size-sm);

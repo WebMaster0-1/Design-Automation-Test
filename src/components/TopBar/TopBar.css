@@ -1,0 +1,34 @@
+.qasah-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 0 var(--spacing-24);
+  font-family: var(--font-family-primary);
+  box-sizing: border-box;
+}
+
+.qasah-topbar__left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-start;
+  gap: var(--spacing-16);
+}
+
+.qasah-topbar__center {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  gap: var(--spacing-16);
+}
+
+.qasah-topbar__right {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+  gap: var(--spacing-16);
+}

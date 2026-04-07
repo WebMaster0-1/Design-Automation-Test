@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from './Modal';
 import { Button } from '../Button';
 import { Input } from '../Input';
-import { Typography } from '../Typography';
+import { Text } from '../Typography';
 
 const meta: Meta<typeof Modal> = {
   title: 'Components/Modal',
@@ -45,7 +45,7 @@ export const WithForm: Story = {
           <ModalHeader title="Create Asset" onClose={() => setIsOpen(false)} />
           <ModalBody>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <Typography variant="body" color="secondary">Fill out the details below to create a new tokenized asset.</Typography>
+              <Text color="secondary">Fill out the details below to create a new tokenized asset.</Text>
               <Input label="Asset Name" placeholder="e.g. FGN Bond 2026" />
               <Input label="Ticker Symbol" placeholder="e.g. FGN26" />
             </div>

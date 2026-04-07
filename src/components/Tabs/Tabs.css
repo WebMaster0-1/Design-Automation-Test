@@ -7,7 +7,7 @@
 .qasah-tab-list {
   display: flex;
   align-items: center;
-  border-bottom: 2px solid var(--color-grey-deactivated, #e4e7ec);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.04);
   gap: var(--spacing-24);
   overflow-x: auto;
 }
@@ -23,12 +23,13 @@
   font-weight: 500;
   color: var(--color-grey-default);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast);
   white-space: nowrap;
 }
 
 .qasah-tab:hover:not(:disabled) {
   color: var(--color-primary-hover);
+  transform: translateY(-1px);
 }
 
 .qasah-tab--active {
@@ -41,9 +42,15 @@
   cursor: not-allowed;
 }
 
+@keyframes tabPanelFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .qasah-tab-panel {
   padding: var(--spacing-24) 0;
   color: var(--color-grey-focused);
   font-family: var(--font-family-primary);
   font-size: var(--font-size-sm);
+  animation: tabPanelFadeIn 0.3s var(--transition-smooth) backwards;
 }
