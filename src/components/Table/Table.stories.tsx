@@ -1,6 +1,7 @@
-import React from 'react';
+
 import type { Meta, StoryObj } from '@storybook/react';
-import { Table, ColumnDef } from './Table';
+import { Table } from './Table';
+import type { ColumnDef } from './Table';
 
 interface TradeData {
   id: string;
@@ -52,14 +53,14 @@ type Story = StoryObj<typeof Table>;
 export const Default: Story = {
   args: {
     data: data.slice(0, 5),
-    columns,
+    columns: columns as any,
   },
 };
 
 export const WithPagination: Story = {
   args: {
     data,
-    columns,
+    columns: columns as any,
     pagination: true,
     defaultPageSize: 10,
   },
@@ -68,7 +69,7 @@ export const WithPagination: Story = {
 export const EmptyState: Story = {
   args: {
     data: [],
-    columns,
+    columns: columns as any,
     emptyMessage: 'No trades found.'
   },
 };

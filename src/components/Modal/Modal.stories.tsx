@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from './Modal';
 import { Button } from '../Button';
@@ -46,8 +46,8 @@ export const WithForm: Story = {
           <ModalBody>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <Text color="secondary">Fill out the details below to create a new tokenized asset.</Text>
-              <Input label="Asset Name" placeholder="e.g. FGN Bond 2026" />
-              <Input label="Ticker Symbol" placeholder="e.g. FGN26" />
+              <Input placeholder="Asset Name — e.g. FGN Bond 2026" />
+              <Input placeholder="Ticker Symbol — e.g. FGN26" />
             </div>
           </ModalBody>
           <ModalFooter>

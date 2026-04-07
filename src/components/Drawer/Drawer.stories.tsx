@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Drawer, DrawerHeader, DrawerBody, DrawerFooter } from './Drawer';
 import { Button } from '../Button';
@@ -48,9 +48,9 @@ export const WithForm: Story = {
           <DrawerHeader title="Edit User Profile" onClose={() => setIsOpen(false)} />
           <DrawerBody>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              <Input label="Full Name" defaultValue="Bonnie Imisioluwa" />
-              <Input label="Email Address" defaultValue="bonnie@fmdqgroup.com" />
-              <Input label="Role" defaultValue="Administrator" disabled />
+              <Input placeholder="Full Name" defaultValue="Bonnie Imisioluwa" />
+              <Input placeholder="Email Address" defaultValue="bonnie@fmdqgroup.com" />
+              <Input placeholder="Role" defaultValue="Administrator" disabled />
             </div>
           </DrawerBody>
           <DrawerFooter>
