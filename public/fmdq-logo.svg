@@ -1,0 +1,6 @@
+<svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="18" y="6" width="22" height="5" rx="2.5" fill="#c1c1c1" />
+  <rect x="0" y="16" width="40" height="5" rx="2.5" fill="#1d326d" />
+  <rect x="10" y="26" width="30" height="5" rx="2.5" fill="#cc9933" />
+  <text x="48" y="32" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="bold" fill="#1d326d" letter-spacing="-1.5">FMDQ</text>
+</svg>

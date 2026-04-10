@@ -1,0 +1,77 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Getting Started" />
+
+<style>
+{`
+  .onboarding-card {
+    border: 1px solid #e4e7ec;
+    border-radius: 8px;
+    padding: 24px;
+    background: #ffffff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+  }
+  .onboarding-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-color: #1d326d;
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 32px;
+  }
+  .code-block {
+    background: #f4f5f7;
+    padding: 16px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 14px;
+    color: #101828;
+  }
+`}
+</style>
+
+# Getting Started
+
+The `@fmdq/ui` component library is designed to get you building FMDQ interfaces as fast as possible.
+
+## 1. Installation
+
+Install the library using npm. Note that peer dependencies like `react` and `react-dom` are required.
+
+<div className="code-block">
+  npm install @fmdq/ui
+</div>
+
+## 2. Usage
+
+Import the foundational CSS into your application's entry point (such as `main.tsx` or `_app.tsx`):
+
+<div className="code-block">
+  import "@fmdq/ui/style.css";
+</div>
+
+Now, you can import and use any component:
+
+<div className="code-block">
+{`import { Button } from "@fmdq/ui";
+
+export default function MyFeature() {
+  return <Button variant="primary">Execute Trade</Button>;
+}`}
+</div>
+
+<div className="card-grid">
+  <div className="onboarding-card" onClick={() => window.open('https://www.figma.com/design/lppxKU2sj2O4ZFAltL5iOW/FMDQ-Design-System-2026', '_blank')}>
+    <h3>🎨 Figma Design System</h3>
+    <p>View the unified design language, tokens, and component specifications in our central Figma workspace.</p>
+  </div>
+  <div className="onboarding-card" onClick={() => window.open('#', '_blank')}>
+    <h3>👨‍💻 GitHub Repository</h3>
+    <p>Access the source code, open issues, and contribute to the @fmdq/ui component library.</p>
+  </div>
+</div>

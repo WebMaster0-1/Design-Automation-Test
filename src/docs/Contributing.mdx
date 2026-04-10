@@ -1,0 +1,23 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Contributing" />
+
+# Contributing Guidelines
+
+We welcome internal contributions from the FMDQ engineering team to extend and refine our Design System.
+
+## Workflow
+
+1. **Raise an Issue:** Before building a new component, raise an issue in the repository detailing the missing functionality and potential layout impact. Check if the Figma designs exist first.
+2. **Branching:** Branch off from `main` using the format `feature/<component-name>` or `fix/<component-name>`.
+3. **Development:** 
+   - Ensure you use existing CSS Tokens (`var(--color-primary-default)`, etc.).
+   - Create a corresponding `.stories.tsx` file for Storybook.
+   - Run local checks with `npm run lint` and `npm run build`.
+4. **Pull Request:** Submit a PR and request review from at least 1 core maintainer. Ensure your Storybook additions correctly render.
+
+## Coding Standards
+
+- Use explicit React `FC` typing.
+- Separate CSS strictly into `.css` modules or standard styles instead of inline properties.
+- Validate accessible roles (`aria-labels`, structure).

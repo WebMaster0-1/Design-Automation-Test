@@ -1,73 +1,59 @@
-# React + TypeScript + Vite
+# @fmdq/ui
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+FMDQ Reusable UI Component Library — a standardized React component system designed to ensure consistency, scalability, and efficiency across FMDQ digital platforms.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Install the library and its peer dependencies via npm:
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install @fmdq/ui react react-dom
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Setup
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+For the UI styles to apply properly across your Vite/React project, you must import the global FMDQ styles mapping in your application entry point (e.g. `main.tsx` or `App.tsx`):
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```tsx
+import '@fmdq/ui/style.css';
 ```
+
+## Quick Start
+
+Import components directly from `@fmdq/ui`:
+
+```tsx
+import { Button, Input } from '@fmdq/ui';
+
+export default function CustomForm() {
+  return (
+    <form>
+      <Input placeholder="Enter trade quantity..." />
+      <Button variant="primary">Submit Data</Button>
+    </form>
+  );
+}
+```
+
+## Design System Portal (Storybook)
+
+The library ships with an extensive interactive design system and documentation portal built on Storybook. This portal provides isolated testing, full API property documentation, usage catalogs, and developer playgrounds.
+
+To run the design system portal locally:
+
+```bash
+npm run storybook
+```
+
+Alternatively, to build the static representation of the portal:
+
+```bash
+npm run build-storybook
+```
+
+## Features
+
+- **Brand Accurate**: Built explicitly mimicking the internal FMDQ Figma design language.
+- **Enterprise Scale**: Includes layouts (TopBar, AppLayout, PageHeader) to rapidly scaffold complex SaaS applications.
+- **Vite & TS Setup**: Fully bundled via Vite with comprehensive TypeScript definitions emitted.
+- **Accessible & Tested**: (Ongoing) Storybook integrated testing and coverage.
