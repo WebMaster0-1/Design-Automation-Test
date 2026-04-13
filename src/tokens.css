@@ -1,62 +1,95 @@
 :root {
-  /* Colors - Brand Primary */
-  --color-primary-default: #034591;
-  /* Deep Blue (per Figma sm default) */
-  --color-primary-hover: #344054;
-  --color-primary-focused: #ae3307;
-  --color-primary-deactivated: #d0d5dd;
+  /* ── Primary ── */
+  --color-primary-50: #E6EEF6;
+  --color-primary-100: #D0E0EF;
+  --color-primary-200: #A2C3E0;
+  --color-primary-300: #74A6D1;
+  --color-primary-400: #4589C2;
+  --color-primary-500: #176CB3;
+  --color-primary-600: #104E82;
+  --color-primary-700: #0A3559;
+  --color-primary-800: #051A2C;
+  --color-primary-900: #020D15;
 
-  /* Colors - Secondary */
-  --color-secondary-border: #D29729;
-  --color-secondary-text: #B6811E;
-  --color-secondary-hover-bg: #fffbf0;
+  /* ── Secondary ── */
+  --color-secondary-50: #FDF9EE;
+  --color-secondary-100: #FDF2DA;
+  --color-secondary-200: #F8DEAB;
+  --color-secondary-300: #F4CA7D;
+  --color-secondary-400: #EDB44D;
+  --color-secondary-500: #DF9916;
+  --color-secondary-600: #A9700B;
+  --color-secondary-700: #754C04;
+  --color-secondary-800: #402800;
+  --color-secondary-900: #2C1B00;
 
-  /* Colors - Destructive */
-  --color-destructive-default: #cb1a14;
-  --color-destructive-hover: #dd524d;
-  --color-destructive-focused: #9e0a05;
+  /* ── Neutral ── */
+  --color-neutral-white: #FFFFFF;
+  --color-neutral-50: #F9FAFB;
+  --color-neutral-100: #F0F2F5;
+  --color-neutral-200: #E4E7EC;
+  --color-neutral-300: #D0D5DD;
+  --color-neutral-400: #98A2B3;
+  --color-neutral-500: #667185;
+  --color-neutral-600: #475367;
+  --color-neutral-700: #344054;
+  --color-neutral-800: #1D2739;
+  --color-neutral-900: #101928;
+  --color-neutral-black: #000000;
 
-  /* Colors - Greys */
-  --color-grey-default: #667185;
-  --color-grey-hover: #344054;
-  --color-grey-focused: #101928;
+  /* ── Success ── */
+  --color-success-50: #E7F6EC;
+  --color-success-75: #B5E3C4;
+  --color-success-100: #91D6A8;
+  --color-success-200: #5FC381;
+  --color-success-300: #40B869;
+  --color-success-400: #0F973D;
+  --color-success-500: #099137;
+  --color-success-600: #04802E;
+  --color-success-700: #036B26;
+  --color-success-800: #015B20;
+  --color-success-900: #04172B;
 
-  /* Colors - Text Buttons */
-  --color-text-primary: #eb5017;
-  --color-text-secondary: #667185;
+  /* ── Warning ── */
+  --color-warning-50: #FFECE5;
+  --color-warning-75: #FCD2c2;
 
-  /* Gradients */
-  --gradient-primary-lg: linear-gradient(180deg, #ffd859 0%, #ff8a00 100%);
-  --gradient-primary-lg-alt: linear-gradient(180deg, #ffbc65 0%, #ff940c 100%);
-
-  /* Typography */
+  /* ── Typography ── */
   --font-family-primary: 'Clash Grotesk', sans-serif;
-  --font-size-sm: 14px;
-  --font-size-lg: 16px;
-  --font-line-height-standard: 145%;
-  --font-letter-spacing-tight: 0.01em;
+  --font-family-secondary: 'Inter', sans-serif;
 
-  /* Spacing */
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-3xl: 48px;
+
+  /* ── Spacing ── */
+  --spacing-4: 4px;
   --spacing-8: 8px;
   --spacing-12: 12px;
   --spacing-16: 16px;
   --spacing-24: 24px;
-  --spacing-gap-10: 10px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-64: 64px;
 
-  /* Radii */
+  /* ── Shadows ── */
+  --shadow-sm: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  --shadow-md: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
+
+  /* ── Radii ── */
+  --radius-4: 4px;
   --radius-8: 8px;
+  --radius-12: 12px;
   --radius-16: 16px;
   --radius-24: 24px;
+  --radius-full: 9999px;
 
-  /* Shadows (Premium Aesthetics) */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
-  --shadow-glow-primary: 0 0 0 3px rgba(3, 69, 145, 0.15);
-  --shadow-glow-destructive: 0 0 0 3px rgba(203, 26, 20, 0.15);
-
-  /* Transitions */
+  /* ── Transitions ── */
   --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ── Focus Rings ── */
+  --shadow-glow-primary: 0 0 0 3px rgba(3, 69, 145, 0.15);
+  --shadow-glow-destructive: 0 0 0 3px rgba(203, 26, 20, 0.15);
 }
