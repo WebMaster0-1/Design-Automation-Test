@@ -3,10 +3,13 @@ import './Typography.css';
 
 export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement | HTMLSpanElement | HTMLDivElement> {
   as?: 'p' | 'span' | 'div';
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'lg' | 'md' | 'sm' | 'xs' | 'caption-lg' | 'caption-sm' | 'caption-xs';
   weight?: 'regular' | 'medium' | 'semibold' | 'bold';
   align?: 'left' | 'center' | 'right' | 'justify';
   color?: 'primary' | 'secondary' | 'default' | 'inherit' | 'grey';
+  italic?: boolean;
+  underline?: boolean;
+  strikethrough?: boolean;
 }
 
 export const Text: React.FC<TextProps> = ({
@@ -15,16 +18,22 @@ export const Text: React.FC<TextProps> = ({
   weight = 'regular',
   align = 'left',
   color = 'default',
+  italic = false,
+  underline = false,
+  strikethrough = false,
   className = '',
   children,
   ...props
 }) => {
   const classNames = [
-    'qasah-text',
-    `qasah-text--size-${size}`,
-    `qasah-text--weight-${weight}`,
-    `qasah-typography--align-${align}`,
-    `qasah-typography--color-${color}`,
+    'fmdq-text',
+    `fmdq-text--size-${size}`,
+    `fmdq-text--weight-${weight}`,
+    italic && 'fmdq-typography--italic',
+    underline && 'fmdq-typography--underline',
+    strikethrough && 'fmdq-typography--strikethrough',
+    `fmdq-typography--align-${align}`,
+    `fmdq-typography--color-${color}`,
     className
   ].filter(Boolean).join(' ');
 

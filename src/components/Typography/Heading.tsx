@@ -2,7 +2,7 @@ import React from 'react';
 import './Typography.css';
 
 export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  level?: 1 | 2 | 3 | 4 | 5 | 6;
+  level?: 'display-lg' | 'display-sm' | 1 | 2 | 3 | 4 | 5 | 6;
   align?: 'left' | 'center' | 'right' | 'justify';
   color?: 'primary' | 'secondary' | 'default' | 'inherit';
 }
@@ -15,12 +15,12 @@ export const Heading: React.FC<HeadingProps> = ({
   children,
   ...props
 }) => {
-  const Tag = `h${level}` as React.ElementType;
+  const Tag = (typeof level === 'number' ? `h${level}` : 'h1') as React.ElementType;
   const classNames = [
-    'qasah-heading',
-    `qasah-heading--h${level}`,
-    `qasah-typography--align-${align}`,
-    `qasah-typography--color-${color}`,
+    'fmdq-heading',
+    `fmdq-heading--${typeof level === 'number' ? `h${level}` : level}`,
+    `fmdq-typography--align-${align}`,
+    `fmdq-typography--color-${color}`,
     className
   ].filter(Boolean).join(' ');
 

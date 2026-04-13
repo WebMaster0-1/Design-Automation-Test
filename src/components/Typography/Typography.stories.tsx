@@ -10,6 +10,13 @@ const meta: Meta = {
 
 export default meta;
 
+export const Display = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+    <Heading level="display-lg">Display Large</Heading>
+    <Heading level="display-sm">Display Small</Heading>
+  </div>
+);
+
 export const Headings = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
     <Heading level={1}>Heading 1</Heading>
@@ -21,11 +28,29 @@ export const Headings = () => (
   </div>
 );
 
-export const Texts = () => (
+export const Paragraphs = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-    <Text size="lg">Large Text - FMDQ UI is the React implementation of the FMDQ Design System.</Text>
-    <Text size="md">Medium Text (Default) - FMDQ UI is the React implementation of the FMDQ Design System.</Text>
-    <Text size="sm">Small Text - FMDQ UI is the React implementation of the FMDQ Design System.</Text>
+    <Text size="lg">Large Text - FMDQ UI matches the latest Figma Design System sizes.</Text>
+    <Text size="md">Medium Text - FMDQ UI matches the latest Figma Design System sizes.</Text>
+    <Text size="sm">Small Text - FMDQ UI matches the latest Figma Design System sizes.</Text>
+    <Text size="xs">XSmall Text - FMDQ UI matches the latest Figma Design System sizes.</Text>
+  </div>
+);
+
+export const Captions = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+    <Text size="caption-lg">Caption Large - ALL CAPS RECOMMENDED</Text>
+    <Text size="caption-sm">Caption Small - ALL CAPS RECOMMENDED</Text>
+    <Text size="caption-xs">Caption XSmall - ALL CAPS RECOMMENDED</Text>
+  </div>
+);
+
+export const TextVariants = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+    <Text italic>Italic Variant</Text>
+    <Text underline>Underline Variant</Text>
+    <Text strikethrough>Strikethrough Variant</Text>
+    <Text italic underline strikethrough>Combined Variants</Text>
   </div>
 );
 

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap');
+
 :root {
   /* ── Primary ── */
   --color-primary-50: #E6EEF6;
@@ -54,13 +56,44 @@
   --color-warning-50: #FFECE5;
   --color-warning-75: #FCD2c2;
 
+  /* Gradients */
+  --gradient-primary-lg: linear-gradient(180deg, #ffd859 0%, #ff8a00 100%);
+  --gradient-primary-lg-alt: linear-gradient(180deg, #ffbc65 0%, #ff940c 100%);
+
   /* ── Typography ── */
-  --font-family-primary: 'Clash Grotesk', sans-serif;
+  --font-family-primary: 'DM Sans', sans-serif;
   --font-family-secondary: 'Inter', sans-serif;
 
-  --font-size-sm: 14px;
-  --font-size-md: 16px;
-  --font-size-3xl: 48px;
+  /* Font Sizes */
+  --font-size-display-lg: 56px;
+  --font-size-display-sm: 48px;
+  --font-size-h1: 40px;
+  --font-size-h2: 36px;
+  --font-size-h3: 32px;
+  --font-size-h4: 28px;
+  --font-size-h5: 24px;
+  --font-size-h6: 20px;
+  --font-size-p-lg: 18px;
+  --font-size-p-md: 16px;
+  --font-size-p-sm: 14px;
+  --font-size-p-xs: 12px;
+  --font-size-caption-lg: 14px;
+  --font-size-caption-sm: 12px;
+  --font-size-caption-xs: 10px;
+
+  /* Line Heights */
+  --font-line-height-display: 100%;
+  --font-line-height-heading: 120%;
+  --font-line-height-paragraph: 145%;
+  --font-line-height-caption: 120%;
+
+  /* Letter Spacing */
+  --font-letter-spacing-display: -0.04em;
+  --font-letter-spacing-heading-large: -0.04em;
+  --font-letter-spacing-heading-small: -0.02em;
+  --font-letter-spacing-paragraph: 0;
+  --font-letter-spacing-caption-lg-sm: 0.12em;
+  --font-letter-spacing-caption-xs: 0.16em;
 
   /* ── Spacing ── */
   --spacing-4: 4px;

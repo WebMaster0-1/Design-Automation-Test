@@ -16,10 +16,10 @@ export const Label: React.FC<LabelProps> = ({
   ...props
 }) => {
   const classNames = [
-    'qasah-label',
-    `qasah-label--size-${size}`,
-    `qasah-label--weight-${weight}`,
-    `qasah-typography--color-${color}`,
+    'fmdq-label',
+    `fmdq-label--size-${size}`,
+    `fmdq-label--weight-${weight}`,
+    `fmdq-typography--color-${color}`,
     className
   ].filter(Boolean).join(' ');
 
