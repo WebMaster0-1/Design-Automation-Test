@@ -25,7 +25,13 @@
     "preview": "vite preview",
     "mcp:storybook": "node mcp/storybook.mjs",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "figma:sync": "node scripts/figma-extractor.mjs",
+    "figma:tokens": "node scripts/figma-extractor.mjs --tokens-only",
+    "figma:dry-run": "node scripts/figma-extractor.mjs --dry-run",
+    "sync:git": "node scripts/git-sync.mjs",
+    "sync:git:dry": "node scripts/git-sync.mjs --dry-run",
+    "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
     "react": "^19.2.0",

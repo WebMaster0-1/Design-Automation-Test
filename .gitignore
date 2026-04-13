@@ -24,5 +24,14 @@ __MACOSX
 *.sln
 *.sw?
 
+# Secrets
+.env
+
+# Intermediate artifacts
+src/tokens.json
+
+# Editor-specific MCP configs with potential tokens
+.cursor
+
 *storybook.log
 storybook-static
