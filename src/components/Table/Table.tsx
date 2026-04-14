@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import './Table.css';
-import { Button } from '../Button';
-import { Select } from '../Select';
+import { Button } from '../../elements/Button';
+import { Select } from '../../elements/Select';
 
 // Base Components
 export const TableContainer: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ className = '', children, ...props }) => (

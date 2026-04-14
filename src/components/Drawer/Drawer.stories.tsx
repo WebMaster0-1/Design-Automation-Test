@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Drawer, DrawerHeader, DrawerBody, DrawerFooter } from './Drawer';
-import { Button } from '../Button';
+import { Button } from '../../elements/Button';
 import { Text } from '../Typography';
-import { Input } from '../Input';
+import { Input } from '../../elements/Input';
 
 const meta: Meta<typeof Drawer> = {
   title: 'Components/Drawer',

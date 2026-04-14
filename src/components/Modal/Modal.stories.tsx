@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from './Modal';
-import { Button } from '../Button';
-import { Input } from '../Input';
+import { Button } from '../../elements/Button';
+import { Input } from '../../elements/Input';
 import { Text } from '../Typography';
 
 const meta: Meta<typeof Modal> = {
