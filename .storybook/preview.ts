@@ -3,20 +3,35 @@ import type { Preview } from '@storybook/react-vite'
 const preview: Preview = {
   parameters: {
     options: {
-      storySort: {
-        order: [
+      storySort: (a, b) => {
+        const order = [
           'Welcome',
           'Getting Started',
           'Catalog',
           'MCP',
           'Playground',
-          'Foundations', // Colors, Spacing, Typography
-          'Components',  // Basic elements like Button, Input
-          'Layout',      // Structural components like TopBar, PageHeader
+          'Foundations',
+          'Components',
+          'Layout',
           'Changelog',
           'Migration Guide',
           'Contributing',
-        ],
+        ];
+
+        const aRoot = a.title.split('/')[0];
+        const bRoot = b.title.split('/')[0];
+
+        if (aRoot !== bRoot) {
+          const aIndex = order.indexOf(aRoot);
+          const bIndex = order.indexOf(bRoot);
+
+          if (aIndex !== -1 && bIndex !== -1) return aIndex - bIndex;
+          if (aIndex !== -1) return -1;
+          if (bIndex !== -1) return 1;
+          return aRoot.localeCompare(bRoot);
+        }
+
+        return a.title.localeCompare(b.title);
       },
     },
     controls: {
