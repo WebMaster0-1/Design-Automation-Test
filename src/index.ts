@@ -1,9 +1,13 @@
-export * from './components/Button';
-export * from './components/Input';
-export * from './components/Checkbox';
-export * from './components/Radio';
+// Elements
+export * from './elements/Button';
+export * from './elements/Input';
+export * from './elements/Checkbox';
+export * from './elements/Radio';
+export * from './elements/Select';
+export * from './elements/Badge';
+
+// Components
 export * from './components/Textarea';
-export * from './components/Select';
 export * from './components/Typography';
 export * from './components/Dropdown';
 export * from './components/Table';
@@ -11,9 +15,10 @@ export * from './components/Tabs';
 export * from './components/NavMenu';
 export * from './components/Modal';
 export * from './components/Card';
-export * from './components/Badge';
 export * from './components/Toast';
 export * from './components/Drawer';
-export * from './components/AppLayout';
-export * from './components/TopBar';
-export * from './components/PageHeader';
+
+// Layout
+export * from './layout/AppLayout';
+export * from './layout/TopBar';
+export * from './layout/PageHeader';
