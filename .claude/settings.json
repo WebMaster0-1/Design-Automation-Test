@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -r \"export.*Meta\\\\b\\\\|export.*StoryObj\\\\b\" /Volumes/Paradise/Design-Automation-Test/node_modules/storybook/dist/*.d.ts)",
+      "Bash(node -e ':*)"
+    ]
+  }
+}

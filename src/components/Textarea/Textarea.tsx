@@ -47,7 +47,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       .filter(Boolean)
       .join(' ');
 
-    const textareaId = id || React.useId();
+    const generatedId = React.useId();
+    const textareaId = id ?? generatedId;
     const helperId = `${textareaId}-helper`;
     const errorId = `${textareaId}-error`;
 

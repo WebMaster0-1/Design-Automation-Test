@@ -29,7 +29,8 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
     },
     ref
   ) => {
-    const inputId = id || React.useId();
+    const generatedId = React.useId();
+    const inputId = id ?? generatedId;
     const helperId = `${inputId}-helper`;
     const errorId = `${inputId}-error`;
 

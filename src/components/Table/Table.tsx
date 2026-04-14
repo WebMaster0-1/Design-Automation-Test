@@ -51,7 +51,7 @@ export const TableCell: React.FC<React.TdHTMLAttributes<HTMLTableDataCellElement
 export interface ColumnDef<T> {
   header: React.ReactNode;
   accessorKey?: keyof T;
-  cell?: (info: { row: T; getValue: () => any }) => React.ReactNode;
+  cell?: (info: { row: T; getValue: () => unknown }) => React.ReactNode;
   id?: string;
 }
 
@@ -65,7 +65,7 @@ export interface TableProps<T> extends React.TableHTMLAttributes<HTMLTableElemen
   emptyMessage?: React.ReactNode;
 }
 
-export function Table<T extends Record<string, any>>({
+export function Table<T extends Record<string, unknown>>({
   data,
   columns,
   pagination = false,
@@ -79,6 +79,12 @@ export function Table<T extends Record<string, any>>({
 }: TableProps<T>) {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(defaultPageSize);
+
+  const paginatedData = useMemo(() => {
+    if (!data || !pagination) return data ?? [];
+    const startIdx = (currentPage - 1) * pageSize;
+    return data.slice(startIdx, startIdx + pageSize);
+  }, [data, pagination, currentPage, pageSize]);
 
   // If using as a manual compound component without data/columns
   if (!data || !columns) {
@@ -94,12 +100,6 @@ export function Table<T extends Record<string, any>>({
   // Derived Pagination State
   const totalItems = data.length;
   const totalPages = Math.ceil(totalItems / pageSize) || 1;
-
-  const paginatedData = useMemo(() => {
-    if (!pagination) return data;
-    const startIdx = (currentPage - 1) * pageSize;
-    return data.slice(startIdx, startIdx + pageSize);
-  }, [data, pagination, currentPage, pageSize]);
 
   const handlePageChange = (newPage: number) => {
     if (newPage >= 1 && newPage <= totalPages) {

@@ -1,7 +1,8 @@
-import React, { createContext, useContext, useState, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import type { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import './Toast.css';
+import { ToastContext } from './useToast';
 
 export type ToastVariant = 'success' | 'error' | 'warning' | 'info';
 
@@ -12,19 +13,6 @@ export interface ToastMessage {
   variant?: ToastVariant;
   duration?: number;
 }
-
-interface ToastContextType {
-  toast: (message: Omit<ToastMessage, 'id'>) => void;
-  removeToast: (id: string) => void;
-}
-
-const ToastContext = createContext<ToastContextType | undefined>(undefined);
-
-export const useToast = () => {
-  const context = useContext(ToastContext);
-  if (!context) throw new Error('useToast must be used within a ToastProvider');
-  return context;
-};
 
 export const ToastProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [toasts, setToasts] = useState<ToastMessage[]>([]);

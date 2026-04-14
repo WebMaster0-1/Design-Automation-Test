@@ -1,7 +1,8 @@
 
-import type { Meta, StoryObj } from '@storybook/react';
+import type { ComponentType } from 'react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Table } from './Table';
-import type { ColumnDef } from './Table';
+import type { ColumnDef, TableProps } from './Table';
 
 interface TradeData {
   id: string;
@@ -10,6 +11,8 @@ interface TradeData {
   qty: number;
   status: 'Completed' | 'Pending';
 }
+
+type ConcreteTable = ComponentType<TableProps<TradeData>>;
 
 const data: TradeData[] = Array.from({ length: 45 }).map((_, i) => ({
   id: `TRD-${1000 + i}`,
@@ -24,13 +27,13 @@ const columns: ColumnDef<TradeData>[] = [
   { header: 'Instrument', accessorKey: 'instrument' },
   { header: 'Price', accessorKey: 'price', cell: ({ row }) => `$${row.price.toFixed(2)}` },
   { header: 'Quantity', accessorKey: 'qty' },
-  { 
-    header: 'Status', 
+  {
+    header: 'Status',
     accessorKey: 'status',
     cell: ({ row }) => (
-      <span style={{ 
-        padding: '4px 8px', 
-        borderRadius: '16px', 
+      <span style={{
+        padding: '4px 8px',
+        borderRadius: '16px',
         backgroundColor: row.status === 'Completed' ? '#d1fae5' : '#fef3c7',
         color: row.status === 'Completed' ? '#065f46' : '#92400e',
         fontSize: '12px'
@@ -41,26 +44,26 @@ const columns: ColumnDef<TradeData>[] = [
   },
 ];
 
-const meta: Meta<typeof Table> = {
+const meta: Meta<TableProps<TradeData>> = {
   title: 'Components/Table',
-  component: Table as any,
+  component: Table as ConcreteTable,
   tags: ['autodocs'],
 };
 
 export default meta;
-type Story = StoryObj<typeof Table>;
+type Story = StoryObj<TableProps<TradeData>>;
 
 export const Default: Story = {
   args: {
     data: data.slice(0, 5),
-    columns: columns as any,
+    columns,
   },
 };
 
 export const WithPagination: Story = {
   args: {
     data,
-    columns: columns as any,
+    columns,
     pagination: true,
     defaultPageSize: 10,
   },
@@ -69,7 +72,7 @@ export const WithPagination: Story = {
 export const EmptyState: Story = {
   args: {
     data: [],
-    columns: columns as any,
+    columns,
     emptyMessage: 'No trades found.'
   },
 };

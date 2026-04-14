@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { NavMenu, NavGroup, NavItem } from './NavMenu';
 
 const meta: Meta<typeof NavMenu> = {

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Drawer, DrawerHeader, DrawerBody, DrawerFooter } from './Drawer';
 import { Button } from '../Button';
 import { Text } from '../Typography';

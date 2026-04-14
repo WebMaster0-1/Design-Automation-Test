@@ -11,6 +11,7 @@ const preview: Preview = {
           'MCP',
           'Playground',
           'Foundations',
+          'Elements',
           'Components',
           'Layout',
           'Changelog',
