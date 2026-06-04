@@ -1,5 +1,82 @@
 [
   {
+    "hash": "e6be9ca",
+    "date": "2026-06-03",
+    "author": "Busayo Ojo",
+    "email": "ojobusayo99@gmail.com",
+    "subject": "Merge pull request #4 from Busayo-ojo/main",
+    "category": "other",
+    "scope": "",
+    "message": "Merge pull request #4 from Busayo-ojo/main",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/e6be9ca"
+  },
+  {
+    "hash": "9a864c0",
+    "date": "2026-06-03",
+    "author": "Busayo Ojo",
+    "email": "ojobusayo99@gmail.com",
+    "subject": "Merge branch 'main' into main",
+    "category": "other",
+    "scope": "",
+    "message": "Merge branch 'main' into main",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/9a864c0"
+  },
+  {
+    "hash": "3042999",
+    "date": "2026-06-03",
+    "author": "Busayo Ojo",
+    "email": "ojobusayo99@gmail.com",
+    "subject": "docs: move local clone setup from Getting Started into Contributing",
+    "category": "docs",
+    "scope": "",
+    "message": "move local clone setup from Getting Started into Contributing",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/3042999"
+  },
+  {
+    "hash": "a7aaade",
+    "date": "2026-06-03",
+    "author": "dudesoamazing",
+    "email": "marvinogah@gmail.com",
+    "subject": "docs: refine punctuation and sentence structure across documentation files",
+    "category": "docs",
+    "scope": "",
+    "message": "refine punctuation and sentence structure across documentation files",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/a7aaade"
+  },
+  {
+    "hash": "d2f86bd",
+    "date": "2026-06-03",
+    "author": "Busayo Ojo",
+    "email": "ojobusayo99@gmail.com",
+    "subject": "Merge branch 'WebMaster0-1:main' into main",
+    "category": "other",
+    "scope": "",
+    "message": "Merge branch 'WebMaster0-1:main' into main",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/d2f86bd"
+  },
+  {
+    "hash": "1dc6fab",
+    "date": "2026-06-03",
+    "author": "dudesoamazing",
+    "email": "marvinogah@gmail.com",
+    "subject": "docs: append migration guide and icon showcase updates to changelog data",
+    "category": "docs",
+    "scope": "",
+    "message": "append migration guide and icon showcase updates to changelog data",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/1dc6fab"
+  },
+  {
+    "hash": "6ac31a1",
+    "date": "2026-06-03",
+    "author": "Busayo Ojo",
+    "email": "ojobusayo99@gmail.com",
+    "subject": "docs: fix incorrect token references in foundations pages",
+    "category": "docs",
+    "scope": "",
+    "message": "fix incorrect token references in foundations pages",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/6ac31a1"
+  },
+  {
     "hash": "e3b09b9",
     "date": "2026-06-03",
     "author": "Busayo Ojo",
@@ -9,6 +86,72 @@
     "scope": "",
     "message": "Migration Guide Docuemntation  (#3)",
     "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/e3b09b9"
+  },
+  {
+    "hash": "47cfa1a",
+    "date": "2026-06-03",
+    "author": "Busayo Ojo",
+    "email": "ojobusayo99@gmail.com",
+    "subject": "docs: round out Welcome navigation and add support section",
+    "category": "docs",
+    "scope": "",
+    "message": "round out Welcome navigation and add support section",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/47cfa1a"
+  },
+  {
+    "hash": "4da014c",
+    "date": "2026-06-03",
+    "author": "Busayo Ojo",
+    "email": "ojobusayo99@gmail.com",
+    "subject": "docs: rewrite Playground with concrete Controls and prototyping guidance",
+    "category": "docs",
+    "scope": "",
+    "message": "rewrite Playground with concrete Controls and prototyping guidance",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/4da014c"
+  },
+  {
+    "hash": "fe8df3c",
+    "date": "2026-06-03",
+    "author": "Busayo Ojo",
+    "email": "ojobusayo99@gmail.com",
+    "subject": "docs: expand Contributing with repo conventions and Figma-first workflow",
+    "category": "docs",
+    "scope": "",
+    "message": "expand Contributing with repo conventions and Figma-first workflow",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/fe8df3c"
+  },
+  {
+    "hash": "28a83b7",
+    "date": "2026-06-03",
+    "author": "Busayo Ojo",
+    "email": "ojobusayo99@gmail.com",
+    "subject": "Merge branch 'WebMaster0-1:main' into main",
+    "category": "other",
+    "scope": "",
+    "message": "Merge branch 'WebMaster0-1:main' into main",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/28a83b7"
+  },
+  {
+    "hash": "f1b8757",
+    "date": "2026-06-03",
+    "author": "Busayo Ojo",
+    "email": "ojobusayo99@gmail.com",
+    "subject": "docs: document the two local MCP servers and their tools",
+    "category": "docs",
+    "scope": "",
+    "message": "document the two local MCP servers and their tools",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/f1b8757"
+  },
+  {
+    "hash": "327377b",
+    "date": "2026-06-03",
+    "author": "Busayo Ojo",
+    "email": "ojobusayo99@gmail.com",
+    "subject": "docs: expand Migration Guide with versioning policy and upgrade steps",
+    "category": "docs",
+    "scope": "",
+    "message": "expand Migration Guide with versioning policy and upgrade steps",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/327377b"
   },
   {
     "hash": "d49b7db",

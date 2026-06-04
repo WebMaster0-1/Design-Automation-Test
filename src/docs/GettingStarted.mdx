@@ -54,13 +54,13 @@ Ensure the following are available in your environment before proceeding:
 Add the design system package to your project:
 
 ```bash
-npm install @fmdq/design-system
+npm install @fmdq/ui
 ```
 
 Import the global stylesheet once at your application's entry point (e.g. `main.ts` or `index.js`):
 
 ```js
-import '@fmdq/design-system/styles/global.css';
+import '@fmdq/ui/styles/global.css';
 ```
 This loads all design tokens; colours, spacing, typography, shadows as CSS variables.
 
@@ -71,7 +71,7 @@ This loads all design tokens; colours, spacing, typography, shadows as CSS varia
 Import and use components directly:
 
 ```jsx
-import { Button } from '@fmdq/design-system';
+import { Button } from '@fmdq/ui';
 
 <Button variant="primary" label="Submit" />
 ```
