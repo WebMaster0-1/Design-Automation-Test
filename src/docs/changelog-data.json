@@ -1,5 +1,27 @@
 [
   {
+    "hash": "c987bcb",
+    "date": "2026-06-04",
+    "author": "dudesoamazing",
+    "email": "marvinogah@gmail.com",
+    "subject": "Merge branch 'main' of github.com:WebMaster0-1/Design-Automation-Test",
+    "category": "other",
+    "scope": "",
+    "message": "Merge branch 'main' of github.com:WebMaster0-1/Design-Automation-Test",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/c987bcb"
+  },
+  {
+    "hash": "5d5a2fc",
+    "date": "2026-06-04",
+    "author": "dudesoamazing",
+    "email": "marvinogah@gmail.com",
+    "subject": "refactor: update Tabs styling, standardize icon usage in stories, and improve badge state logic per Figma specs",
+    "category": "refactor",
+    "scope": "",
+    "message": "update Tabs styling, standardize icon usage in stories, and improve badge state logic per Figma specs",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/5d5a2fc"
+  },
+  {
     "hash": "e6be9ca",
     "date": "2026-06-03",
     "author": "Busayo Ojo",
