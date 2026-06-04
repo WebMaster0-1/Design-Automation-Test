@@ -1,5 +1,27 @@
 [
   {
+    "hash": "a7aaade",
+    "date": "2026-06-03",
+    "author": "dudesoamazing",
+    "email": "marvinogah@gmail.com",
+    "subject": "docs: refine punctuation and sentence structure across documentation files",
+    "category": "docs",
+    "scope": "",
+    "message": "refine punctuation and sentence structure across documentation files",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/a7aaade"
+  },
+  {
+    "hash": "1dc6fab",
+    "date": "2026-06-03",
+    "author": "dudesoamazing",
+    "email": "marvinogah@gmail.com",
+    "subject": "docs: append migration guide and icon showcase updates to changelog data",
+    "category": "docs",
+    "scope": "",
+    "message": "append migration guide and icon showcase updates to changelog data",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/1dc6fab"
+  },
+  {
     "hash": "e3b09b9",
     "date": "2026-06-03",
     "author": "Busayo Ojo",
