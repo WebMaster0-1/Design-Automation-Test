@@ -1,5 +1,49 @@
 [
   {
+    "hash": "7a42df9",
+    "date": "2026-06-04",
+    "author": "ellerton",
+    "email": "immanuel_bonnie@yahoo.com",
+    "subject": "Changes made to the correct package name",
+    "category": "other",
+    "scope": "",
+    "message": "Changes made to the correct package name",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/7a42df9"
+  },
+  {
+    "hash": "7c53f18",
+    "date": "2026-06-04",
+    "author": "ellerton",
+    "email": "immanuel_bonnie@yahoo.com",
+    "subject": "Merge branch 'main' of https://github.com/WebMaster0-1/Design-Automation-Test",
+    "category": "other",
+    "scope": "",
+    "message": "Merge branch 'main' of https://github.com/WebMaster0-1/Design-Automation-Test",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/7c53f18"
+  },
+  {
+    "hash": "9b9caa8",
+    "date": "2026-06-04",
+    "author": "ellerton",
+    "email": "immanuel_bonnie@yahoo.com",
+    "subject": "Update GettingStarted and changelog",
+    "category": "other",
+    "scope": "",
+    "message": "Update GettingStarted and changelog",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/9b9caa8"
+  },
+  {
+    "hash": "8d351b4",
+    "date": "2026-06-04",
+    "author": "dudesoamazing",
+    "email": "marvinogah@gmail.com",
+    "subject": "chore: update changelog with recent documentation improvements and refactoring commits",
+    "category": "chore",
+    "scope": "",
+    "message": "update changelog with recent documentation improvements and refactoring commits",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/8d351b4"
+  },
+  {
     "hash": "c987bcb",
     "date": "2026-06-04",
     "author": "dudesoamazing",
