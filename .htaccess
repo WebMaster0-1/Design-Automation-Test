@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /Design-Automation-Test/
+
+  # Skip requests that are already for storybook-static
+  RewriteCond %{REQUEST_URI} !^/Design-Automation-Test/storybook-static/ [NC]
+
+  # Redirect everything else into storybook-static/
+  RewriteRule ^(.*)$ /Design-Automation-Test/storybook-static/$1 [R=301,L]
+</IfModule>

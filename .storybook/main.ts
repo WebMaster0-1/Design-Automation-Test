@@ -10,7 +10,11 @@ const config: StorybookConfig = {
   "addons": ["@storybook/addon-links", "@storybook/addon-docs"],
   "framework": "@storybook/react-vite",
   viteFinal: async (config) => {
-    config.plugins = config.plugins ?? [];
+    // Remove vite-plugin-dts inherited from vite.config.ts — declaration
+    // rollup is only meaningful for the library build and fails in Storybook.
+    config.plugins = (config.plugins ?? [])
+      .flat()
+      .filter((plugin) => !(plugin && 'name' in plugin && plugin.name === 'vite:dts'));
     config.plugins.push({
       name: 'resolve-file-url-imports',
       resolveId(id: string) {
