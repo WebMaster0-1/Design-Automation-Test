@@ -1,0 +1,55 @@
+name: Build & Deploy Storybook
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-storybook
+  cancel-in-progress: true
+
+env:
+  DEPLOY_PATH: ${{ vars.DEPLOY_PATH != '' && vars.DEPLOY_PATH || 'C:\wamp64\www\design-automation-test' }}
+
+jobs:
+  build-and-deploy:
+    runs-on: [self-hosted, windows]
+    defaults:
+      run:
+        shell: powershell
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # generate-changelog.mjs parses git history, so fetch the full log
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Deploy to web root
+        run: |
+          New-Item -ItemType Directory -Force -Path "$env:DEPLOY_PATH" | Out-Null
+          # /MIR mirrors the build output (deletes stale files). Robocopy exit codes 0-7 mean success.
+          robocopy "storybook-static" "$env:DEPLOY_PATH" /MIR /NFL /NDL /NP
+          if ($LASTEXITCODE -le 7) { exit 0 } else { exit $LASTEXITCODE }
+
+      - name: Deployment summary
+        run: |
+          "Deployed Storybook (commit $env:GITHUB_SHA) to $env:DEPLOY_PATH" | Out-File -Append -Encoding utf8 $env:GITHUB_STEP_SUMMARY
