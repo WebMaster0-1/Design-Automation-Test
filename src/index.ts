@@ -20,7 +20,7 @@ export * from './components/Tabs';
 export * from './components/NavMenu';
 export * from './components/Modal';
 export * from './components/Card';
-// export * from './components/Toast';
+export * from './components/Toast';
 export * from './components/Drawer';
 
 // Layout

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 :root {
   /* ── Primary ── */
@@ -78,7 +78,9 @@
 
   /* ── Typography ── */
   --font-family-primary: 'DM Sans', sans-serif;
-  --font-family-secondary: 'DM Sans', sans-serif;
+  --font-family-secondary: 'Rubik', sans-serif;
+  --font-family-dm-sans: 'DM Sans', sans-serif;
+  --font-family-rubik: 'Rubik', sans-serif;
 
   /* Font Sizes */
   --font-size-display-lg: 56px;
@@ -93,23 +95,31 @@
   --font-size-p-md: 16px;
   --font-size-p-sm: 14px;
   --font-size-p-xs: 12px;
+  --font-size-p-xxs: 10px;
   --font-size-caption-lg: 14px;
   --font-size-caption-sm: 12px;
   --font-size-caption-xs: 10px;
 
   /* Line Heights */
   --font-line-height-display: 100%;
-  --font-line-height-heading: 100%;
-  --font-line-height-paragraph: 100%;
-  --font-line-height-caption: 100%;
+  --font-line-height-heading: 120%;
+  --font-line-height-paragraph: 145%;
+  --font-line-height-paragraph-medium: 130%;
+  --font-line-height-caption: 120%;
 
-  /* Letter Spacing */
-  --font-letter-spacing-display: -0.04em;
-  --font-letter-spacing-heading-large: -0.04em;
-  --font-letter-spacing-heading-small: -0.02em;
-  --font-letter-spacing-paragraph: 0;
+  /* Letter Spacing (Kerning) - DM Sans (System Default) */
+  --font-letter-spacing-display: -0.06em;
+  --font-letter-spacing-heading-large: -0.06em;
+  --font-letter-spacing-heading-small: -0.04em;
+  --font-letter-spacing-paragraph: -0.04em;
   --font-letter-spacing-caption-lg-sm: 0.12em;
   --font-letter-spacing-caption-xs: 0.16em;
+
+  /* Letter Spacing (Kerning) - Rubik Typeface */
+  --font-letter-spacing-rubik-display: -0.04em;
+  --font-letter-spacing-rubik-heading-large: -0.04em;
+  --font-letter-spacing-rubik-heading-small: -0.02em;
+  --font-letter-spacing-rubik-paragraph: 0em;
 
   /* ── Spacing ── */
   --spacing-2: 2px;

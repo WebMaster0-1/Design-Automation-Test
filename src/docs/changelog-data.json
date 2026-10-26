@@ -1,5 +1,16 @@
 [
   {
+    "hash": "18f45d5",
+    "date": "2026-08-18",
+    "author": "dudesoamazing",
+    "email": "marvinogah@gmail.com",
+    "subject": "chore: ignore design documentation files and update changelog history",
+    "category": "chore",
+    "scope": "",
+    "message": "ignore design documentation files and update changelog history",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/18f45d5"
+  },
+  {
     "hash": "2d2fccd",
     "date": "2026-07-15",
     "author": "dudesoamazing",

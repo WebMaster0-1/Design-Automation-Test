@@ -3,26 +3,74 @@ import * as DropdownStories from './Dropdown.stories';
 
 <Meta of={DropdownStories} />
 
-# Dropdown
+# Dropdown / Selectors
 
-The `Dropdown` component provides a generic action menu or context menu triggered by user interaction. Use this for navigation, actions, or secondary settings instead of form selections.
+The `Dropdown` (and `DropdownSelector`) component is aligned 1:1 with the **FMDQ Design System** `Dropdown / Selectors` component set in Figma.
 
-## Default Usage
+It provides a rich form selector field supporting 4 variant types, 5 interactive states, custom options with sublabels, leading graphics, and backward compatibility for custom action trigger menus.
 
-Wrap a `trigger` component (like a `Button` or an Icon) and provide an array of `items`.
+---
+
+## 1. Default Selector
+
+The standard text-only selector with a label and chevron indicator.
 
 <Canvas>
   <Story of={DropdownStories.Default} />
 </Canvas>
 
-## Alignment
+---
 
-You can use the `align` prop (`left` or `right`) to control the popup positioning relative to the trigger.
+## 2. Variant Types
+
+Dropdown selectors support four leading graphic types matching Figma:
+
+1. **Default**: Standard text without leading graphics.
+2. **Icon Leading**: Heart or custom leading SVG icon.
+3. **Avatar Leading**: User profile image or initials avatar.
+4. **Status**: Real-time system or connectivity status indicator dot.
 
 <Canvas>
-  <Story of={DropdownStories.RightAligned} />
+  <Story of={DropdownStories.TypesGallery} />
 </Canvas>
 
-## Props
+---
+
+## 3. Visual States Matrix
+
+The selector supports five states:
+- **Default**: Neutral border (`#D0D5DD`), placeholder text in grey.
+- **Hover**: Amber hover border (`#F7D394`).
+- **Active / Focused**: Gold active border (`#F3A218`) and subtle focus glow.
+- **Filled**: High-contrast dark text (`#101928`) displaying the selected option.
+- **Disabled**: Neutral grey background (`#F0F2F5`) and disabled cursor.
+
+<Canvas>
+  <Story of={DropdownStories.StatesMatrix} />
+</Canvas>
+
+---
+
+## 4. Extended (Open Menu) State
+
+When open, the component displays the `.Selector menu / menu list` containing options with primary titles and secondary handles (e.g. `@account`).
+
+<Canvas>
+  <Story of={DropdownStories.ExtendedOpen} />
+</Canvas>
+
+---
+
+## 5. Backward Compatibility (Action Trigger)
+
+When a custom `trigger` element is provided (such as an outlined `<Button />`), the component functions as an action popup menu.
+
+<Canvas>
+  <Story of={DropdownStories.LegacyActionMenu} />
+</Canvas>
+
+---
+
+## Component Properties
 
 <Controls />
