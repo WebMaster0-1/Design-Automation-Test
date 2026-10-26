@@ -1,5 +1,27 @@
 [
   {
+    "hash": "aca93ec",
+    "date": "2026-10-26",
+    "author": "dudesoamazing",
+    "email": "marvinogah@gmail.com",
+    "subject": "chore: update changelog with typography, dropdown, and toast release",
+    "category": "chore",
+    "scope": "",
+    "message": "update changelog with typography, dropdown, and toast release",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/aca93ec"
+  },
+  {
+    "hash": "fd237ee",
+    "date": "2026-10-26",
+    "author": "dudesoamazing",
+    "email": "marvinogah@gmail.com",
+    "subject": "feat(design-system): update typography styles, dropdown selectors, and toast components from figma",
+    "category": "feat",
+    "scope": "design-system",
+    "message": "update typography styles, dropdown selectors, and toast components from figma",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/fd237ee"
+  },
+  {
     "hash": "18f45d5",
     "date": "2026-08-18",
     "author": "dudesoamazing",
