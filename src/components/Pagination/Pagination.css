@@ -1,0 +1,122 @@
+@import '../../tokens.css';
+
+.fmdqui-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-top: 1px solid var(--color-neutral-100, #F0F2F5);
+  font-family: var(--font-family-primary, "DM Sans", sans-serif);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Alignment variants ── */
+.fmdqui-pagination--full-width {
+  justify-content: space-between;
+}
+
+.fmdqui-pagination--center {
+  justify-content: center;
+  gap: 16px;
+}
+
+.fmdqui-pagination--right {
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+/* ── Nav Control Buttons (Prev / Next) ── */
+.fmdqui-pagination__nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 14px;
+  background-color: var(--color-neutral-white, #FFFFFF);
+  border: 1px solid var(--color-neutral-300, #D0D5DD);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-neutral-700, #344054);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.fmdqui-pagination__nav-btn:hover:not(:disabled) {
+  background-color: var(--color-neutral-50, #F9FAFB);
+  border-color: var(--color-neutral-400, #98A2B3);
+}
+
+.fmdqui-pagination__nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: var(--color-neutral-200, #E4E7EC);
+  color: var(--color-neutral-400, #98A2B3);
+}
+
+/* ── Center Container (Page Numbers or Indicator) ── */
+.fmdqui-pagination__center {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.fmdqui-pagination__indicator {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-neutral-600, #475467);
+}
+
+.fmdqui-pagination__pages-list {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fmdqui-pagination__page-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 6px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-neutral-600, #475467);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.fmdqui-pagination__page-btn:hover:not(.fmdqui-pagination__page-btn--active) {
+  background-color: var(--color-neutral-50, #F9FAFB);
+  color: var(--color-neutral-900, #101928);
+}
+
+.fmdqui-pagination__page-btn--active {
+  background-color: var(--color-fmdq-blue, #034592);
+  color: var(--color-neutral-white, #FFFFFF);
+  font-weight: 600;
+  cursor: default;
+}
+
+.fmdqui-pagination__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 36px;
+  font-size: 14px;
+  color: var(--color-neutral-400, #98A2B3);
+  user-select: none;
+}

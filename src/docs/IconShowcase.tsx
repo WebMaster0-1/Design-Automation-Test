@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Icon } from '../foundations/icons';
 import { Badge } from '../elements/Badge';
-import { Toggle } from '../elements/Toggle';
+import { Toggle } from '../elements/FormControl';
 import { Input } from '../elements/Input';
 
 interface IconData {

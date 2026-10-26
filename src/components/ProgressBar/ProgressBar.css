@@ -1,0 +1,119 @@
+@import '../../tokens.css';
+
+.fmdqui-progress-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  font-family: var(--font-family-primary, "DM Sans", sans-serif);
+  box-sizing: border-box;
+}
+
+/* ── Top Header (Label & optional top-right percentage) ── */
+.fmdqui-progress-bar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 20px;
+}
+
+.fmdqui-progress-bar__label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-neutral-900, #101928);
+}
+
+.fmdqui-progress-bar__percentage-top {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-neutral-500, #667185);
+}
+
+/* ── Track & Fill (Figma sizes: sm=8px, lg=12px, border-radius=20px) ── */
+.fmdqui-progress-bar__track {
+  width: 100%;
+  background-color: var(--color-neutral-100, #F0F2F5);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.fmdqui-progress-bar__track--sm {
+  height: 8px;
+}
+
+.fmdqui-progress-bar__track--lg {
+  height: 12px;
+}
+
+.fmdqui-progress-bar__fill {
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #1D326D;
+}
+
+/* Variant colors */
+.fmdqui-progress-bar__fill--primary {
+  background-color: #1D326D;
+}
+
+.fmdqui-progress-bar__fill--blue {
+  background-color: var(--color-primary-600, #1671D9);
+}
+
+.fmdqui-progress-bar__fill--success {
+  background-color: var(--color-success-500, #12B76A);
+}
+
+.fmdqui-progress-bar__fill--warning {
+  background-color: var(--color-warning-500, #F79009);
+}
+
+.fmdqui-progress-bar__fill--error {
+  background-color: var(--color-error-500, #F04438);
+}
+
+/* ── Bottom Description & Metadata (Figma description frame) ── */
+.fmdqui-progress-bar__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--color-neutral-500, #667185);
+  line-height: 17px;
+}
+
+.fmdqui-progress-bar__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--color-neutral-500, #667185);
+  font-weight: 400;
+}
+
+.fmdqui-progress-bar__meta-item {
+  color: var(--color-neutral-500, #667185);
+}
+
+.fmdqui-progress-bar__bullet {
+  color: #98A2B3;
+  user-select: none;
+}
+
+.fmdqui-progress-bar__description {
+  flex: 1;
+}
+
+.fmdqui-progress-bar__percentage {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-neutral-500, #667185);
+  margin-left: auto;
+  white-space: nowrap;
+}

@@ -1,119 +1,445 @@
+/* ==========================================================================
+   FMDQ Design System - Granular Table Styles
+   Matches Figma "✤ Tables" Component Set (Header, Leading Cell, Content Cell)
+   ========================================================================== */
+
+/* ─── Table Container ─────────────────────────────────────────────────── */
 .fmdqui-table-container {
   display: flex;
   flex-direction: column;
   width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  border-radius: var(--radius-8);
-  background-color: var(--color-neutral-white);
+  border: 1px solid var(--color-grey-outline, #E4E7EC);
+  border-radius: var(--radius-8, 8px);
+  background-color: var(--color-neutral-white, #FFFFFF);
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0px 1px 3px rgba(16, 24, 40, 0.05);
 }
 
 .fmdqui-table-scroll-wrapper {
   overflow-x: auto;
   width: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 
+/* Custom subtle scrollbar */
+.fmdqui-table-scroll-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+.fmdqui-table-scroll-wrapper::-webkit-scrollbar-track {
+  background: #F2F4F7;
+}
+.fmdqui-table-scroll-wrapper::-webkit-scrollbar-thumb {
+  background: #D0D5DD;
+  border-radius: 3px;
+}
+.fmdqui-table-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #98A2B3;
+}
+
+/* ─── Table Element ───────────────────────────────────────────────────── */
 .fmdqui-table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  font-family: var(--font-family-primary);
-  font-size: var(--font-size-sm);
-  color: var(--color-grey-focused);
+  font-family: var(--font-family-primary, 'DM Sans', sans-serif);
+  font-size: var(--font-size-sm, 14px);
+  color: var(--color-grey-focused, #101928);
 }
 
+.fmdqui-table--striped .fmdqui-table-body .fmdqui-table-row:nth-child(even) {
+  background-color: #F9FAFB;
+}
+
+.fmdqui-table--compact .fmdqui-table-header-cell {
+  padding: 8px 16px;
+  height: 38px;
+}
+.fmdqui-table--compact .fmdqui-table-cell {
+  padding: 8px 16px;
+  height: 44px;
+}
+
+/* ─── Table Head ──────────────────────────────────────────────────────── */
 .fmdqui-table-head {
-  background-color: var(--color-neutral-50);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  background-color: var(--color-neutral-50, #F9FAFB);
+  border-bottom: 1px solid var(--color-grey-outline, #E4E7EC);
 }
 
+/* ─── Table Header Cell ───────────────────────────────────────────────── */
 .fmdqui-table-header-cell {
-  padding: var(--spacing-12) var(--spacing-16);
+  height: 44px;
+  padding: 12px 24px;
+  font-size: 12px;
   font-weight: 500;
-  color: var(--color-grey-default);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-grey-default, #667185);
   white-space: nowrap;
+  vertical-align: middle;
+  background-color: inherit;
+  border-bottom: 1px solid var(--color-grey-outline, #E4E7EC);
+  user-select: none;
 }
 
-@keyframes tableRowFadeIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.fmdqui-table-body .fmdqui-table-row {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-  transition: all var(--transition-fast);
-  animation: tableRowFadeIn 0.3s var(--transition-smooth) backwards;
-}
-
-.fmdqui-table-body .fmdqui-table-row:nth-child(1) { animation-delay: 20ms; }
-.fmdqui-table-body .fmdqui-table-row:nth-child(2) { animation-delay: 50ms; }
-.fmdqui-table-body .fmdqui-table-row:nth-child(3) { animation-delay: 80ms; }
-.fmdqui-table-body .fmdqui-table-row:nth-child(4) { animation-delay: 110ms; }
-.fmdqui-table-body .fmdqui-table-row:nth-child(5) { animation-delay: 140ms; }
-.fmdqui-table-body .fmdqui-table-row:nth-child(6) { animation-delay: 170ms; }
-.fmdqui-table-body .fmdqui-table-row:nth-child(7) { animation-delay: 200ms; }
-
-.fmdqui-table-body .fmdqui-table-row:last-child {
+.fmdqui-table-header-cell--no-separator {
   border-bottom: none;
 }
 
-.fmdqui-table-body .fmdqui-table-row:hover {
-  background-color: var(--color-secondary-hover-bg);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-soft-xxsm);
-  position: relative;
-  z-index: 10;
+.fmdqui-table-header-cell--align-left {
+  text-align: left;
 }
-
-.fmdqui-table-cell {
-  padding: var(--spacing-16);
-  color: var(--color-grey-focused);
-}
-
-.fmdqui-table-empty {
+.fmdqui-table-header-cell--align-center {
   text-align: center;
-  padding: var(--spacing-24);
-  color: var(--color-grey-default);
+}
+.fmdqui-table-header-cell--align-right {
+  text-align: right;
 }
 
-/* Pagination */
-.fmdqui-table-pagination {
+.fmdqui-table-header-cell__content {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fmdqui-table-header-cell--align-right .fmdqui-table-header-cell__content {
+  flex-direction: row-reverse;
+}
+
+.fmdqui-table-header-cell--align-center .fmdqui-table-header-cell__content {
+  justify-content: center;
+}
+
+/* Sort button within header */
+.fmdqui-table-header-cell__sort-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  padding: 2px 4px;
+  margin: -2px -4px;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.fmdqui-table-header-cell__sort-btn:hover {
+  color: var(--color-grey-focused, #101928);
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.fmdqui-table-header-cell__sort-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: #98A2B3;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.fmdqui-table-header-cell__sort-icon--active {
+  color: var(--color-primary-600, #0857A6);
+}
+
+.fmdqui-table-header-cell__checkbox-wrap {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+/* ─── Table Body & Row ────────────────────────────────────────────────── */
+.fmdqui-table-body {
+  background-color: var(--color-neutral-white, #FFFFFF);
+}
+
+@keyframes tableRowFadeIn {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fmdqui-table-row {
+  height: 52px;
+  border-bottom: 1px solid var(--color-grey-outline, #E4E7EC);
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.fmdqui-table-row--animate {
+  animation: tableRowFadeIn 0.25s ease-out backwards;
+}
+
+.fmdqui-table-row:last-child {
+  border-bottom: none;
+}
+
+.fmdqui-table-row--hoverable:hover {
+  background-color: #F9FAFB;
+}
+
+/* Selected row highlight (Figma: #E3EFFF / rgba(227, 239, 255, 0.6)) */
+.fmdqui-table-row--selected,
+.fmdqui-table-row--selected:hover {
+  background-color: #F0F4FE !important;
+}
+
+.fmdqui-table-row--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.fmdqui-table-row--clickable {
+  cursor: pointer;
+}
+
+/* ─── Granular Table Cells ────────────────────────────────────────────── */
+.fmdqui-table-cell {
+  height: 52px;
+  padding: 12px 24px;
+  font-size: 14px;
+  color: var(--color-grey-focused, #101928);
+  vertical-align: middle;
+  border-bottom: 1px solid var(--color-grey-outline, #E4E7EC);
+}
+
+.fmdqui-table-cell--no-separator {
+  border-bottom: none;
+}
+
+.fmdqui-table-cell--selected {
+  background-color: #F0F4FE;
+}
+
+/* Alignment */
+.fmdqui-table-cell--align-left {
+  text-align: left;
+}
+.fmdqui-table-cell--align-center {
+  text-align: center;
+}
+.fmdqui-table-cell--align-right {
+  text-align: right;
+}
+
+/* ─── Cell Content Variants ───────────────────────────────────────────── */
+
+/* Plain text cell */
+.fmdqui-table-cell__text {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-grey-focused, #101928);
+}
+.fmdqui-table-cell__text--medium {
+  font-weight: 500;
+}
+.fmdqui-table-cell__text--semibold {
+  font-weight: 600;
+}
+.fmdqui-table-cell__text--muted {
+  color: var(--color-grey-default, #667185);
+}
+
+/* Text stack (main label above, supporting subtext below) */
+.fmdqui-table-cell__text-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.fmdqui-table-cell__primary-text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-grey-focused, #101928);
+}
+
+.fmdqui-table-cell__secondary-text {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--color-grey-default, #667185);
+}
+
+/* Avatar + Text cell */
+.fmdqui-table-cell__avatar-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fmdqui-table-cell__avatar-wrapper {
+  flex-shrink: 0;
+}
+
+/* Avatar group cell */
+.fmdqui-table-cell__avatar-group {
+  display: inline-flex;
+  align-items: center;
+}
+
+.fmdqui-table-cell__avatar-group-item {
+  margin-left: -6px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #FFFFFF;
+}
+
+.fmdqui-table-cell__avatar-group-item:first-child {
+  margin-left: 0;
+}
+
+.fmdqui-table-cell__avatar-group-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-left: -6px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #FFFFFF;
+  background-color: #E3EFFF;
+  color: #101928;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* Form control cell */
+.fmdqui-table-cell__control {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+/* Badge / Chip cell */
+.fmdqui-table-cell__badge-wrap,
+.fmdqui-table-cell__chip-wrap {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Inline progress cell */
+.fmdqui-table-cell__progress-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 120px;
+  max-width: 200px;
+}
+
+.fmdqui-table-cell__progress-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--spacing-12) var(--spacing-16);
-  border-top: 1px solid rgba(0, 0, 0, 0.04);
-  background-color: var(--color-neutral-white);
-  font-family: var(--font-family-primary);
-  font-size: var(--font-size-sm);
-  color: var(--color-grey-default);
+  font-size: 12px;
 }
 
-.fmdqui-table-pagination-controls {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-24);
-}
-
-.fmdqui-table-page-size {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-8);
-}
-
-.fmdqui-table-page-size-label {
-  white-space: nowrap;
-}
-
-.fmdqui-table-page-actions {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-12);
-}
-
-.fmdqui-table-page-current {
+.fmdqui-table-cell__progress-label {
   font-weight: 500;
-  color: var(--color-grey-focused);
-  white-space: nowrap;
+  color: var(--color-grey-focused, #101928);
+}
+
+.fmdqui-table-cell__progress-value {
+  font-weight: 600;
+  color: var(--color-grey-default, #667185);
+}
+
+.fmdqui-table-cell__progress-track {
+  width: 100%;
+  height: 6px;
+  background-color: #F2F4F7;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.fmdqui-table-cell__progress-bar {
+  height: 100%;
+  background-color: var(--color-primary-600, #0857A6);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.fmdqui-table-cell__progress-bar--success {
+  background-color: #039855;
+}
+.fmdqui-table-cell__progress-bar--warning {
+  background-color: #F79009;
+}
+.fmdqui-table-cell__progress-bar--error {
+  background-color: #D92D20;
+}
+
+/* Actions cell */
+.fmdqui-table-cell__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* More menu cell & trigger button */
+.fmdqui-table-cell__more-menu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: var(--color-grey-default, #667185);
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.fmdqui-table-cell__more-menu-btn:hover {
+  background-color: #F0F2F5;
+  color: var(--color-grey-focused, #101928);
+}
+
+.fmdqui-table-cell__more-menu-btn:active {
+  background-color: #E4E7EC;
+}
+
+/* Rating / stars cell */
+.fmdqui-table-cell__rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: #F79009;
+}
+
+/* ─── Empty & Loading States ──────────────────────────────────────────── */
+.fmdqui-table-empty {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--color-grey-default, #667185);
+}
+
+.fmdqui-table-empty__icon {
+  margin-bottom: 12px;
+  color: #98A2B3;
+}
+
+.fmdqui-table-empty__title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-grey-focused, #101928);
+  margin-bottom: 4px;
+}
+
+.fmdqui-table-empty__desc {
+  font-size: 14px;
+  color: var(--color-grey-default, #667185);
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+/* ─── Table Footer & Pagination Wrapper ───────────────────────────────── */
+.fmdqui-table-footer {
+  border-top: 1px solid var(--color-grey-outline, #E4E7EC);
+  background-color: var(--color-neutral-white, #FFFFFF);
 }

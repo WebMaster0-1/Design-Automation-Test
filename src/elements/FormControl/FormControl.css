@@ -44,7 +44,7 @@
 
 /* ─── Focus ring on keyboard navigation ─────────────────────────────── */
 .fmdqui-toggle__input:focus-visible ~ .fmdqui-toggle__track {
-  outline: 2px solid var(--color-fmdq-blue);
+  outline: 2px solid var(--color-fmdq-blue, #034592);
   outline-offset: 2px;
 }
 
@@ -60,12 +60,12 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: var(--color-neutral-white);
-  border: 1.5px solid var(--color-neutral-300);
+  background-color: var(--color-neutral-white, #FFFFFF);
+  border: 1.5px solid var(--color-neutral-300, #D0D5DD);
 }
 
 .fmdqui-toggle__input:checked ~ .fmdqui-toggle__track--radio {
-  border-color: var(--color-fmdq-blue);
+  border-color: var(--color-fmdq-blue, #034592);
 }
 
 .fmdqui-toggle__radio-inner {
@@ -77,7 +77,7 @@
 }
 
 .fmdqui-toggle__input:checked ~ .fmdqui-toggle__track--radio .fmdqui-toggle__radio-inner {
-  background-color: var(--color-fmdq-blue);
+  background-color: var(--color-fmdq-blue, #034592);
 }
 
 /* ══════════════════════════════════════════════════════════════════════
@@ -91,14 +91,14 @@
 .fmdqui-toggle__track--checkbox {
   width: 24px;
   height: 24px;
-  border-radius: var(--radius-4);
-  background-color: var(--color-neutral-white);
-  border: 1.5px solid var(--color-neutral-300);
+  border-radius: var(--radius-4, 4px);
+  background-color: var(--color-neutral-white, #FFFFFF);
+  border: 1.5px solid var(--color-neutral-300, #D0D5DD);
 }
 
 .fmdqui-toggle__input:checked ~ .fmdqui-toggle__track--checkbox {
-  background-color: var(--color-fmdq-blue);
-  border-color: var(--color-fmdq-blue);
+  background-color: var(--color-fmdq-blue, #034592);
+  border-color: var(--color-fmdq-blue, #034592);
 }
 
 /* ══════════════════════════════════════════════════════════════════════
@@ -113,28 +113,27 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: var(--color-neutral-white);
-  border: 1.5px solid var(--color-neutral-300);
+  background-color: var(--color-neutral-white, #FFFFFF);
+  border: 1.5px solid var(--color-neutral-300, #D0D5DD);
 }
 
 .fmdqui-toggle__input:checked ~ .fmdqui-toggle__track--checkcircle {
-  background-color: var(--color-fmdq-blue);
-  border-color: var(--color-fmdq-blue);
+  background-color: var(--color-fmdq-blue, #034592);
+  border-color: var(--color-fmdq-blue, #034592);
 }
 
 /* ── Shared check icon (used by Checkbox & Checkcircle) ──────────────── */
 .fmdqui-toggle__check-icon {
   width: 13px;
   height: 10px;
+  display: block;
   opacity: 0;
-  transform: scale(0.6);
-  transition: opacity 0.15s ease, transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.15s ease;
 }
 
 .fmdqui-toggle__input:checked ~ .fmdqui-toggle__track--checkbox .fmdqui-toggle__check-icon,
 .fmdqui-toggle__input:checked ~ .fmdqui-toggle__track--checkcircle .fmdqui-toggle__check-icon {
   opacity: 1;
-  transform: scale(1);
 }
 
 /* ══════════════════════════════════════════════════════════════════════
@@ -149,40 +148,94 @@
   width: 39px;
   height: 24px;
   border-radius: 27px;
-  background-color: var(--color-neutral-200);
+  background-color: var(--color-neutral-200, #E4E7EC);
   position: relative;
   padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease;
 }
 
 .fmdqui-toggle__input:checked ~ .fmdqui-toggle__track--switch {
-  background-color: var(--color-fmdq-blue);
+  background-color: var(--color-fmdq-blue, #034592);
 }
 
-/* Knob */
+/* Knob: 21x21 inside 39x24 track, perfectly centered vertically at top: 1.5px */
 .fmdqui-toggle__knob {
   position: absolute;
-  top: 50%;
+  top: 1.5px;
   left: 1.5px;
-  transform: translateY(-50%);
   width: 21px;
   height: 21px;
   border-radius: 50%;
-  background-color: var(--color-neutral-white);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  background-color: var(--color-neutral-white, #FFFFFF);
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.15), 0 1px 2px rgba(16, 24, 40, 0.08);
   transition: left 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+  margin: 0;
 }
 
 .fmdqui-toggle__input:checked ~ .fmdqui-toggle__track--switch .fmdqui-toggle__knob {
-  left: calc(39px - 21px - 1.5px);
+  left: 16.5px;
 }
 
 /* ── Hover feedback ─────────────────────────────────────────────────── */
 .fmdqui-toggle:not(.fmdqui-toggle--disabled) .fmdqui-toggle__input:not(:disabled):hover ~ .fmdqui-toggle__track--radio,
 .fmdqui-toggle:not(.fmdqui-toggle--disabled) .fmdqui-toggle__input:not(:disabled):hover ~ .fmdqui-toggle__track--checkbox,
 .fmdqui-toggle:not(.fmdqui-toggle--disabled) .fmdqui-toggle__input:not(:disabled):hover ~ .fmdqui-toggle__track--checkcircle {
-  border-color: var(--color-fmdq-blue);
+  border-color: var(--color-fmdq-blue, #034592);
 }
 
 .fmdqui-toggle:not(.fmdqui-toggle--disabled) .fmdqui-toggle__input:not(:disabled):hover ~ .fmdqui-toggle__track--switch {
   filter: brightness(0.94);
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   FORM CONTROL COMPONENT (Row Layout with Header & Description)
+   ══════════════════════════════════════════════════════════════════════ */
+.fmdqui-form-control {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  box-sizing: border-box;
+  font-family: var(--font-family-primary, "DM Sans", sans-serif);
+  cursor: pointer;
+  user-select: none;
+  width: 100%;
+}
+
+.fmdqui-form-control--left {
+  flex-direction: row;
+}
+
+.fmdqui-form-control--right {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.fmdqui-form-control--disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.fmdqui-form-control__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.fmdqui-form-control__heading {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--color-neutral-900, #101928);
+  margin: 0;
+}
+
+.fmdqui-form-control__description {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--color-neutral-500, #667185);
+  margin: 0;
 }

@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
-import './Toggle.css';
+import './FormControl.css';
 
+export type FormControlType = 'checkbox' | 'radio' | 'checkcircle' | 'toggle' | 'switch';
 export type ToggleType = 'Radio' | 'Checkbox' | 'Checkcircle' | 'Switch';
 
 export interface ToggleProps
@@ -10,7 +11,7 @@ export interface ToggleProps
    * - Radio: circular radio button (24×24px)
    * - Checkbox: square checkbox with rounded corners (24×24px, r=4)
    * - Checkcircle: fully rounded checkbox / check-circle (24×24px, r=100)
-   * - Switch: pill-shaped sliding toggle (39×24px)
+   * - Switch / Toggle: pill-shaped sliding toggle (39×24px)
    */
   type?: ToggleType;
   /**
@@ -20,7 +21,7 @@ export interface ToggleProps
   active?: boolean;
 }
 
-// ─── SVG check icon (13×10, white) used by Checkbox & Checkcircle ─────────
+// ─── SVG check icon (13×10, white) ─────────────────────────────────────────
 const CheckIcon = () => (
   <svg
     className="fmdqui-toggle__check-icon"
@@ -38,7 +39,7 @@ const CheckIcon = () => (
   </svg>
 );
 
-// ─── Component ─────────────────────────────────────────────────────────────
+// ─── Standalone Toggle Atom ───────────────────────────────────────────────
 export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
   (
     {
@@ -61,7 +62,7 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
     // "active" prop overrides checked for controlled scenarios
     const resolvedChecked = active !== undefined ? active : checked;
 
-    // Native input type: Switch uses checkbox semantics
+    // Native input type
     const nativeType: React.InputHTMLAttributes<HTMLInputElement>['type'] =
       type === 'Radio' ? 'radio' : 'checkbox';
 
@@ -120,5 +121,102 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
     );
   }
 );
-
 Toggle.displayName = 'Toggle';
+
+// ─── Dedicated Named Atoms ────────────────────────────────────────────────
+export const Checkbox = forwardRef<HTMLInputElement, Omit<ToggleProps, 'type'>>((props, ref) => (
+  <Toggle ref={ref} type="Checkbox" {...props} />
+));
+Checkbox.displayName = 'Checkbox';
+
+export const Radio = forwardRef<HTMLInputElement, Omit<ToggleProps, 'type'>>((props, ref) => (
+  <Toggle ref={ref} type="Radio" {...props} />
+));
+Radio.displayName = 'Radio';
+
+export const Checkcircle = forwardRef<HTMLInputElement, Omit<ToggleProps, 'type'>>((props, ref) => (
+  <Toggle ref={ref} type="Checkcircle" {...props} />
+));
+Checkcircle.displayName = 'Checkcircle';
+
+export const Switch = forwardRef<HTMLInputElement, Omit<ToggleProps, 'type'>>((props, ref) => (
+  <Toggle ref={ref} type="Switch" {...props} />
+));
+Switch.displayName = 'Switch';
+
+// ─── Full Form Control Row (Matches Figma "Form Control Component") ────────
+export interface FormControlProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
+  /** Type of control: 'checkbox' | 'radio' | 'checkcircle' | 'toggle' / 'switch' */
+  type?: FormControlType;
+  /** Primary label / heading text */
+  heading?: React.ReactNode;
+  /** Supporting description text */
+  description?: React.ReactNode;
+  /** Position of the control relative to text: 'left' or 'right' */
+  position?: 'left' | 'right';
+  /** Whether the control is checked/active */
+  active?: boolean;
+}
+
+export const FormControl = forwardRef<HTMLInputElement, FormControlProps>(
+  (
+    {
+      type = 'checkbox',
+      heading,
+      description,
+      position = 'left',
+      active,
+      checked,
+      disabled,
+      className = '',
+      id,
+      ...props
+    },
+    ref
+  ) => {
+    const generatedId = React.useId();
+    const controlId = id ?? generatedId;
+
+    // Map FormControlType to ToggleType
+    const normalizedType: ToggleType =
+      type === 'radio'
+        ? 'Radio'
+        : type === 'checkcircle'
+        ? 'Checkcircle'
+        : type === 'toggle' || type === 'switch'
+        ? 'Switch'
+        : 'Checkbox';
+
+    return (
+      <label
+        htmlFor={controlId}
+        className={[
+          'fmdqui-form-control',
+          `fmdqui-form-control--${position}`,
+          disabled ? 'fmdqui-form-control--disabled' : '',
+          className,
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
+        <Toggle
+          ref={ref}
+          id={controlId}
+          type={normalizedType}
+          active={active}
+          checked={checked}
+          disabled={disabled}
+          {...props}
+        />
+
+        {(heading || description) && (
+          <div className="fmdqui-form-control__content">
+            {heading && <div className="fmdqui-form-control__heading">{heading}</div>}
+            {description && <div className="fmdqui-form-control__description">{description}</div>}
+          </div>
+        )}
+      </label>
+    );
+  }
+);
+FormControl.displayName = 'FormControl';
