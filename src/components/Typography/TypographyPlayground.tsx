@@ -155,7 +155,7 @@ export const TypographyPlayground: React.FC = () => {
               }}
             >
               <option value="dm-sans">DM Sans (Primary)</option>
-              <option value="rubik">Rubik (Secondary)</option>
+              <option value="rubik">Rubik (FMDQ NEXT)</option>
             </select>
           </div>
           <div style={{ flex: '1 1 180px', minWidth: 0 }}>

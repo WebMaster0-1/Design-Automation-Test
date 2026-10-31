@@ -48,24 +48,24 @@
   border-radius: 8px;
   background-color: var(--color-neutral-white, #FFFFFF);
   border: 1px solid var(--color-neutral-200, #E4E7EC);
-  color: var(--color-fmdq-blue, #034592);
+  color: var(--color-fmdq-blue);
   flex-shrink: 0;
 }
 
 .fmdqui-metrics-card__title {
-  font-size: 14px;
+  font-size: var(--font-size-p-sm, 14px);
   font-weight: 500;
-  line-height: 1.4;
+  line-height: var(--font-line-height-paragraph, 1.4);
   color: var(--color-neutral-500, #667185);
   margin: 0;
 }
 
 /* ── Value / Data Display ── */
 .fmdqui-metrics-card__value {
-  font-size: 30px;
+  font-size: var(--font-size-h3, 32px);
   font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  line-height: var(--font-line-height-heading, 1.2);
+  letter-spacing: var(--font-letter-spacing-heading-large, -0.06em);
   color: var(--color-neutral-900, #101928);
   margin: 0;
 }
@@ -79,9 +79,9 @@
 }
 
 .fmdqui-metrics-card__subtext {
-  font-size: 13px;
+  font-size: var(--font-size-p-xs, 12px);
   font-weight: 400;
-  line-height: 1.4;
+  line-height: var(--font-line-height-paragraph, 1.4);
   color: var(--color-neutral-500, #667185);
 }
 
@@ -106,18 +106,18 @@
   padding: 0;
   cursor: pointer;
   font-family: inherit;
-  font-size: 14px;
+  font-size: var(--font-size-p-sm, 14px);
   font-weight: 500;
-  color: var(--color-fmdq-blue, #034592);
+  color: var(--color-fmdq-blue);
   transition: color 0.15s ease;
   width: 100%;
 }
 
 .fmdqui-metrics-card__cta-btn:hover {
-  color: var(--color-primary-700, #022b5c);
+  color: var(--color-primary-800);
 }
 
 .fmdqui-metrics-card__cta-btn:focus-visible {
-  outline: 2px solid var(--color-fmdq-blue, #034592);
+  outline: 2px solid var(--color-fmdq-blue);
   outline-offset: 2px;
 }

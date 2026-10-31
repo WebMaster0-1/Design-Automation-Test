@@ -117,7 +117,6 @@ export const ButtonElementPill: Story = {
 // ─── 3. Complete Figma Dividers Matrix (Matching Component Set 2200:56191) ────
 
 export const FigmaVariantsMatrix: Story = {
-  name: 'Figma Variants Matrix',
   render: () => (
     <div
       style={{

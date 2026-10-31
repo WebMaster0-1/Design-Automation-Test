@@ -6,44 +6,27 @@ import { Badge, type BadgeColor, type BadgeType } from '../../elements/Badge';
 import { Chip } from '../../elements/Chip';
 import { Pagination } from '../Pagination';
 
-// ─── Inline SVG Icons ─────────────────────────────────────────────────────────
+import { Icon } from '../../foundations/icons';
+import { ProgressBar, type ProgressBarColor } from '../ProgressBar';
 
 const ChevronUpIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-    <path d="M2.5 7.5L6 4L9.5 7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
+  <Icon name="chevron-up" variant="linear" size={12} />
 );
 
 const ChevronDownIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-    <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
+  <Icon name="chevron-down" variant="linear" size={12} />
 );
 
 const ChevronsUpDownIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-    <path d="M3 4.5L6 2L9 4.5M3 7.5L6 10L9 7.5" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
+  <Icon name="chevron-v" variant="linear" size={12} />
 );
 
 const DotsVerticalIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-    <path d="M8 4.25C8.41421 4.25 8.75 3.91421 8.75 3.5C8.75 3.08579 8.41421 2.75 8 2.75C7.58579 2.75 7.25 3.08579 7.25 3.5C7.25 3.91421 7.58579 4.25 8 4.25Z" fill="currentColor" stroke="currentColor" strokeWidth="0.5"/>
-    <path d="M8 8.75C8.41421 8.75 8.75 8.41421 8.75 8C8.75 7.58579 8.41421 7.25 8 7.25C7.58579 7.25 7.25 7.58579 7.25 8C7.25 8.41421 7.58579 8.75 8 8.75Z" fill="currentColor" stroke="currentColor" strokeWidth="0.5"/>
-    <path d="M8 13.25C8.41421 13.25 8.75 12.9142 8.75 12.5C8.75 12.0858 8.41421 11.75 8 11.75C7.58579 11.75 7.25 12.0858 7.25 12.5C7.25 12.9142 7.58579 13.25 8 13.25Z" fill="currentColor" stroke="currentColor" strokeWidth="0.5"/>
-  </svg>
+  <Icon name="dots-v" variant="linear" size={16} />
 );
 
 const StarIcon = ({ filled = true }: { filled?: boolean }) => (
-  <svg width="14" height="14" viewBox="0 0 14 14" fill={filled ? "currentColor" : "none"} aria-hidden="true">
-    <path
-      d="M7 1.75L8.62228 5.03781L12.25 5.56434L9.625 8.12328L10.2446 11.7357L7 10.0298L3.75544 11.7357L4.375 8.12328L1.75 5.56434L5.37772 5.03781L7 1.75Z"
-      stroke="currentColor"
-      strokeWidth="1.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
+  <Icon name="star" variant={filled ? 'bold' : 'linear'} size={14} />
 );
 
 // ─── Base Structural Components ───────────────────────────────────────────────
@@ -393,13 +376,12 @@ export const TableCell = forwardRef<HTMLTableDataCellElement, TableCellProps>(
           textWeight === 'semibold'
             ? 'fmdqui-table-cell__text--semibold'
             : textWeight === 'medium'
-            ? 'fmdqui-table-cell__text--medium'
-            : '';
+              ? 'fmdqui-table-cell__text--medium'
+              : '';
         return (
           <div
-            className={`fmdqui-table-cell__text ${textWeightClass} ${
-              muted ? 'fmdqui-table-cell__text--muted' : ''
-            }`}
+            className={`fmdqui-table-cell__text ${textWeightClass} ${muted ? 'fmdqui-table-cell__text--muted' : ''
+              }`}
           >
             {text ?? children}
           </div>
@@ -534,27 +516,21 @@ export const TableCell = forwardRef<HTMLTableDataCellElement, TableCellProps>(
       if (variant === 'progress') {
         const numericProgress = typeof progress === 'string' ? parseFloat(progress) : progress;
         const clampedProgress = Math.min(Math.max(numericProgress, 0), 100);
+        const mappedColor: ProgressBarColor = progressColor ?? 'primary';
 
         return (
           <div className="fmdqui-table-cell__progress-wrap">
-            {(progressLabel || showPercentage) && (
-              <div className="fmdqui-table-cell__progress-header">
-                {progressLabel && (
-                  <span className="fmdqui-table-cell__progress-label">{progressLabel}</span>
-                )}
-                {showPercentage && (
-                  <span className="fmdqui-table-cell__progress-value">
-                    {Math.round(clampedProgress)}%
-                  </span>
-                )}
-              </div>
-            )}
-            <div className="fmdqui-table-cell__progress-track">
-              <div
-                className={`fmdqui-table-cell__progress-bar fmdqui-table-cell__progress-bar--${progressColor}`}
-                style={{ width: `${clampedProgress}%` }}
-              />
-            </div>
+            <ProgressBar
+              progress={clampedProgress}
+              size="sm"
+              color={mappedColor}
+              label={progressLabel}
+              hasLabel={!!progressLabel}
+              hasPercentages={showPercentage}
+              percentagePosition="top"
+              hasMetadata={false}
+              hasDescription={false}
+            />
           </div>
         );
       }
@@ -713,6 +689,29 @@ export function Table<T extends object = Record<string, unknown>>({
     return String(index);
   };
 
+  // Sorted and Paginated Data
+  const sortedData = useMemo(() => {
+    if (!data || !sortKey || sortDir === 'none') return data ?? [];
+    return [...data].sort((a, b) => {
+      const aVal = (a as Record<string, unknown>)[sortKey];
+      const bVal = (b as Record<string, unknown>)[sortKey];
+      if (aVal === bVal) return 0;
+      if (aVal === undefined || aVal === null) return 1;
+      if (bVal === undefined || bVal === null) return -1;
+      const compare = (aVal as number | string) < (bVal as number | string) ? -1 : 1;
+      return sortDir === 'asc' ? compare : -compare;
+    });
+  }, [data, sortKey, sortDir]);
+
+  const totalItems = controlledTotalItems ?? (data?.length ?? 0);
+  const totalPages = Math.ceil(totalItems / pageSize) || 1;
+
+  const paginatedData = useMemo(() => {
+    if (!pagination || controlledCurrentPage !== undefined) return sortedData;
+    const startIdx = (activePage - 1) * pageSize;
+    return sortedData.slice(startIdx, startIdx + pageSize);
+  }, [sortedData, pagination, controlledCurrentPage, activePage, pageSize]);
+
   // If using as a manual compound component without data/columns props
   if (!data || !columns) {
     return (
@@ -742,28 +741,7 @@ export function Table<T extends object = Record<string, unknown>>({
     }
   };
 
-  // Sorted and Paginated Data
-  const sortedData = useMemo(() => {
-    if (!sortKey || sortDir === 'none') return data;
-    return [...data].sort((a, b) => {
-      const aVal = (a as Record<string, unknown>)[sortKey];
-      const bVal = (b as Record<string, unknown>)[sortKey];
-      if (aVal === bVal) return 0;
-      if (aVal === undefined || aVal === null) return 1;
-      if (bVal === undefined || bVal === null) return -1;
-      const compare = (aVal as number | string) < (bVal as number | string) ? -1 : 1;
-      return sortDir === 'asc' ? compare : -compare;
-    });
-  }, [data, sortKey, sortDir]);
 
-  const totalItems = controlledTotalItems ?? data.length;
-  const totalPages = Math.ceil(totalItems / pageSize) || 1;
-
-  const paginatedData = useMemo(() => {
-    if (!pagination || controlledCurrentPage !== undefined) return sortedData;
-    const startIdx = (activePage - 1) * pageSize;
-    return sortedData.slice(startIdx, startIdx + pageSize);
-  }, [sortedData, pagination, controlledCurrentPage, activePage, pageSize]);
 
   // Handle page change
   const handlePageChange = (newPage: number) => {

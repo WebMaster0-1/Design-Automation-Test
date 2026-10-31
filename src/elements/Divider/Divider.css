@@ -63,9 +63,9 @@
 /* Center title (Figma: padding 0 8px, 18px DM Sans Regular #101928) */
 .fmdqui-divider__center-content--title {
   padding: 0 8px;
-  font-size: 18px;
+  font-size: var(--font-size-p-lg, 18px);
   font-weight: 400;
-  line-height: 26px;
+  line-height: var(--font-line-height-paragraph, 26px);
   color: var(--color-neutral-900, #101928);
   white-space: nowrap;
 }
@@ -85,9 +85,9 @@
 
 .fmdqui-divider__label {
   padding: 0 8px 0 0;
-  font-size: 14px;
+  font-size: var(--font-size-p-sm, 14px);
   font-weight: 400;
-  line-height: 20px;
+  line-height: var(--font-line-height-paragraph, 20px);
   color: var(--color-neutral-400, #98A2B3);
   background-color: var(--color-neutral-white, #FFFFFF);
   white-space: nowrap;
@@ -109,9 +109,9 @@
 
 .fmdqui-divider__left-title {
   padding: 0 8px 0 0;
-  font-size: 18px;
+  font-size: var(--font-size-p-lg, 18px);
   font-weight: 400;
-  line-height: 26px;
+  line-height: var(--font-line-height-paragraph, 26px);
   color: var(--color-neutral-900, #101928);
   white-space: nowrap;
   background-color: var(--color-neutral-white, #FFFFFF);

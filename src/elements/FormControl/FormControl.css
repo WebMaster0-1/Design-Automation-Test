@@ -44,7 +44,7 @@
 
 /* ─── Focus ring on keyboard navigation ─────────────────────────────── */
 .fmdqui-toggle__input:focus-visible ~ .fmdqui-toggle__track {
-  outline: 2px solid var(--color-fmdq-blue, #034592);
+  outline: 2px solid var(--color-fmdq-blue);
   outline-offset: 2px;
 }
 
@@ -65,7 +65,7 @@
 }
 
 .fmdqui-toggle__input:checked ~ .fmdqui-toggle__track--radio {
-  border-color: var(--color-fmdq-blue, #034592);
+  border-color: var(--color-fmdq-blue);
 }
 
 .fmdqui-toggle__radio-inner {
@@ -77,7 +77,7 @@
 }
 
 .fmdqui-toggle__input:checked ~ .fmdqui-toggle__track--radio .fmdqui-toggle__radio-inner {
-  background-color: var(--color-fmdq-blue, #034592);
+  background-color: var(--color-fmdq-blue);
 }
 
 /* ══════════════════════════════════════════════════════════════════════
@@ -97,8 +97,8 @@
 }
 
 .fmdqui-toggle__input:checked ~ .fmdqui-toggle__track--checkbox {
-  background-color: var(--color-fmdq-blue, #034592);
-  border-color: var(--color-fmdq-blue, #034592);
+  background-color: var(--color-fmdq-blue);
+  border-color: var(--color-fmdq-blue);
 }
 
 /* ══════════════════════════════════════════════════════════════════════
@@ -118,14 +118,14 @@
 }
 
 .fmdqui-toggle__input:checked ~ .fmdqui-toggle__track--checkcircle {
-  background-color: var(--color-fmdq-blue, #034592);
-  border-color: var(--color-fmdq-blue, #034592);
+  background-color: var(--color-fmdq-blue);
+  border-color: var(--color-fmdq-blue);
 }
 
 /* ── Shared check icon (used by Checkbox & Checkcircle) ──────────────── */
 .fmdqui-toggle__check-icon {
-  width: 13px;
-  height: 10px;
+  width: 14px;
+  height: 14px;
   display: block;
   opacity: 0;
   transition: opacity 0.15s ease;
@@ -156,7 +156,7 @@
 }
 
 .fmdqui-toggle__input:checked ~ .fmdqui-toggle__track--switch {
-  background-color: var(--color-fmdq-blue, #034592);
+  background-color: var(--color-fmdq-blue);
 }
 
 /* Knob: 21x21 inside 39x24 track, perfectly centered vertically at top: 1.5px */
@@ -182,7 +182,7 @@
 .fmdqui-toggle:not(.fmdqui-toggle--disabled) .fmdqui-toggle__input:not(:disabled):hover ~ .fmdqui-toggle__track--radio,
 .fmdqui-toggle:not(.fmdqui-toggle--disabled) .fmdqui-toggle__input:not(:disabled):hover ~ .fmdqui-toggle__track--checkbox,
 .fmdqui-toggle:not(.fmdqui-toggle--disabled) .fmdqui-toggle__input:not(:disabled):hover ~ .fmdqui-toggle__track--checkcircle {
-  border-color: var(--color-fmdq-blue, #034592);
+  border-color: var(--color-fmdq-blue);
 }
 
 .fmdqui-toggle:not(.fmdqui-toggle--disabled) .fmdqui-toggle__input:not(:disabled):hover ~ .fmdqui-toggle__track--switch {
@@ -225,17 +225,17 @@
 }
 
 .fmdqui-form-control__heading {
-  font-size: 16px;
+  font-size: var(--font-size-p-md, 16px);
   font-weight: 500;
-  line-height: 1.45;
+  line-height: var(--font-line-height-paragraph, 1.45);
   color: var(--color-neutral-900, #101928);
   margin: 0;
 }
 
 .fmdqui-form-control__description {
-  font-size: 14px;
+  font-size: var(--font-size-p-sm, 14px);
   font-weight: 400;
-  line-height: 1.45;
+  line-height: var(--font-line-height-paragraph, 1.45);
   color: var(--color-neutral-500, #667185);
   margin: 0;
 }

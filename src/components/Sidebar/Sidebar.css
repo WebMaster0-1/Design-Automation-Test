@@ -1,0 +1,930 @@
+@import '../../tokens.css';
+@import '../Typography/Typography.css';
+
+/* ==========================================================================
+   FMDQ Design System - Sidebar Component
+   Matches Figma "✤ Sidebars" Component Set (347:10108 & 3167:145002)
+   ========================================================================== */
+
+/* ─── Base Sidebar Container ─────────────────────────────────────────── */
+.fmdqui-sidebar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 272px;
+  min-height: 100vh;
+  height: 100%;
+  box-sizing: border-box;
+  font-family: var(--font-family-primary, "DM Sans", sans-serif);
+  transition: width var(--transition-smooth, 0.3s cubic-bezier(0.16, 1, 0.3, 1)),
+              background-color var(--transition-fast, 0.15s ease),
+              border-color var(--transition-fast, 0.15s ease);
+  user-select: none;
+  z-index: 100;
+  border-right: 1px solid var(--color-neutral-200, #E4E7EC);
+}
+
+.fmdqui-sidebar--collapsed {
+  width: 82px;
+}
+
+/* ─── Themes ──────────────────────────────────────────────────────────── */
+
+/* 1. Light Theme */
+.fmdqui-sidebar--theme-light {
+  background-color: var(--color-neutral-white, #FFFFFF);
+  border-right-color: var(--color-neutral-200, #E4E7EC);
+}
+
+/* 2. Blue / Secondary Blue Theme (Figma: #012657) */
+.fmdqui-sidebar--theme-blue {
+  background-color: var(--color-primary-800, #012657);
+  border-right-color: rgba(255, 255, 255, 0.08);
+}
+
+/* 3. Dark Blue Theme (Figma: #001633) */
+.fmdqui-sidebar--theme-dark-blue {
+  background-color: var(--color-primary-900, #001633);
+  border-right-color: rgba(255, 255, 255, 0.08);
+}
+
+/* 4. Dark Grey Theme (Figma: #101928) */
+.fmdqui-sidebar--theme-dark-grey {
+  background-color: var(--color-neutral-900, #101928);
+  border-right-color: var(--color-neutral-800, #1D2739);
+}
+
+/* ─── Top & Bottom Structural Sections ───────────────────────────────── */
+.fmdqui-sidebar__top-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 0 0 0;
+  flex: 1;
+  overflow: hidden;
+}
+
+.fmdqui-sidebar__bottom-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 0 16px 0;
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+/* ── Logo Container (Figma: 272x42 / 82x42, padding 0 24px) ─────────── */
+.fmdqui-sidebar__logo-container {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.fmdqui-sidebar--collapsed .fmdqui-sidebar__logo-container {
+  padding: 0;
+  justify-content: center;
+}
+
+/* ── Collapsed Toggle Button (Figma: align-justify ☰) ─────────────────── */
+.fmdqui-sidebar__toggle-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.fmdqui-sidebar__menu-collapsed-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-8, 8px);
+  color: var(--color-neutral-700, #344054);
+  cursor: pointer;
+  transition: all var(--transition-fast, 0.15s ease);
+}
+
+.fmdqui-sidebar__menu-collapsed-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.fmdqui-sidebar--theme-blue .fmdqui-sidebar__menu-collapsed-btn,
+.fmdqui-sidebar--theme-dark-blue .fmdqui-sidebar__menu-collapsed-btn,
+.fmdqui-sidebar--theme-dark-grey .fmdqui-sidebar__menu-collapsed-btn {
+  color: var(--color-neutral-white, #FFFFFF);
+}
+
+.fmdqui-sidebar--theme-blue .fmdqui-sidebar__menu-collapsed-btn:hover,
+.fmdqui-sidebar--theme-dark-blue .fmdqui-sidebar__menu-collapsed-btn:hover,
+.fmdqui-sidebar--theme-dark-grey .fmdqui-sidebar__menu-collapsed-btn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ── Search Container (Figma: padding 0 16px) ────────────────────────── */
+.fmdqui-sidebar__search-wrap {
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.fmdqui-sidebar__search-wrap .fmdqui-input-container {
+  width: 100% !important;
+}
+
+.fmdqui-sidebar__search-collapsed-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: 0 auto;
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: var(--color-neutral-500, #667185);
+  cursor: pointer;
+  transition: all var(--transition-fast, 0.15s ease);
+}
+
+.fmdqui-sidebar__search-collapsed-btn:hover {
+  background: transparent;
+  color: var(--color-neutral-700, #344054);
+}
+
+/* Search input theming inside dark sidebars */
+.fmdqui-sidebar--theme-blue .fmdqui-input-wrapper,
+.fmdqui-sidebar--theme-dark-blue .fmdqui-input-wrapper {
+  background-color: var(--color-primary-800, #012657) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: var(--color-neutral-white, #FFFFFF) !important;
+}
+
+.fmdqui-sidebar--theme-dark-grey .fmdqui-input-wrapper {
+  background-color: var(--color-neutral-800, #1D2739) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: var(--color-neutral-white, #FFFFFF) !important;
+}
+
+.fmdqui-sidebar--theme-blue .fmdqui-input,
+.fmdqui-sidebar--theme-dark-blue .fmdqui-input,
+.fmdqui-sidebar--theme-dark-grey .fmdqui-input {
+  color: var(--color-neutral-white, #FFFFFF) !important;
+}
+
+.fmdqui-sidebar--theme-blue .fmdqui-input::placeholder,
+.fmdqui-sidebar--theme-dark-blue .fmdqui-input::placeholder {
+  color: var(--color-primary-75, #C6DDF7) !important;
+  opacity: 0.85;
+}
+
+.fmdqui-sidebar--theme-dark-grey .fmdqui-input::placeholder {
+  color: var(--color-neutral-400, #98A2B3) !important;
+  opacity: 0.85;
+}
+
+.fmdqui-sidebar--theme-blue .fmdqui-input__icon,
+.fmdqui-sidebar--theme-dark-blue .fmdqui-input__icon {
+  color: var(--color-primary-75, #C6DDF7) !important;
+}
+
+.fmdqui-sidebar--theme-dark-grey .fmdqui-input__icon {
+  color: var(--color-neutral-400, #98A2B3) !important;
+}
+
+.fmdqui-sidebar--theme-blue .fmdqui-sidebar__search-collapsed-btn,
+.fmdqui-sidebar--theme-dark-blue .fmdqui-sidebar__search-collapsed-btn,
+.fmdqui-sidebar--theme-dark-grey .fmdqui-sidebar__search-collapsed-btn {
+  border: none;
+  background: transparent;
+  color: var(--color-neutral-400, #98A2B3);
+}
+
+.fmdqui-sidebar--theme-blue .fmdqui-sidebar__search-collapsed-btn:hover,
+.fmdqui-sidebar--theme-dark-blue .fmdqui-sidebar__search-collapsed-btn:hover,
+.fmdqui-sidebar--theme-dark-grey .fmdqui-sidebar__search-collapsed-btn:hover {
+  background: transparent;
+  color: var(--color-neutral-white, #FFFFFF);
+}
+
+/* ── Body Scrollable Section ─────────────────────────────────────────── */
+.fmdqui-sidebar__body-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 4px 0;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.fmdqui-sidebar__body-section::-webkit-scrollbar {
+  width: 4px;
+}
+.fmdqui-sidebar__body-section::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+/* ── Collapse Toggle Floating Button ─────────────────────────────────── */
+.fmdqui-sidebar__collapse-btn {
+  position: absolute;
+  top: 24px;
+  right: -12px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--color-neutral-white, #FFFFFF);
+  border: 1px solid var(--color-neutral-300, #D0D5DD);
+  color: var(--color-neutral-700, #344054);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  z-index: 105;
+  transition: all var(--transition-fast, 0.15s ease);
+  padding: 0;
+}
+
+.fmdqui-sidebar__collapse-btn:hover {
+  background-color: var(--color-neutral-50, #F9FAFB);
+  border-color: var(--color-primary-600, #034592);
+  color: var(--color-primary-600, #034592);
+}
+
+/* ==========================================================================
+   SIDEBAR SECTION COMPONENT (Figma 3167:122883)
+   ========================================================================== */
+
+.fmdqui-sidebar-section {
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.fmdqui-sidebar-section--collapsed {
+  padding: 0 10px;
+  align-items: center;
+}
+
+.fmdqui-sidebar-section__title-row {
+  padding: 8px 8px 6px 8px;
+}
+
+/* Figma: 14px DM Sans Medium (NOT uppercase) */
+.fmdqui-sidebar-section__title {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-p-sm, 14px);
+  font-weight: 500;
+  line-height: var(--font-line-height-paragraph, 1.45);
+  letter-spacing: var(--font-letter-spacing-paragraph, -0.04em);
+  text-transform: none;
+  color: var(--color-neutral-400, #98A2B3);
+  display: block;
+}
+
+.fmdqui-sidebar-section--theme-blue .fmdqui-sidebar-section__title {
+  color: var(--color-primary-75, #C6DDF7);
+}
+
+.fmdqui-sidebar-section--theme-dark-blue .fmdqui-sidebar-section__title {
+  color: var(--color-secondary-50, #FEF6E7);
+}
+
+.fmdqui-sidebar-section--theme-dark-grey .fmdqui-sidebar-section__title {
+  color: var(--color-neutral-400, #98A2B3);
+}
+
+.fmdqui-sidebar-section__collapsed-divider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+}
+
+.fmdqui-sidebar-section__dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color-neutral-300, #D0D5DD);
+}
+
+.fmdqui-sidebar-section__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+}
+
+.fmdqui-sidebar-section__divider {
+  height: 1px;
+  background-color: var(--color-neutral-200, #E4E7EC);
+  margin: 12px 0 4px 0;
+  width: 100%;
+}
+
+.fmdqui-sidebar-section--theme-blue .fmdqui-sidebar-section__divider,
+.fmdqui-sidebar-section--theme-dark-blue .fmdqui-sidebar-section__divider,
+.fmdqui-sidebar-section--theme-dark-grey .fmdqui-sidebar-section__divider {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ==========================================================================
+   SIDEBAR MENU ITEM COMPONENT (Figma 2437:56486)
+   ========================================================================== */
+
+.fmdqui-sidebar-menu-item-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.fmdqui-sidebar-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 44px;
+  padding: 12px 12px;
+  border-radius: var(--radius-8, 8px);
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+  transition: all var(--transition-fast, 0.15s ease);
+  position: relative;
+  outline: none;
+}
+
+.fmdqui-sidebar-menu-item:focus-visible {
+  outline: 2px solid var(--color-primary-600, #034592);
+  outline-offset: -2px;
+}
+
+/* ── Item Content Structure ── */
+.fmdqui-sidebar-menu-item__left {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.fmdqui-sidebar-menu-item__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  transition: color var(--transition-fast, 0.15s ease);
+}
+
+/* Figma typography: 14px DM Sans Regular (selected: SemiBold) */
+.fmdqui-sidebar-menu-item__label {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-p-sm, 14px);
+  font-weight: 400;
+  line-height: var(--font-line-height-paragraph, 1.45);
+  letter-spacing: var(--font-letter-spacing-paragraph, -0.04em);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.fmdqui-sidebar-menu-item__right {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.fmdqui-sidebar-menu-item__counter {
+  display: inline-flex;
+  align-items: center;
+}
+
+.fmdqui-sidebar-menu-item__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  transition: transform var(--transition-fast, 0.15s ease);
+}
+
+.fmdqui-sidebar-menu-item__arrow--open {
+  transform: rotate(180deg);
+}
+
+/* ── Type: icon-only (collapsed mode: 82px) ── */
+.fmdqui-sidebar-menu-item--type-icon-only {
+  justify-content: center;
+  padding: 12px;
+  height: 44px;
+}
+
+.fmdqui-sidebar-menu-item--type-icon-only .fmdqui-sidebar-menu-item__left {
+  justify-content: center;
+  flex: initial;
+}
+
+/* ── Sub-menu Container (for multi-layered) ── */
+.fmdqui-sidebar-menu-item__sub-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 12px;
+  margin-top: 2px;
+  box-sizing: border-box;
+}
+
+/* ════ Theme Specific Item Colors & States (Figma exact tokens) ════ */
+
+/* 1. Light Theme Items */
+.fmdqui-sidebar-menu-item--theme-light {
+  color: var(--color-neutral-700, #344054);
+}
+.fmdqui-sidebar-menu-item--theme-light .fmdqui-sidebar-menu-item__icon {
+  color: var(--color-neutral-900, #101928);
+}
+.fmdqui-sidebar-menu-item--theme-light:hover,
+.fmdqui-sidebar-menu-item--theme-light.fmdqui-sidebar-menu-item--state-hover {
+  background-color: var(--color-neutral-50, #F9FAFB);
+  color: var(--color-neutral-900, #101928);
+}
+.fmdqui-sidebar-menu-item--theme-light.fmdqui-sidebar-menu-item--selected,
+.fmdqui-sidebar-menu-item--theme-light.fmdqui-sidebar-menu-item--state-selected {
+  background-color: var(--color-primary-50, #E3EFFC);
+  color: var(--color-neutral-900, #101928);
+}
+.fmdqui-sidebar-menu-item--theme-light.fmdqui-sidebar-menu-item--selected .fmdqui-sidebar-menu-item__label {
+  font-weight: 600;
+}
+.fmdqui-sidebar-menu-item--theme-light.fmdqui-sidebar-menu-item--selected .fmdqui-sidebar-menu-item__icon {
+  color: var(--color-primary-400, #1671D9);
+}
+
+/* 2. Blue Theme Items (Figma: #012657 bg) */
+.fmdqui-sidebar-menu-item--theme-blue {
+  color: var(--color-neutral-white, #FFFFFF);
+}
+.fmdqui-sidebar-menu-item--theme-blue .fmdqui-sidebar-menu-item__icon {
+  color: var(--color-neutral-white, #FFFFFF);
+}
+.fmdqui-sidebar-menu-item--theme-blue:hover,
+.fmdqui-sidebar-menu-item--theme-blue.fmdqui-sidebar-menu-item--state-hover {
+  background-color: var(--color-primary-700, #1D326D);
+  color: var(--color-neutral-white, #FFFFFF);
+}
+.fmdqui-sidebar-menu-item--theme-blue.fmdqui-sidebar-menu-item--selected,
+.fmdqui-sidebar-menu-item--theme-blue.fmdqui-sidebar-menu-item--state-selected {
+  background-color: var(--color-primary-600, #034592);
+  color: var(--color-neutral-white, #FFFFFF);
+}
+.fmdqui-sidebar-menu-item--theme-blue.fmdqui-sidebar-menu-item--selected .fmdqui-sidebar-menu-item__label {
+  font-weight: 600;
+}
+
+/* 3. Dark Blue Theme Items (Figma: #001633 bg - Gold icons!) */
+.fmdqui-sidebar-menu-item--theme-dark-blue {
+  color: var(--color-primary-75, #C6DDF7);
+}
+.fmdqui-sidebar-menu-item--theme-dark-blue .fmdqui-sidebar-menu-item__icon {
+  color: var(--color-fmdq-gold, #CC9933);
+}
+.fmdqui-sidebar-menu-item--theme-dark-blue:hover,
+.fmdqui-sidebar-menu-item--theme-dark-blue.fmdqui-sidebar-menu-item--state-hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--color-neutral-white, #FFFFFF);
+}
+.fmdqui-sidebar-menu-item--theme-dark-blue:hover .fmdqui-sidebar-menu-item__icon {
+  color: var(--color-neutral-white, #FFFFFF);
+}
+.fmdqui-sidebar-menu-item--theme-dark-blue.fmdqui-sidebar-menu-item--selected,
+.fmdqui-sidebar-menu-item--theme-dark-blue.fmdqui-sidebar-menu-item--state-selected {
+  background-color: var(--color-primary-800, #012657);
+  color: var(--color-neutral-white, #FFFFFF);
+}
+.fmdqui-sidebar-menu-item--theme-dark-blue.fmdqui-sidebar-menu-item--selected .fmdqui-sidebar-menu-item__label {
+  font-weight: 600;
+}
+.fmdqui-sidebar-menu-item--theme-dark-blue.fmdqui-sidebar-menu-item--selected .fmdqui-sidebar-menu-item__icon {
+  color: var(--color-fmdq-gold, #CC9933);
+}
+
+/* 4. Dark Grey Theme Items (Figma: #101928 bg) */
+.fmdqui-sidebar-menu-item--theme-dark-grey {
+  color: var(--color-neutral-100, #F0F2F5);
+}
+.fmdqui-sidebar-menu-item--theme-dark-grey .fmdqui-sidebar-menu-item__icon {
+  color: var(--color-neutral-white, #FFFFFF);
+}
+.fmdqui-sidebar-menu-item--theme-dark-grey:hover,
+.fmdqui-sidebar-menu-item--theme-dark-grey.fmdqui-sidebar-menu-item--state-hover {
+  background-color: var(--color-neutral-800, #1D2739);
+  color: var(--color-neutral-white, #FFFFFF);
+}
+.fmdqui-sidebar-menu-item--theme-dark-grey.fmdqui-sidebar-menu-item--selected,
+.fmdqui-sidebar-menu-item--theme-dark-grey.fmdqui-sidebar-menu-item--state-selected {
+  background-color: var(--color-neutral-800, #1D2739);
+  color: var(--color-neutral-white, #FFFFFF);
+}
+.fmdqui-sidebar-menu-item--theme-dark-grey.fmdqui-sidebar-menu-item--selected .fmdqui-sidebar-menu-item__label {
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   SIDEBAR SUB-MENU ITEM COMPONENT (Figma 2437:57101)
+   ========================================================================== */
+
+.fmdqui-sidebar-sub-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 38px;
+  padding: 8px 12px 8px 24px;
+  border-radius: var(--radius-4, 4px);
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: inherit;
+  transition: all var(--transition-fast, 0.15s ease);
+}
+
+.fmdqui-sidebar-sub-item__bullet {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: currentColor;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.fmdqui-sidebar-sub-item__label {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-p-sm, 14px);
+  font-weight: 400;
+  line-height: var(--font-line-height-paragraph, 1.45);
+  letter-spacing: var(--font-letter-spacing-paragraph, -0.04em);
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fmdqui-sidebar-sub-item--selected .fmdqui-sidebar-sub-item__label {
+  font-weight: 600;
+}
+
+/* Light Theme Sub-item */
+.fmdqui-sidebar-sub-item--theme-light {
+  color: var(--color-neutral-600, #475367);
+}
+.fmdqui-sidebar-sub-item--theme-light:hover {
+  color: var(--color-neutral-900, #101928);
+}
+.fmdqui-sidebar-sub-item--theme-light.fmdqui-sidebar-sub-item--selected {
+  color: var(--color-primary-600, #034592);
+  background-color: var(--color-primary-50, #E3EFFC);
+}
+
+/* Blue Theme Sub-item */
+.fmdqui-sidebar-sub-item--theme-blue {
+  color: rgba(255, 255, 255, 0.7);
+}
+.fmdqui-sidebar-sub-item--theme-blue:hover {
+  color: var(--color-neutral-white, #FFFFFF);
+}
+.fmdqui-sidebar-sub-item--theme-blue.fmdqui-sidebar-sub-item--selected {
+  color: var(--color-neutral-white, #FFFFFF);
+  background-color: var(--color-primary-700, #1D326D);
+}
+
+/* Dark Blue Theme Sub-item */
+.fmdqui-sidebar-sub-item--theme-dark-blue {
+  color: var(--color-primary-75, #C6DDF7);
+  opacity: 0.8;
+}
+.fmdqui-sidebar-sub-item--theme-dark-blue:hover {
+  color: var(--color-neutral-white, #FFFFFF);
+  opacity: 1;
+}
+.fmdqui-sidebar-sub-item--theme-dark-blue.fmdqui-sidebar-sub-item--selected {
+  color: var(--color-neutral-white, #FFFFFF);
+  background-color: var(--color-primary-800, #012657);
+  opacity: 1;
+}
+
+/* Dark Grey Theme Sub-item */
+.fmdqui-sidebar-sub-item--theme-dark-grey {
+  color: var(--color-neutral-400, #98A2B3);
+}
+.fmdqui-sidebar-sub-item--theme-dark-grey:hover {
+  color: var(--color-neutral-white, #FFFFFF);
+}
+.fmdqui-sidebar-sub-item--theme-dark-grey.fmdqui-sidebar-sub-item--selected {
+  color: var(--color-neutral-white, #FFFFFF);
+  background-color: var(--color-neutral-800, #1D2739);
+}
+
+/* ==========================================================================
+   SIDEBAR PROFILE COMPONENT (Figma 2438:59860 & 3210:136810)
+   ========================================================================== */
+
+.fmdqui-sidebar__profile-container {
+  position: relative;
+  width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.fmdqui-sidebar--collapsed .fmdqui-sidebar__profile-container {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.fmdqui-sidebar-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: none;
+  transition: all var(--transition-fast, 0.15s ease);
+}
+
+.fmdqui-sidebar-profile--collapsed {
+  justify-content: center;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+/* Themes for Profile block: transparent, no border or box */
+.fmdqui-sidebar-profile--theme-blue,
+.fmdqui-sidebar-profile--theme-dark-blue,
+.fmdqui-sidebar-profile--theme-dark-grey {
+  background-color: transparent;
+  border: none;
+}
+
+.fmdqui-sidebar-profile__button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.fmdqui-sidebar-profile__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.fmdqui-sidebar-profile__name {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-p-sm, 14px);
+  font-weight: 600;
+  line-height: var(--font-line-height-paragraph, 1.45);
+  letter-spacing: var(--font-letter-spacing-paragraph, -0.04em);
+  color: var(--color-neutral-900, #101928);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fmdqui-sidebar-profile--theme-blue .fmdqui-sidebar-profile__name,
+.fmdqui-sidebar-profile--theme-dark-blue .fmdqui-sidebar-profile__name,
+.fmdqui-sidebar-profile--theme-dark-grey .fmdqui-sidebar-profile__name {
+  color: var(--color-neutral-white, #FFFFFF);
+}
+
+.fmdqui-sidebar-profile__email {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-p-xs, 12px);
+  font-weight: 400;
+  line-height: var(--font-line-height-paragraph, 1.45);
+  letter-spacing: var(--font-letter-spacing-paragraph, -0.04em);
+  color: var(--color-neutral-500, #667185);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fmdqui-sidebar-profile--theme-blue .fmdqui-sidebar-profile__email,
+.fmdqui-sidebar-profile--theme-dark-blue .fmdqui-sidebar-profile__email {
+  color: var(--color-primary-75, #C6DDF7);
+}
+.fmdqui-sidebar-profile--theme-dark-grey .fmdqui-sidebar-profile__email {
+  color: var(--color-neutral-400, #98A2B3);
+}
+
+.fmdqui-sidebar-profile__signout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-4, 4px);
+  background: transparent;
+  border: none;
+  color: var(--color-neutral-500, #667185);
+  cursor: pointer;
+  transition: all var(--transition-fast, 0.15s ease);
+  flex-shrink: 0;
+}
+
+.fmdqui-sidebar-profile__signout-btn:hover {
+  background-color: var(--color-neutral-200, #E4E7EC);
+  color: var(--color-error-500, #D42620);
+}
+
+.fmdqui-sidebar-profile--theme-blue .fmdqui-sidebar-profile__signout-btn,
+.fmdqui-sidebar-profile--theme-dark-blue .fmdqui-sidebar-profile__signout-btn,
+.fmdqui-sidebar-profile--theme-dark-grey .fmdqui-sidebar-profile__signout-btn {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.fmdqui-sidebar-profile--theme-blue .fmdqui-sidebar-profile__signout-btn:hover,
+.fmdqui-sidebar-profile--theme-dark-blue .fmdqui-sidebar-profile__signout-btn:hover,
+.fmdqui-sidebar-profile--theme-dark-grey .fmdqui-sidebar-profile__signout-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-neutral-white, #FFFFFF);
+}
+
+/* Variant 2 Action Icon (chevron-selector-vertical / chevron-v) */
+.fmdqui-sidebar-profile__action-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: var(--color-neutral-500, #667185);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.fmdqui-sidebar-profile--theme-blue .fmdqui-sidebar-profile__action-icon,
+.fmdqui-sidebar-profile--theme-dark-blue .fmdqui-sidebar-profile__action-icon,
+.fmdqui-sidebar-profile--theme-dark-grey .fmdqui-sidebar-profile__action-icon {
+  color: var(--color-neutral-400, #98A2B3);
+}
+
+/* ==========================================================================
+   SIDEBAR ACCOUNT FLYOUT MENU (Figma 10322:286059)
+   ========================================================================== */
+
+.fmdqui-sidebar-account-menu__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: transparent;
+}
+
+.fmdqui-sidebar-account-menu {
+  position: absolute;
+  bottom: 70px;
+  left: 16px;
+  width: 248px;
+  background-color: var(--color-neutral-white, #FFFFFF);
+  border: 1px solid var(--color-neutral-200, #E4E7EC);
+  border-radius: var(--radius-12, 12px);
+  box-shadow: var(--shadow-soft-lg);
+  padding: 8px;
+  box-sizing: border-box;
+  z-index: 201;
+  display: flex;
+  flex-direction: column;
+  animation: fmdquiSidebarAccountMenuFadeIn 0.15s ease-out;
+}
+
+/* When profile is at top (Variant 2), account menu drops below it */
+.fmdqui-sidebar--variant-2 .fmdqui-sidebar-account-menu {
+  bottom: auto;
+  top: 76px;
+}
+
+@keyframes fmdquiSidebarAccountMenuFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fmdqui-sidebar-account-menu__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 8px 10px 8px;
+}
+
+.fmdqui-sidebar-account-menu__user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+}
+
+.fmdqui-sidebar-account-menu__name {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-p-sm, 14px);
+  font-weight: 600;
+  color: var(--color-neutral-900, #101928);
+}
+
+.fmdqui-sidebar-account-menu__email {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-p-xs, 12px);
+  color: var(--color-neutral-500, #667185);
+}
+
+.fmdqui-sidebar-account-menu__divider {
+  height: 1px;
+  background-color: var(--color-neutral-200, #E4E7EC);
+  margin: 4px 0;
+}
+
+.fmdqui-sidebar-account-menu__items {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.fmdqui-sidebar-account-menu__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: var(--radius-8, 8px);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-neutral-700, #344054);
+  font-family: inherit;
+  transition: all var(--transition-fast, 0.15s ease);
+}
+
+.fmdqui-sidebar-account-menu__item:hover {
+  background-color: var(--color-neutral-50, #F9FAFB);
+  color: var(--color-neutral-900, #101928);
+}
+
+.fmdqui-sidebar-account-menu__item-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fmdqui-sidebar-account-menu__item-label {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-p-sm, 14px);
+  font-weight: 500;
+}
+
+.fmdqui-sidebar-account-menu__item-shortcut {
+  font-family: var(--font-family-primary);
+  font-size: 11px;
+  color: var(--color-neutral-400, #98A2B3);
+  font-weight: 500;
+}
+
+.fmdqui-sidebar-account-menu__item--destructive {
+  color: var(--color-error-500, #D42620);
+}
+
+.fmdqui-sidebar-account-menu__item--destructive:hover {
+  background-color: var(--color-error-50, #FBEAE9);
+  color: var(--color-error-700, #9E0A05);
+}

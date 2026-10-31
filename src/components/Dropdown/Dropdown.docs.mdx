@@ -3,70 +3,52 @@ import * as DropdownStories from './Dropdown.stories';
 
 <Meta of={DropdownStories} />
 
-# Dropdown / Selectors
+# Dropdown / Menu
 
-The `Dropdown` (and `DropdownSelector`) component is aligned 1:1 with the **FMDQ Design System** `Dropdown / Selectors` component set in Figma.
+The `Dropdown` component is aligned 1:1 with the **FMDQ Design System** `Dropdown / Menu` (`2190:52619`) and `Dropdown / menu item` (`2159:51455`) component set in Figma.
 
-It provides a rich form selector field supporting 4 variant types, 5 interactive states, custom options with sublabels, leading graphics, and backward compatibility for custom action trigger menus.
+It serves as the contextual action and navigation menu popover, supporting 3 trigger variants (`default` button with chevron, `avatar`, `icon-only` button), multi-section popover menus with headers, keyboard shortcuts, toggle indicators, and destructive actions.
+
+> **Note on Form Selectors**: Form dropdown inputs with labels, helper text, and selection fields belong to `Input / Input Dropdown` (`Dropdown / Selectors` in Figma `2198:54679`).
 
 ---
 
-## 1. Default Selector
+## 1. Playground
 
-The standard text-only selector with a label and chevron indicator.
+Interactive dropdown supporting all controls and compound sub-components.
 
 <Canvas>
-  <Story of={DropdownStories.Default} />
+  <Story of={DropdownStories.Playground} />
 </Canvas>
 
 ---
 
-## 2. Variant Types
+## 2. All Figma Variants Matrix
 
-Dropdown selectors support four leading graphic types matching Figma:
-
-1. **Default**: Standard text without leading graphics.
-2. **Icon Leading**: Heart or custom leading SVG icon.
-3. **Avatar Leading**: User profile image or initials avatar.
-4. **Status**: Real-time system or connectivity status indicator dot.
+The matrix includes the 3 Figma trigger types (`default`, `avatar`, `icon-only`) across all states (`default`, `hover`, `active`, `disabled`), as well as the extended open state.
 
 <Canvas>
-  <Story of={DropdownStories.TypesGallery} />
+  <Story of={DropdownStories.AllFigmaVariantsMatrix} />
 </Canvas>
 
 ---
 
-## 3. Visual States Matrix
+## 3. Menu Items & Sections Showcase
 
-The selector supports five states:
-- **Default**: Neutral border (`#D0D5DD`), placeholder text in grey.
-- **Hover**: Amber hover border (`#F7D394`).
-- **Active / Focused**: Gold active border (`#F3A218`) and subtle focus glow.
-- **Filled**: High-contrast dark text (`#101928`) displaying the selected option.
-- **Disabled**: Neutral grey background (`#F0F2F5`) and disabled cursor.
+Figma menu items (`2159:51455`) support text-only, icon-leading, avatar-leading, destructive actions, keyboard shortcuts, and toggle checks.
 
 <Canvas>
-  <Story of={DropdownStories.StatesMatrix} />
+  <Story of={DropdownStories.MenuItemsShowcase} />
 </Canvas>
 
 ---
 
-## 4. Extended (Open Menu) State
+## 4. Compound Composition
 
-When open, the component displays the `.Selector menu / menu list` containing options with primary titles and secondary handles (e.g. `@account`).
-
-<Canvas>
-  <Story of={DropdownStories.ExtendedOpen} />
-</Canvas>
-
----
-
-## 5. Backward Compatibility (Action Trigger)
-
-When a custom `trigger` element is provided (such as an outlined `<Button />`), the component functions as an action popup menu.
+Composable subcomponents (`DropdownMenu`, `DropdownSection`, `DropdownHeader`, `DropdownItem`) for flexible menus.
 
 <Canvas>
-  <Story of={DropdownStories.LegacyActionMenu} />
+  <Story of={DropdownStories.CompoundComposition} />
 </Canvas>
 
 ---

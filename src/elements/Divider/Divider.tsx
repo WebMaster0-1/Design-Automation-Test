@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, type ButtonProps } from '../Button';
+import { Icon } from '../../foundations/icons';
 import './Divider.css';
 
 export type DividerType =
@@ -52,9 +53,7 @@ export interface DividerProps extends Omit<React.HTMLAttributes<HTMLDivElement>,
 }
 
 const PlusIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M12 5v14M5 12h14" />
-  </svg>
+  <Icon name="plus" variant="linear" size={16} />
 );
 
 export const Divider: React.FC<DividerProps> = ({

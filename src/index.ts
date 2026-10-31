@@ -7,12 +7,14 @@ export * from './elements/Badge';
 export * from './elements/Chip';
 export * from './elements/FormControl';
 export * from './elements/Divider';
+export * from './elements/Logo';
 export * from './foundations/icons';
 
 // Components
 export * from './components/Textarea';
 export * from './components/Typography';
 export * from './components/Dropdown';
+export * from './components/Dropdowns';
 export * from './components/Table';
 export * from './components/Tabs';
 export * from './components/NavMenu';
@@ -23,10 +25,12 @@ export * from './components/Drawer';
 export * from './components/ProgressBar';
 export * from './components/Metrics';
 export * from './components/Pagination';
+export * from './components/Sidebar';
 
 // Layout
 export * from './layout/AppLayout';
 export * from './layout/TopBar';
 export * from './layout/PageHeader';
 export * from './layout/EmptyState';
+export * from './layout/AuthBackground';
 

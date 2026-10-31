@@ -1,352 +1,283 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Dropdown } from './index';
-import type { DropdownOption } from './index';
-import { Button } from '../../elements/Button';
-
-const sampleAccounts: DropdownOption[] = [
-  {
-    id: '1',
-    value: 'account-1',
-    label: 'Account settings',
-    sublabel: '@account',
-    avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&h=80&q=80',
-    statusColor: '#04802E',
-  },
-  {
-    id: '2',
-    value: 'account-2',
-    label: 'Billing & Plans',
-    sublabel: '@billing',
-    avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&h=80&q=80',
-    statusColor: '#04802E',
-  },
-  {
-    id: '3',
-    value: 'account-3',
-    label: 'Team Members',
-    sublabel: '@team',
-    avatarUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&h=80&q=80',
-    statusColor: '#F3A218',
-  },
-  {
-    id: '4',
-    value: 'account-4',
-    label: 'API Keys',
-    sublabel: '@developer',
-    avatarUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&h=80&q=80',
-    statusColor: '#98A2B3',
-  },
-  {
-    id: '5',
-    value: 'account-5',
-    label: 'Security & 2FA',
-    sublabel: '@security',
-    avatarUrl: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=80&h=80&q=80',
-    statusColor: '#04802E',
-  },
-];
-
-const legacyMenuItems = [
-  { id: '1', label: 'Edit profile', onClick: () => alert('Edit') },
-  { id: '2', label: 'View settings', onClick: () => alert('Settings') },
-  { id: '3', label: 'Deactivate account', disabled: true },
-  { id: '4', label: 'Delete account', destructive: true, onClick: () => alert('Delete') },
-];
+import {
+  Dropdown,
+  DropdownSection,
+  DropdownHeader,
+  DropdownItem,
+} from './Dropdown';
+import { Icon } from '../../foundations/icons';
 
 const meta: Meta<typeof Dropdown> = {
-  title: 'Components/✨ Dropdown',
+  title: 'Components/🔽 Dropdown',
   component: Dropdown,
   parameters: {
     layout: 'centered',
     docs: {
       description: {
         component:
-          'FMDQ Design System `Dropdown / Selectors` component. Supports 4 variant types (default, icon leading, avatar leading, status), 5 visual states (default, hover, active/extended, filled, disabled), custom options with primary and sub-labels, and backward compatibility for action button triggers.',
+          'FMDQ Design System standalone `Dropdown / Menu` component matching Figma `2190:52619` and `2159:51455`. Supports 3 trigger variants (Default Button with chevron, Avatar, Icon-only button), 4 states (default, hover, active/extended, disabled), multi-section popover menus with headers, keyboard shortcuts, toggle indicators, and destructive actions.',
       },
     },
   },
   argTypes: {
     type: {
       control: 'select',
-      options: ['default', 'icon leading', 'avatar leading', 'status'],
-      description: 'Variant type matching Figma',
+      options: ['default', 'avatar', 'icon-only'],
+      description: 'Trigger type variant matching Figma',
     },
     state: {
       control: 'select',
-      options: ['default', 'hover', 'active', 'filled', 'disabled'],
-      description: 'Visual state matching Figma',
-    },
-    hasLabel: {
-      control: 'boolean',
-      description: 'Show/hide field label (Figma: has label)',
-    },
-    hasHelperText: {
-      control: 'boolean',
-      description: 'Show/hide helper text (Figma: has helper texts)',
-    },
-    disabled: {
-      control: 'boolean',
+      options: ['default', 'hover', 'active', 'disabled'],
+      description: 'Trigger visual state',
     },
     extended: {
       control: 'boolean',
-      description: 'Open menu state (Figma: extended)',
+      description: 'Whether the popover menu is open',
     },
+    label: {
+      control: 'text',
+      description: 'Button text for default trigger',
+    },
+    align: {
+      control: 'radio',
+      options: ['left', 'right'],
+      description: 'Alignment of the popover menu',
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Disables the dropdown trigger',
+    },
+  },
+  args: {
+    type: 'default',
+    state: 'default',
+    extended: true,
+    label: 'Account Menu',
+    align: 'left',
+    disabled: false,
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof Dropdown>;
 
-// ── 1. Default (Standard Selector) ──
-export const Default: Story = {
-  args: {
-    type: 'default',
-    label: 'Label',
-    placeholder: 'Placeholder',
-    hasLabel: true,
-    hasHelperText: false,
-    options: sampleAccounts,
-  },
-};
-
-// ── 2. Icon Leading ──
-export const IconLeading: Story = {
-  args: {
-    type: 'icon leading',
-    label: 'Favorite account',
-    placeholder: 'Select an account',
-    hasLabel: true,
-    hasHelperText: true,
-    helperText: 'Pick your primary operational account',
-    options: sampleAccounts,
-  },
-};
-
-// ── 3. Avatar Leading ──
-export const AvatarLeading: Story = {
-  args: {
-    type: 'avatar leading',
-    label: 'Assigned User',
-    placeholder: 'Select a member',
-    hasLabel: true,
-    hasHelperText: false,
-    avatarUrl: sampleAccounts[0].avatarUrl,
-    options: sampleAccounts,
-  },
-};
-
-// ── 4. Status Leading ──
-export const StatusLeading: Story = {
-  args: {
-    type: 'status',
-    label: 'System Status',
-    placeholder: 'Select system endpoint',
-    hasLabel: true,
-    hasHelperText: true,
-    helperText: 'Green indicator signifies live service connectivity',
-    statusColor: '#04802E',
-    options: sampleAccounts,
-  },
-};
-
-// ── 5. Filled State ──
-export const Filled: Story = {
-  args: {
-    type: 'default',
-    label: 'Label',
-    state: 'filled',
-    defaultValue: 'account-1',
-    hasLabel: true,
-    options: sampleAccounts,
-  },
-};
-
-// ── 6. Disabled State ──
-export const Disabled: Story = {
-  args: {
-    type: 'default',
-    label: 'Disabled Field',
-    placeholder: 'Placeholder',
-    disabled: true,
-    hasLabel: true,
-    hasHelperText: true,
-    helperText: 'You do not have permission to modify this field',
-    options: sampleAccounts,
-  },
-};
-
-// ── 7. Extended / Open Menu State ──
-export const ExtendedOpen: Story = {
-  args: {
-    type: 'default',
-    label: 'Label',
-    state: 'active',
-    extended: true,
-    defaultValue: 'account-1',
-    hasLabel: true,
-    hasHelperText: false,
-    options: sampleAccounts,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'Selector with the options menu expanded (`extended=true`), showing two-line option items.',
-      },
+const sampleSections = [
+  {
+    header: {
+      title: 'David Eno',
+      subtitle: 'david.e@fmdq.ui',
+      borders: true,
     },
+    items: [
+      {
+        id: '1',
+        type: 'icon' as const,
+        icon: <Icon name="user" variant="linear" size={16} />,
+        label: 'View profile',
+        shortcut: '⌘P',
+      },
+      {
+        id: '2',
+        type: 'icon' as const,
+        icon: <Icon name="settings-2" variant="linear" size={16} />,
+        label: 'Account settings',
+        shortcut: '⌘S',
+      },
+      {
+        id: '3',
+        type: 'icon' as const,
+        icon: <Icon name="bell" variant="linear" size={16} />,
+        label: 'Notifications',
+        hasCheckbox: true,
+        selected: true,
+      },
+    ],
+    hasDivider: true,
   },
+  {
+    header: {
+      title: 'Preferences',
+      borders: false,
+    },
+    items: [
+      {
+        id: '4',
+        type: 'icon' as const,
+        icon: <Icon name="brush" variant="linear" size={16} />,
+        label: 'Display theme',
+      },
+      {
+        id: '5',
+        type: 'icon' as const,
+        icon: <Icon name="sign-out" variant="linear" size={16} />,
+        label: 'Log out',
+        shortcut: '⌘Q',
+        destructive: true,
+      },
+    ],
+  },
+];
+
+// ── 1. Interactive Playground ──
+export const Playground: Story = {
+  render: (args) => (
+    <div style={{ minHeight: '380px', padding: '20px' }}>
+      <Dropdown {...args} sections={sampleSections} />
+    </div>
+  ),
 };
 
-// ── 8. States Comparison Matrix ──
-export const StatesMatrix: Story = {
+// ── 2. All Figma Variants Matrix ──
+export const AllFigmaVariantsMatrix: Story = {
+  name: 'Canvas / All Figma Variants Matrix',
+  parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', width: '375px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '40px', padding: '24px' }}>
       <div>
-        <h4 style={{ margin: '0 0 8px 0', fontSize: '12px', color: '#667185', textTransform: 'uppercase' }}>
-          1. Default State
-        </h4>
-        <Dropdown
-          label="Label"
-          placeholder="Placeholder"
-          state="default"
-          options={sampleAccounts}
-        />
+        <h3 style={{ margin: '0 0 8px 0', fontFamily: 'var(--font-family-primary)' }}>
+          Figma &quot;Dropdown / Menu&quot; (Node 2190:52619)
+        </h3>
+        <p style={{ margin: 0, color: 'var(--color-neutral-500)', fontSize: '14px' }}>
+          Demonstrates all 3 trigger types (Default Button, Avatar, and Icon-only) in both collapsed and extended states.
+        </p>
       </div>
 
-      <div>
-        <h4 style={{ margin: '0 0 8px 0', fontSize: '12px', color: '#667185', textTransform: 'uppercase' }}>
-          2. Hover State (Gold-100 Border)
-        </h4>
-        <Dropdown
-          label="Label"
-          placeholder="Placeholder"
-          state="hover"
-          options={sampleAccounts}
-        />
-      </div>
+      <div style={{ display: 'flex', gap: '48px', alignItems: 'flex-start' }}>
+        {/* Variant 1: Default Button Trigger */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <span style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', color: 'var(--color-neutral-500)' }}>
+            1. Button Trigger (`type=&quot;default&quot;`)
+          </span>
+          <div style={{ minHeight: '360px' }}>
+            <Dropdown
+              type="default"
+              label="Options"
+              extended={true}
+              sections={sampleSections}
+            />
+          </div>
+        </div>
 
-      <div>
-        <h4 style={{ margin: '0 0 8px 0', fontSize: '12px', color: '#667185', textTransform: 'uppercase' }}>
-          3. Active / Focused State (Gold-400 Border + Focus Glow)
-        </h4>
-        <Dropdown
-          label="Label"
-          placeholder="Input"
-          state="active"
-          options={sampleAccounts}
-        />
-      </div>
+        {/* Variant 2: Avatar Trigger */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <span style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', color: 'var(--color-neutral-500)' }}>
+            2. Avatar Trigger (`type=&quot;avatar&quot;`)
+          </span>
+          <div style={{ minHeight: '360px' }}>
+            <Dropdown
+              type="avatar"
+              extended={true}
+              sections={sampleSections}
+            />
+          </div>
+        </div>
 
-      <div>
-        <h4 style={{ margin: '0 0 8px 0', fontSize: '12px', color: '#667185', textTransform: 'uppercase' }}>
-          4. Filled State (Selected Value)
-        </h4>
-        <Dropdown
-          label="Label"
-          state="filled"
-          defaultValue="account-1"
-          options={sampleAccounts}
-        />
-      </div>
-
-      <div>
-        <h4 style={{ margin: '0 0 8px 0', fontSize: '12px', color: '#667185', textTransform: 'uppercase' }}>
-          5. Disabled State (Grey-100 Fill)
-        </h4>
-        <Dropdown
-          label="Label"
-          placeholder="Placeholder"
-          state="disabled"
-          options={sampleAccounts}
-        />
+        {/* Variant 3: Icon-only Trigger */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <span style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', color: 'var(--color-neutral-500)' }}>
+            3. Icon-only Trigger (`type=&quot;icon-only&quot;`)
+          </span>
+          <div style={{ minHeight: '360px' }}>
+            <Dropdown
+              type="icon-only"
+              extended={true}
+              sections={sampleSections}
+            />
+          </div>
+        </div>
       </div>
     </div>
   ),
-  parameters: {
-    docs: {
-      description: {
-        story: 'Visual matrix demonstrating all 5 states defined in the Figma design system.',
-      },
-    },
-  },
 };
 
-// ── 9. All 4 Variant Types Gallery ──
-export const TypesGallery: Story = {
+// ── 3. Menu Items Atoms Showcase (Figma 2159:51455) ──
+export const MenuItemsShowcase: Story = {
+  name: 'Items / Menu Item States & Types',
+  parameters: { controls: { disable: true } },
   render: () => (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 375px)', gap: '32px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', width: '280px' }}>
       <div>
-        <h4 style={{ margin: '0 0 8px 0', fontSize: '13px', color: '#1D326D', fontWeight: 600 }}>
-          Type: Default
+        <h4 style={{ margin: '0 0 8px 0', fontSize: '12px', color: '#667185', textTransform: 'uppercase' }}>
+          Menu Item Types & States (Figma 2159:51455)
         </h4>
-        <Dropdown
-          type="default"
-          label="Default Selector"
-          placeholder="Placeholder"
-          hasHelperText={true}
-          helperText="Standard text-only selector"
-          options={sampleAccounts}
-        />
       </div>
 
-      <div>
-        <h4 style={{ margin: '0 0 8px 0', fontSize: '13px', color: '#1D326D', fontWeight: 600 }}>
-          Type: Icon Leading
-        </h4>
-        <Dropdown
-          type="icon leading"
-          label="Icon Leading Selector"
-          placeholder="Placeholder"
-          hasHelperText={true}
-          helperText="Leading icon prefix"
-          options={sampleAccounts}
+      <div style={{ border: '1px solid var(--color-neutral-200)', borderRadius: '8px', padding: '4px 0', backgroundColor: '#FFFFFF' }}>
+        <DropdownItem label="Default Item" shortcut="⌘K" />
+        <DropdownItem
+          type="icon"
+          icon={<Icon name="settings-2" variant="linear" size={16} />}
+          label="With Leading Icon"
+          shortcut="⌘S"
         />
-      </div>
-
-      <div>
-        <h4 style={{ margin: '0 0 8px 0', fontSize: '13px', color: '#1D326D', fontWeight: 600 }}>
-          Type: Avatar Leading
-        </h4>
-        <Dropdown
-          type="avatar leading"
-          label="Avatar Leading Selector"
-          placeholder="Placeholder"
-          hasHelperText={true}
-          helperText="Leading user avatar prefix"
-          avatarUrl={sampleAccounts[0].avatarUrl}
-          options={sampleAccounts}
+        <DropdownItem
+          type="avatar"
+          label="David Eno"
+          shortcut="Admin"
         />
-      </div>
-
-      <div>
-        <h4 style={{ margin: '0 0 8px 0', fontSize: '13px', color: '#1D326D', fontWeight: 600 }}>
-          Type: Status
-        </h4>
-        <Dropdown
-          type="status"
-          label="Status Selector"
-          placeholder="Placeholder"
-          hasHelperText={true}
-          helperText="Online/offline status indicator dot"
-          statusColor="#04802E"
-          options={sampleAccounts}
+        <DropdownItem
+          type="icon"
+          icon={<Icon name="check" variant="linear" size={16} />}
+          label="Selected State"
+          selected
+        />
+        <DropdownItem
+          type="icon"
+          icon={<Icon name="lock" variant="linear" size={16} />}
+          label="Disabled State"
+          disabled
+        />
+        <DropdownItem
+          type="icon"
+          icon={<Icon name="trash" variant="linear" size={16} />}
+          label="Destructive Action"
+          destructive
+          shortcut="⌘⌫"
         />
       </div>
     </div>
   ),
 };
 
-// ── 10. Backward-compatible Action Menu ──
-export const LegacyActionMenu: Story = {
-  args: {
-    trigger: <Button label="Actions (Click Me)" variant="secondary" buttonType="outlined" />,
-    items: legacyMenuItems,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'Maintains 100% backward compatibility when a custom `trigger` prop (e.g. `<Button />`) is provided, functioning as a contextual popover menu.',
-      },
-    },
-  },
+// ── 4. Declarative Compound Subcomponents ──
+export const CompoundComposition: Story = {
+  name: 'Composition / Declarative Subcomponents',
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <div style={{ minHeight: '380px' }}>
+      <Dropdown label="Manage Member" extended={true}>
+        <DropdownSection
+          header={
+            <DropdownHeader
+              title="Member Administration"
+              subtitle="Access Bank PLC • Dealing Member"
+              borders
+            />
+          }
+          hasDivider
+        >
+          <DropdownItem
+            type="icon"
+            icon={<Icon name="user" variant="linear" size={16} />}
+            label="Edit Permissions"
+            shortcut="⌘E"
+          />
+          <DropdownItem
+            type="icon"
+            icon={<Icon name="refresh" variant="linear" size={16} />}
+            label="Reset 2FA Token"
+          />
+        </DropdownSection>
+
+        <DropdownSection>
+          <DropdownItem
+            type="icon"
+            icon={<Icon name="close" variant="linear" size={16} />}
+            label="Revoke Trading Rights"
+            destructive
+          />
+        </DropdownSection>
+      </Dropdown>
+    </div>
+  ),
 };

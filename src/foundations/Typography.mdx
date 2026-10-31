@@ -7,9 +7,9 @@ import * as TypographyStories from '../components/Typography/Typography.stories'
 
 # Typography
 
-Typography is the foundation of the FMDQ digital experience. It dictates legibility, hierarchy, and brand personality across all platforms. We utilize **DM Sans** as our primary typeface for clean, modern readability, and **Rubik** as a secondary brand typeface.
+Typography is the foundation of the FMDQ digital experience. It dictates legibility, hierarchy, and brand personality across all platforms. We utilize **DM Sans** as our primary and default system typeface. **Rubik** is not a secondary font — it is used exclusively for **FMDQ NEXT**.
 
-<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', marginBottom: '64px', marginTop: '32px' }}>
+<div style={{ marginBottom: '64px', marginTop: '32px' }}>
   <div style={{ 
     padding: '32px', 
     backgroundColor: '#183972', 
@@ -22,35 +22,13 @@ Typography is the foundation of the FMDQ digital experience. It dictates legibil
   }}>
     <div>
       <h3 style={{ margin: 0, color: '#FFFFFF', fontSize: '20px', fontWeight: 'bold' }}>DM Sans (Primary)</h3>
-      <p style={{ margin: '4px 0 0 0', opacity: 0.8, fontSize: '13px' }}>Default system & UI typeface</p>
+      <p style={{ margin: '4px 0 0 0', color: 'var(--color-primary-100, #B6D8FF)', fontSize: '13px', fontWeight: 500 }}>Default system & UI typeface across all products</p>
     </div>
     <Button 
-      label="Google Fonts" 
+      label="Download Font" 
       variant="secondary" 
       size="sm"
-      onClick={() => window.open('https://fonts.google.com/specimen/DM+Sans', '_blank')}
-    />
-  </div>
-
-  <div style={{ 
-    padding: '32px', 
-    backgroundColor: '#CC9933', 
-    borderRadius: '16px', 
-    color: '#001633',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    boxShadow: '0 8px 32px rgba(204, 153, 51, 0.15)'
-  }}>
-    <div>
-      <h3 style={{ margin: 0, color: '#001633', fontSize: '20px', fontWeight: 'bold' }}>Rubik (Secondary)</h3>
-      <p style={{ margin: '4px 0 0 0', opacity: 0.8, fontSize: '13px' }}>Secondary brand accent typeface</p>
-    </div>
-    <Button 
-      label="Google Fonts" 
-      variant="primary" 
-      size="sm"
-      onClick={() => window.open('https://fonts.google.com/specimen/Rubik', '_blank')}
+      onClick={() => window.open('https://fonts.google.com/download?family=DM%20Sans', '_blank')}
     />
   </div>
 </div>
@@ -69,12 +47,10 @@ The complete typography scale for the FMDQ Design System 2026. This scale is des
   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px', marginTop: '24px' }}>
     <div style={{ backgroundColor: '#F9FAFB', padding: '24px', borderRadius: '12px', border: '1px solid #EAECF0' }}>
       <h3 style={{ marginTop: 0, color: '#101828', fontSize: '18px' }}>Font Families</h3>
-      | Token | Value |
-      | :--- | :--- |
-      | `--font-family-primary` | `'DM Sans', sans-serif` |
-      | `--font-family-secondary` | `'Rubik', sans-serif` |
-      | `--font-family-dm-sans` | `'DM Sans', sans-serif` |
-      | `--font-family-rubik` | `'Rubik', sans-serif` |
+      | Token | Value | Notes |
+      | :--- | :--- | :--- |
+      | `--font-family-primary` | `'DM Sans', sans-serif` | Default across all UI & components |
+      | `--font-family-rubik` | `'Rubik', sans-serif` | Reserved exclusively for FMDQ NEXT |
     </div>
     <div style={{ backgroundColor: '#F9FAFB', padding: '24px', borderRadius: '12px', border: '1px solid #EAECF0' }}>
       <h3 style={{ marginTop: 0, color: '#101828', fontSize: '18px' }}>Line Heights</h3>
@@ -101,7 +77,7 @@ The complete typography scale for the FMDQ Design System 2026. This scale is des
       | Caption XS | `--font-letter-spacing-caption-xs` | `+0.16em` (+16%) |
     </div>
     <div style={{ backgroundColor: '#F9FAFB', padding: '24px', borderRadius: '12px', border: '1px solid #EAECF0' }}>
-      <h3 style={{ marginTop: 0, color: '#101828', fontSize: '18px' }}>Letter Spacing (Rubik)</h3>
+      <h3 style={{ marginTop: 0, color: '#101828', fontSize: '18px' }}>Letter Spacing (Rubik — FMDQ NEXT)</h3>
       | Scale | Token | Value |
       | :--- | :--- | :--- |
       | Display | `--font-letter-spacing-rubik-display` | `-0.04em` (-4%) |

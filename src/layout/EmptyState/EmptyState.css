@@ -47,17 +47,17 @@
 }
 
 .fmdqui-empty-state__title {
-  font-size: 18px;
+  font-size: var(--font-size-p-lg, 18px);
   font-weight: 600;
-  line-height: 1.35;
+  line-height: var(--font-line-height-heading, 1.35);
   color: var(--color-neutral-900, #101928);
   margin: 0;
 }
 
 .fmdqui-empty-state__description {
-  font-size: 14px;
+  font-size: var(--font-size-p-sm, 14px);
   font-weight: 400;
-  line-height: 1.5;
+  line-height: var(--font-line-height-paragraph, 1.5);
   color: var(--color-neutral-500, #667185);
   margin: 0;
 }

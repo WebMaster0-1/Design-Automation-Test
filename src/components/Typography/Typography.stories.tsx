@@ -11,7 +11,7 @@ const meta: Meta<typeof Heading> = {
     fontFamily: {
       control: 'select',
       options: ['dm-sans', 'rubik'],
-      description: 'Font family (DM Sans primary or Rubik secondary)'
+      description: 'Font family (DM Sans default UI or Rubik for FMDQ NEXT)'
     },
     level: {
       control: 'select',

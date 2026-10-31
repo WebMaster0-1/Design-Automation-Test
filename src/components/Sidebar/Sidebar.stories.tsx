@@ -1,0 +1,672 @@
+import { useState } from 'react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import {
+  Sidebar,
+  SidebarSection,
+  SidebarMenuItem,
+  SidebarSubMenuItem,
+  SidebarAccountMenu,
+  type SidebarTheme,
+} from './Sidebar';
+import { Icon } from '../../foundations/icons';
+
+const meta: Meta<typeof Sidebar> = {
+  title: 'Components/🍺 Sidebar',
+  component: Sidebar,
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+          'Sidebar navigation column matching Figma "✤ Sidebars" (347:10108 & 3167:145002). Supports Variant 1 (Logo top, Profile bottom) & Variant 2 (Profile top, Logo bottom), 4 color themes (Light, Blue, Dark Blue, Dark Grey), Collapsed state (82px icon-only with align-justify hamburger toggle), multi-layered expandable menus, search input, and account flyout menu.',
+      },
+    },
+  },
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['1', '2'],
+      description: 'Sidebar structure variant: 1 (Logo top) or 2 (Profile top)',
+    },
+    theme: {
+      control: 'select',
+      options: ['light', 'blue', 'dark-blue', 'dark-grey'],
+      description: 'Color theme token mapping',
+    },
+    state: {
+      control: 'select',
+      options: ['default', 'collapsed'],
+      description: 'Expanded (272px) vs Collapsed (82px)',
+    },
+    hasSearch: {
+      control: 'boolean',
+      description: 'Toggle search input visibility',
+    },
+    searchPlaceholder: {
+      control: 'text',
+      description: 'Search placeholder text',
+    },
+    collapsed: { table: { disable: true } },
+    onToggleCollapse: { table: { disable: true } },
+    activeId: { table: { disable: true } },
+    onActiveChange: { table: { disable: true } },
+    searchValue: { table: { disable: true } },
+    onSearchChange: { table: { disable: true } },
+    logo: { table: { disable: true } },
+    profile: { table: { disable: true } },
+    user: { table: { disable: true } },
+    footerSection: { table: { disable: true } },
+    children: { table: { disable: true } },
+    className: { table: { disable: true } },
+  },
+  args: {
+    variant: '1',
+    theme: 'light',
+    state: 'default',
+    hasSearch: true,
+    searchPlaceholder: 'Search',
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof Sidebar>;
+
+// ─── Helper for Demo Sidebars ────────────────────────────────────────────────
+
+const renderDemoSections = (theme: SidebarTheme, prefix = '') => (
+  <>
+    <SidebarSection title="Section Title" theme={theme}>
+      <SidebarMenuItem
+        id={`${prefix}m1`}
+        theme={theme}
+        label="Menu title"
+        icon={<Icon name="hashtag" variant="linear" size={20} />}
+        counter={10}
+      />
+      <SidebarMenuItem
+        id={`${prefix}m2`}
+        theme={theme}
+        label="Menu title"
+        icon={<Icon name="hashtag" variant="linear" size={20} />}
+        counter={10}
+      />
+      <SidebarMenuItem
+        id={`${prefix}m3`}
+        theme={theme}
+        label="Menu title"
+        icon={<Icon name="hashtag" variant="linear" size={20} />}
+        counter={10}
+      />
+      <SidebarMenuItem
+        id={`${prefix}m4`}
+        theme={theme}
+        label="Menu title"
+        icon={<Icon name="hashtag" variant="linear" size={20} />}
+        counter={10}
+      />
+      <SidebarMenuItem
+        id={`${prefix}m5`}
+        theme={theme}
+        label="Menu title"
+        icon={<Icon name="hashtag" variant="linear" size={20} />}
+        counter={10}
+      />
+    </SidebarSection>
+
+    <SidebarSection title="Section Title" theme={theme} hasDivider>
+      <SidebarMenuItem
+        id={`${prefix}m6`}
+        theme={theme}
+        label="Menu title"
+        icon={<Icon name="hashtag" variant="linear" size={20} />}
+        counter={10}
+      />
+      <SidebarMenuItem
+        id={`${prefix}m7`}
+        theme={theme}
+        label="Menu title"
+        icon={<Icon name="hashtag" variant="linear" size={20} />}
+        counter={10}
+      />
+      <SidebarMenuItem
+        id={`${prefix}m8`}
+        theme={theme}
+        label="Menu title"
+        icon={<Icon name="hashtag" variant="linear" size={20} />}
+        counter={10}
+      />
+      <SidebarMenuItem
+        id={`${prefix}m9`}
+        theme={theme}
+        label="Menu title"
+        icon={<Icon name="hashtag" variant="linear" size={20} />}
+        counter={10}
+      />
+    </SidebarSection>
+
+    <SidebarSection title="Section Title" theme={theme}>
+      <SidebarMenuItem
+        id={`${prefix}m10`}
+        theme={theme}
+        label="Menu title"
+        icon={<Icon name="hashtag" variant="linear" size={20} />}
+        counter={10}
+      />
+      <SidebarMenuItem
+        id={`${prefix}m11`}
+        theme={theme}
+        label="Menu title"
+        icon={<Icon name="hashtag" variant="linear" size={20} />}
+        counter={10}
+      />
+    </SidebarSection>
+  </>
+);
+
+// ─── 1. All Figma Variants Matrix (Canvas 347:10108 Exact Replica) ───────────
+
+export const AllFigmaVariantsMatrix: Story = {
+  name: 'Canvas / All Figma Variants Matrix',
+  render: () => {
+    const themes: SidebarTheme[] = ['light', 'blue', 'dark-blue', 'dark-grey'];
+
+    return (
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '64px',
+          padding: '40px',
+          backgroundColor: '#0D1424',
+          minHeight: '100vh',
+          overflowX: 'auto',
+        }}
+      >
+        <div>
+          <h2 style={{ color: '#FFFFFF', margin: '0 0 8px 0', fontFamily: 'var(--font-family-primary)' }}>
+            Figma &quot;✤ Sidebars&quot; Complete Matrix (Node 347:10108)
+          </h2>
+          <p style={{ color: 'var(--color-primary-75)', margin: 0, fontSize: '14px' }}>
+            Direct 1:1 replica of the 8 canonical sidebar variants across all 4 themes (Light, Blue, Dark Blue with gold icons, Dark Grey) in both Default (272px) and Collapsed (82px) states.
+          </p>
+        </div>
+
+        {/* Row 1: Variant 1 (Logo top, Profile bottom) */}
+        <div>
+          <h3 style={{ color: 'var(--color-secondary-300)', marginBottom: '16px', fontFamily: 'var(--font-family-primary)' }}>
+            Row 1: Variant 1 (Brand Logo Top, User Profile Bottom)
+          </h3>
+          <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
+            {themes.map(theme => (
+              <div key={`v1-${theme}`} style={{ display: 'flex', gap: '16px' }}>
+                {/* Default 272px */}
+                <div style={{ width: '272px', height: '960px', boxShadow: '0 8px 24px rgba(0,0,0,0.3)', borderRadius: '8px', overflow: 'hidden' }}>
+                  <Sidebar
+                    variant="1"
+                    theme={theme}
+                    state="default"
+                    activeId={`v1-${theme}-m1`}
+                  >
+                    {renderDemoSections(theme, `v1-${theme}-`)}
+                  </Sidebar>
+                </div>
+
+                {/* Collapsed 82px */}
+                <div style={{ width: '82px', height: '960px', boxShadow: '0 8px 24px rgba(0,0,0,0.3)', borderRadius: '8px', overflow: 'hidden' }}>
+                  <Sidebar
+                    variant="1"
+                    theme={theme}
+                    state="collapsed"
+                    activeId={`v1-${theme}-c-m1`}
+                  >
+                    {renderDemoSections(theme, `v1-${theme}-c-`)}
+                  </Sidebar>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Row 2: Variant 2 (Profile top, Logo bottom) */}
+        <div>
+          <h3 style={{ color: 'var(--color-secondary-300)', marginBottom: '16px', fontFamily: 'var(--font-family-primary)' }}>
+            Row 2: Variant 2 (User Profile Top with Chevron, Brand Logo Bottom)
+          </h3>
+          <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
+            {themes.map(theme => (
+              <div key={`v2-${theme}`} style={{ display: 'flex', gap: '16px' }}>
+                {/* Default 272px */}
+                <div style={{ width: '272px', height: '960px', boxShadow: '0 8px 24px rgba(0,0,0,0.3)', borderRadius: '8px', overflow: 'hidden' }}>
+                  <Sidebar
+                    variant="2"
+                    theme={theme}
+                    state="default"
+                    activeId={`v2-${theme}-m1`}
+                  >
+                    {renderDemoSections(theme, `v2-${theme}-`)}
+                  </Sidebar>
+                </div>
+
+                {/* Collapsed 82px */}
+                <div style={{ width: '82px', height: '960px', boxShadow: '0 8px 24px rgba(0,0,0,0.3)', borderRadius: '8px', overflow: 'hidden' }}>
+                  <Sidebar
+                    variant="2"
+                    theme={theme}
+                    state="collapsed"
+                    activeId={`v2-${theme}-c-m1`}
+                  >
+                    {renderDemoSections(theme, `v2-${theme}-c-`)}
+                  </Sidebar>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  },
+};
+
+// ─── 2. Menu Item Cells Matrix (Figma 2437:56486) ───────────────────────────
+
+export const MenuItemCells: Story = {
+  name: 'Cells / Menu Item Matrix',
+  render: () => {
+    const themes: SidebarTheme[] = ['light', 'blue', 'dark-blue', 'dark-grey'];
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', padding: '24px' }}>
+        <div>
+          <h3 style={{ margin: '0 0 8px 0', fontFamily: 'var(--font-family-primary)' }}>
+            Sidebar / Menu Item Cells (Figma 2437:56486)
+          </h3>
+          <p style={{ margin: 0, color: 'var(--color-neutral-500)', fontSize: '14px' }}>
+            Hierarchical cells showing Default, Hover, Selected, and Multi-Layered states. Note that in Dark Blue theme, icons use official FMDQ Gold (#CC9933) token.
+          </p>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px' }}>
+          {themes.map(theme => {
+            const isDark = theme !== 'light';
+            const bg =
+              theme === 'light'
+                ? '#FFFFFF'
+                : theme === 'blue'
+                ? 'var(--color-primary-800)'
+                : theme === 'dark-blue'
+                ? 'var(--color-primary-900)'
+                : 'var(--color-neutral-900)';
+
+            return (
+              <div
+                key={theme}
+                style={{
+                  backgroundColor: bg,
+                  padding: '20px',
+                  borderRadius: '12px',
+                  border: '1px solid var(--color-neutral-200)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '12px',
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: '12px',
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                    color: isDark ? 'var(--color-neutral-300)' : 'var(--color-neutral-500)',
+                    letterSpacing: '0.05em',
+                  }}
+                >
+                  Theme: {theme}
+                </span>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  {/* Default State */}
+                  <SidebarMenuItem
+                    id={`cell-def-${theme}`}
+                    theme={theme}
+                    label="Menu title"
+                    icon={<Icon name="hashtag" variant="linear" size={20} />}
+                    counter={10}
+                  />
+
+                  {/* Selected State */}
+                  <SidebarMenuItem
+                    id={`cell-sel-${theme}`}
+                    theme={theme}
+                    label="Menu title"
+                    icon={<Icon name="hashtag" variant="linear" size={20} />}
+                    selected
+                    counter={10}
+                  />
+
+                  {/* Multi-layered with Sub-menu */}
+                  <SidebarMenuItem
+                    id={`cell-multi-${theme}`}
+                    theme={theme}
+                    type="multi-layered"
+                    label="Reports & Analytics"
+                    icon={<Icon name="bar-chart-v" variant="linear" size={20} />}
+                    defaultExpanded
+                    subItems={
+                      <>
+                        <SidebarSubMenuItem id={`sub-1-${theme}`} label="Turnover Rates" theme={theme} selected />
+                        <SidebarSubMenuItem id={`sub-2-${theme}`} label="Volume Reports" theme={theme} />
+                        <SidebarSubMenuItem id={`sub-3-${theme}`} label="Member Audits" theme={theme} />
+                      </>
+                    }
+                  />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  },
+};
+
+// ─── 3. Sub-Menu Item Cells Matrix (Figma 2437:57101) ───────────────────────
+
+export const SubMenuItemCells: Story = {
+  name: 'Cells / Sub-Menu Item Matrix',
+  render: () => {
+    const themes: SidebarTheme[] = ['light', 'blue', 'dark-blue', 'dark-grey'];
+
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', padding: '24px' }}>
+        <div>
+          <h3 style={{ margin: '0 0 8px 0', fontFamily: 'var(--font-family-primary)' }}>
+            Sidebar / Sub-Menu Item Atom (Figma 2437:57101)
+          </h3>
+          <p style={{ margin: 0, color: 'var(--color-neutral-500)', fontSize: '14px' }}>
+            Nested sub-items with circular bullet indicator, 14px typography, and hover/selected background tokens.
+          </p>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px' }}>
+          {themes.map(theme => {
+            const isDark = theme !== 'light';
+            const bg =
+              theme === 'light'
+                ? '#FFFFFF'
+                : theme === 'blue'
+                ? 'var(--color-primary-800)'
+                : theme === 'dark-blue'
+                ? 'var(--color-primary-900)'
+                : 'var(--color-neutral-900)';
+
+            return (
+              <div
+                key={theme}
+                style={{
+                  backgroundColor: bg,
+                  padding: '20px',
+                  borderRadius: '12px',
+                  border: '1px solid var(--color-neutral-200)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '8px',
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: '12px',
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                    color: isDark ? 'var(--color-neutral-300)' : 'var(--color-neutral-500)',
+                    marginBottom: '8px',
+                  }}
+                >
+                  Theme: {theme}
+                </span>
+
+                <SidebarSubMenuItem id={`sub-def-${theme}`} label="Default Sub-item" theme={theme} />
+                <SidebarSubMenuItem id={`sub-sel-${theme}`} label="Selected Sub-item" theme={theme} selected />
+                <SidebarSubMenuItem
+                  id={`sub-badge-${theme}`}
+                  label="With Count Badge"
+                  theme={theme}
+                  badge={<span style={{ fontSize: '11px', opacity: 0.8 }}>NEW</span>}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  },
+};
+
+// ─── 4. Full Sidebar: Variant 1 (Light Theme) ───────────────────────────────
+
+export const Variant1Light: Story = {
+  name: 'Variant 1 / Light Theme (Default)',
+  render: () => {
+    const [active, setActive] = useState('surveillance');
+
+    return (
+      <div style={{ display: 'flex', height: '100vh', backgroundColor: '#F8FAFC' }}>
+        <Sidebar
+          variant="1"
+          theme="light"
+          activeId={active}
+          onActiveChange={setActive}
+          user={{
+            name: 'David Eno',
+            email: 'david.e@fmdq.ui',
+          }}
+          footerSection={
+            <SidebarSection title="Preferences" hasDivider>
+              <SidebarMenuItem
+                id="settings"
+                label="System Settings"
+                icon={<Icon name="settings-2" variant="linear" size={20} />}
+              />
+            </SidebarSection>
+          }
+        >
+          {renderDemoSections('light', 'v1-l-')}
+        </Sidebar>
+
+        <main style={{ flex: 1, padding: '32px', fontFamily: 'var(--font-family-primary)' }}>
+          <h2 style={{ margin: '0 0 8px 0', fontSize: 'var(--font-size-h5)' }}>
+            Active Module: <span style={{ color: 'var(--color-primary-700)' }}>{active}</span>
+          </h2>
+          <p style={{ color: 'var(--color-neutral-500)', fontSize: 'var(--font-size-p-sm)' }}>
+            Sidebar demonstrates live state synchronization with full design system token adherence.
+          </p>
+        </main>
+      </div>
+    );
+  },
+};
+
+// ─── 5. Full Sidebar: Variant 1 (Dark Blue Theme) ───────────────────────────
+
+export const Variant1DarkBlue: Story = {
+  name: 'Variant 1 / Dark Blue Theme',
+  render: () => {
+    const [active, setActive] = useState('v1-db-m1');
+
+    return (
+      <div style={{ display: 'flex', height: '100vh', backgroundColor: '#07101E' }}>
+        <Sidebar
+          variant="1"
+          theme="dark-blue"
+          activeId={active}
+          onActiveChange={setActive}
+          user={{
+            name: 'David Eno',
+            email: 'david.e@fmdq.ui',
+          }}
+        >
+          {renderDemoSections('dark-blue', 'v1-db-')}
+        </Sidebar>
+
+        <main style={{ flex: 1, padding: '32px', fontFamily: 'var(--font-family-primary)', color: '#FFFFFF' }}>
+          <h2 style={{ margin: '0 0 8px 0', fontSize: 'var(--font-size-h5)' }}>
+            Dark Blue Theme with Gold Icons
+          </h2>
+          <p style={{ color: 'var(--color-primary-75)', fontSize: 'var(--font-size-p-sm)' }}>
+            Official FMDQ Gold (#CC9933) icon strokes active on dark blue backgrounds matching Figma 3167:145002.
+          </p>
+        </main>
+      </div>
+    );
+  },
+};
+
+// ─── 6. Full Sidebar: Variant 2 (Profile Top) ───────────────────────────────
+
+export const Variant2ProfileTop: Story = {
+  name: 'Variant 2 / Profile Top',
+  render: () => {
+    const [active, setActive] = useState('v2-l-m1');
+
+    return (
+      <div style={{ display: 'flex', height: '100vh', backgroundColor: '#F8FAFC' }}>
+        <Sidebar
+          variant="2"
+          theme="light"
+          activeId={active}
+          onActiveChange={setActive}
+          user={{
+            name: 'David Eno',
+            email: 'david.e@fmdq.ui',
+          }}
+        >
+          {renderDemoSections('light', 'v2-l-')}
+        </Sidebar>
+
+        <main style={{ flex: 1, padding: '32px', fontFamily: 'var(--font-family-primary)' }}>
+          <h2 style={{ margin: '0 0 8px 0', fontSize: 'var(--font-size-h5)' }}>
+            Variant 2: Top Profile with Chevron Selector, Bottom Brand Logo
+          </h2>
+          <p style={{ color: 'var(--color-neutral-500)', fontSize: 'var(--font-size-p-sm)' }}>
+            Figma Variant 2 places the user identity card in the header and FMDQ branding at the bottom footer.
+          </p>
+        </main>
+      </div>
+    );
+  },
+};
+
+// ─── 7. Collapsed Sidebar (82px) ─────────────────────────────────────────────
+
+export const CollapsedState: Story = {
+  name: 'State / Collapsed (82px)',
+  render: () => {
+    const [collapsed, setCollapsed] = useState(true);
+
+    return (
+      <div style={{ display: 'flex', height: '100vh', backgroundColor: 'var(--color-neutral-100)' }}>
+        <Sidebar
+          variant="1"
+          theme="light"
+          state={collapsed ? 'collapsed' : 'default'}
+          onToggleCollapse={() => setCollapsed(!collapsed)}
+          activeId="c-m1"
+        >
+          {renderDemoSections('light', 'c-')}
+        </Sidebar>
+
+        <main style={{ flex: 1, padding: '32px', fontFamily: 'var(--font-family-primary)' }}>
+          <h2 style={{ margin: '0 0 8px 0', fontSize: 'var(--font-size-h5)' }}>
+            Collapsed Mode (82px Width)
+          </h2>
+          <p style={{ color: 'var(--color-neutral-500)', fontSize: 'var(--font-size-p-sm)' }}>
+            Click the hamburger button (☰) at the top or the floating collapse arrow to toggle between 82px and 272px.
+          </p>
+        </main>
+      </div>
+    );
+  },
+};
+
+// ─── 8. Account Flyout Menu ──────────────────────────────────────────────────
+
+export const AccountMenuStandalone: Story = {
+  name: 'Popover / Account Flyout Menu',
+  render: () => (
+    <div style={{ padding: '40px', backgroundColor: 'var(--color-neutral-100)', minHeight: '400px' }}>
+      <h3 style={{ margin: '0 0 16px 0', fontFamily: 'var(--font-family-primary)' }}>
+        Sidebar / Account Menu (Figma 10322:286059)
+      </h3>
+      <div style={{ position: 'relative', width: '248px' }}>
+        <SidebarAccountMenu isOpen={true} onClose={() => {}} />
+      </div>
+    </div>
+  ),
+};
+
+// ─── 9. Interactive Playground ───────────────────────────────────────────────
+
+export const Playground: Story = {
+  args: {
+    variant: '1',
+    theme: 'light',
+    state: 'default',
+    hasSearch: true,
+    searchPlaceholder: 'Search',
+  },
+  render: args => {
+    const isCollapsed = args.state === 'collapsed';
+    const currentTheme = (args.theme as SidebarTheme) || 'light';
+    const isDark = currentTheme !== 'light';
+
+    return (
+      <div
+        style={{
+          display: 'flex',
+          height: '100vh',
+          backgroundColor: isDark ? '#0D1424' : '#F8FAFC',
+          transition: 'background-color 0.2s ease',
+        }}
+      >
+        <Sidebar
+          {...args}
+          variant={args.variant}
+          theme={currentTheme}
+          state={args.state}
+          collapsed={isCollapsed}
+          hasSearch={args.hasSearch}
+          searchPlaceholder={args.searchPlaceholder}
+          activeId="p-m1"
+        >
+          {renderDemoSections(currentTheme, 'p-')}
+        </Sidebar>
+
+        <main
+          style={{
+            flex: 1,
+            padding: '32px',
+            fontFamily: 'var(--font-family-primary)',
+            color: isDark ? '#FFFFFF' : '#101928',
+          }}
+        >
+          <h2 style={{ margin: '0 0 8px 0' }}>Sidebar Playground</h2>
+          <p style={{ margin: '0 0 24px 0', color: isDark ? 'var(--color-primary-75)' : 'var(--color-neutral-500)' }}>
+            Use the Storybook controls below to inspect variants, themes, and states dynamically.
+          </p>
+          <div
+            style={{
+              display: 'flex',
+              gap: '24px',
+              padding: '16px',
+              borderRadius: '8px',
+              backgroundColor: isDark ? 'rgba(255, 255, 255, 0.05)' : 'var(--color-neutral-100)',
+              fontSize: '14px',
+            }}
+          >
+            <div><strong>Variant:</strong> {args.variant}</div>
+            <div><strong>Theme:</strong> {args.theme}</div>
+            <div><strong>State:</strong> {args.state} ({isCollapsed ? '82px Collapsed' : '272px Default'})</div>
+            <div><strong>Search:</strong> {args.hasSearch ? 'Visible' : 'Hidden'}</div>
+          </div>
+        </main>
+      </div>
+    );
+  },
+};

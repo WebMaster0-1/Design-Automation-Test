@@ -1,196 +1,303 @@
-import React, { useState, useRef, useEffect, useId } from 'react';
+import React, { useState, useRef, useEffect, forwardRef } from 'react';
+import type { ReactNode } from 'react';
 import './Dropdown.css';
+import { Button } from '../../elements/Button';
+import { Avatar } from '../../elements/Avatar';
+import { Divider } from '../../elements/Divider';
+import { Icon } from '../../foundations/icons';
 
-export type DropdownType = 'default' | 'icon leading' | 'avatar leading' | 'status';
-export type DropdownState = 'default' | 'hover' | 'active' | 'filled' | 'disabled';
+// ─── Types matching Figma "Dropdown / Menu" (2190:52619) & (2159:51455) ──────
 
-export interface DropdownItem {
+export type DropdownTriggerType = 'default' | 'avatar' | 'icon-only';
+export type DropdownState = 'default' | 'hover' | 'active' | 'disabled';
+export type DropdownItemType = 'default' | 'icon' | 'avatar';
+export type DropdownItemState = 'default' | 'hover' | 'focused' | 'selected' | 'disabled';
+
+export interface DropdownItemDef {
   id?: string | number;
-  value?: string | number;
-  label: React.ReactNode;
-  sublabel?: React.ReactNode;
-  icon?: React.ReactNode;
+  label: ReactNode;
+  type?: DropdownItemType;
+  state?: DropdownItemState;
+  icon?: ReactNode;
   avatarUrl?: string;
-  statusColor?: string;
-  onClick?: () => void;
+  shortcut?: string;
+  hasCheckbox?: boolean;
+  selected?: boolean;
   disabled?: boolean;
   destructive?: boolean;
+  onClick?: () => void;
 }
 
-export type DropdownOption = DropdownItem;
+export interface DropdownSectionDef {
+  header?: {
+    title: ReactNode;
+    subtitle?: ReactNode;
+    borders?: boolean;
+  };
+  items: DropdownItemDef[];
+  hasDivider?: boolean;
+}
 
-export interface DropdownProps {
-  /** Variant type matching Figma: 'default', 'icon leading', 'avatar leading', 'status' */
-  type?: DropdownType;
-  /** Visual state matching Figma: 'default', 'hover', 'active', 'filled', 'disabled' */
-  state?: DropdownState;
-  /** Whether the dropdown menu is open (maps to Figma 'extended' boolean) */
-  extended?: boolean;
-  /** Field label rendered above selector */
-  label?: string;
-  /** Show/hide label — maps to Figma 'has label' */
-  hasLabel?: boolean;
-  /** Helper text rendered below selector */
-  helperText?: string;
-  /** Show/hide helper text — maps to Figma 'has helper texts' */
-  hasHelperText?: boolean;
-  /** Placeholder text shown when no value is selected */
-  placeholder?: string;
-  /** Controlled selected value */
-  value?: string | number;
-  /** Default selected value (uncontrolled) */
-  defaultValue?: string | number;
-  /** Callback fired when an option is selected */
-  onChange?: (value: string | number, item?: DropdownItem) => void;
-  /** List of dropdown options */
-  options?: DropdownItem[];
-  /** Alias for options (backward compatibility) */
-  items?: DropdownItem[];
-  /** Custom trigger element (for backward compatibility action menus) */
-  trigger?: React.ReactNode;
-  /** Leading icon override for 'icon leading' type */
-  leadingIcon?: React.ReactNode;
-  /** Avatar image URL for 'avatar leading' type */
+// ─── 1. Dropdown Header (Figma 2159:85848) ───────────────────────────────────
+
+export interface DropdownHeaderProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
+  title: ReactNode;
+  subtitle?: ReactNode;
+  borders?: boolean;
+}
+
+export const DropdownHeader: React.FC<DropdownHeaderProps> = ({
+  title,
+  subtitle,
+  borders = true,
+  className = '',
+  ...props
+}) => (
+  <div
+    className={`fmdqui-dropdown-header ${borders ? 'fmdqui-dropdown-header--borders' : ''} ${className}`}
+    {...props}
+  >
+    <div className="fmdqui-dropdown-header__heading">
+      <span className="fmdqui-dropdown-header__title fmdq-text fmdq-text--size-sm fmdq-text--weight-semibold">
+        {title}
+      </span>
+      {subtitle && (
+        <span className="fmdqui-dropdown-header__subtitle fmdq-text fmdq-text--size-xs">
+          {subtitle}
+        </span>
+      )}
+    </div>
+  </div>
+);
+DropdownHeader.displayName = 'DropdownHeader';
+
+// ─── 2. Dropdown Menu Item (Figma 2159:51455) ─────────────────────────────────
+
+export interface DropdownItemProps extends Omit<React.LiHTMLAttributes<HTMLLIElement>, 'onClick'> {
+  type?: DropdownItemType;
+  state?: DropdownItemState;
+  label: ReactNode;
+  icon?: ReactNode;
   avatarUrl?: string;
-  /** Status color override for 'status' type (default: #04802E) */
-  statusColor?: string;
-  /** Disabled state */
+  shortcut?: string;
+  hasCheckbox?: boolean;
+  selected?: boolean;
   disabled?: boolean;
-  /** Alignment of popup menu ('left' | 'right') */
+  destructive?: boolean;
+  onClick?: () => void;
+}
+
+export const DropdownItem = forwardRef<HTMLLIElement, DropdownItemProps>(
+  (
+    {
+      type = 'default',
+      state = 'default',
+      label,
+      icon,
+      avatarUrl = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=40&h=40&q=80',
+      shortcut,
+      hasCheckbox = false,
+      selected = false,
+      disabled = false,
+      destructive = false,
+      className = '',
+      onClick,
+      ...props
+    },
+    ref
+  ) => {
+    const isSelected = selected || state === 'selected';
+    const isDisabled = disabled || state === 'disabled';
+
+    const classNames = [
+      'fmdqui-dropdown-item',
+      `fmdqui-dropdown-item--type-${type}`,
+      `fmdqui-dropdown-item--state-${state}`,
+      isSelected ? 'fmdqui-dropdown-item--selected' : '',
+      isDisabled ? 'fmdqui-dropdown-item--disabled' : '',
+      destructive ? 'fmdqui-dropdown-item--destructive' : '',
+      className,
+    ].filter(Boolean).join(' ');
+
+    const handleClick = (e: React.MouseEvent) => {
+      if (isDisabled) {
+        e.preventDefault();
+        return;
+      }
+      onClick?.();
+    };
+
+    return (
+      <li
+        ref={ref}
+        className={classNames}
+        role="menuitem"
+        aria-selected={isSelected}
+        aria-disabled={isDisabled}
+        onClick={handleClick}
+        tabIndex={isDisabled ? -1 : 0}
+        {...props}
+      >
+        <div className="fmdqui-dropdown-item__left">
+          {type === 'icon' && (
+            <span className="fmdqui-dropdown-item__icon" aria-hidden="true">
+              {icon ?? <Icon name="settings-2" variant="linear" size={16} />}
+            </span>
+          )}
+
+          {type === 'avatar' && (
+            <span className="fmdqui-dropdown-item__avatar" aria-hidden="true">
+              <Avatar size="xs" type="Image" imageUrl={avatarUrl} />
+            </span>
+          )}
+
+          <span className="fmdqui-dropdown-item__label fmdq-text fmdq-text--size-sm">
+            {label}
+          </span>
+        </div>
+
+        <div className="fmdqui-dropdown-item__right">
+          {shortcut && (
+            <span className="fmdqui-dropdown-item__shortcut" aria-label={`Shortcut: ${shortcut}`}>
+              {shortcut}
+            </span>
+          )}
+
+          {(hasCheckbox || isSelected) && (
+            <span className="fmdqui-dropdown-item__toggle" aria-hidden="true">
+              <Icon name="check" variant="linear" size={14} />
+            </span>
+          )}
+        </div>
+      </li>
+    );
+  }
+);
+DropdownItem.displayName = 'DropdownItem';
+
+// ─── 3. Dropdown Menu Items Section (Figma 2159:81118) ───────────────────────
+
+export interface DropdownSectionProps extends React.HTMLAttributes<HTMLDivElement> {
+  header?: ReactNode;
+  hasDivider?: boolean;
+  children: ReactNode;
+}
+
+export const DropdownSection: React.FC<DropdownSectionProps> = ({
+  header,
+  hasDivider = false,
+  children,
+  className = '',
+  ...props
+}) => (
+  <div className={`fmdqui-dropdown-section ${className}`} {...props}>
+    {header}
+    <ul className="fmdqui-dropdown-section__items" role="menu">
+      {children}
+    </ul>
+    {hasDivider && (
+      <div className="fmdqui-dropdown-section__divider">
+        <Divider type="default" />
+      </div>
+    )}
+  </div>
+);
+DropdownSection.displayName = 'DropdownSection';
+
+// ─── 4. Dropdown Menu Popover (Figma 2159:81323) ─────────────────────────────
+
+export interface DropdownMenuProps extends React.HTMLAttributes<HTMLDivElement> {
+  isOpen: boolean;
   align?: 'left' | 'right';
+  children: ReactNode;
+}
+
+export const DropdownMenu: React.FC<DropdownMenuProps> = ({
+  isOpen,
+  align = 'left',
+  children,
+  className = '',
+  ...props
+}) => {
+  if (!isOpen) return null;
+
+  return (
+    <div
+      className={`fmdqui-dropdown-menu fmdqui-dropdown-menu--align-${align} ${className}`}
+      role="menu"
+      {...props}
+    >
+      {children}
+    </div>
+  );
+};
+DropdownMenu.displayName = 'DropdownMenu';
+
+// ─── 5. Full Dropdown Composite (Figma 2190:52619 "Dropdown / Menu") ─────────
+
+export interface DropdownProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+  /** Trigger element type: 'default' (Button), 'avatar' (32px Avatar), 'icon-only' (28px button) */
+  type?: DropdownTriggerType;
+  /** Visual state matching Figma: 'default', 'hover', 'active', 'disabled' */
+  state?: DropdownState;
+  /** Extended / open menu state */
+  extended?: boolean;
   /** Controlled open state */
   isOpen?: boolean;
   /** Default open state */
   defaultIsOpen?: boolean;
-  /** Callback when open state changes */
+  /** Callback fired when open state changes */
   onOpenChange?: (open: boolean) => void;
-  /** Additional CSS class */
-  className?: string;
-  /** Inline styles */
-  style?: React.CSSProperties;
-  /** Input name for forms */
-  name?: string;
-  /** Unique id for label pairing */
-  id?: string;
+  /** Disabled state */
+  disabled?: boolean;
+  /** Button label for 'default' trigger */
+  label?: string;
+  /** Avatar image URL for 'avatar' trigger */
+  avatarUrl?: string;
+  /** Icon name for 'icon-only' trigger (default: "more-vertical") */
+  iconName?: string;
+  /** Custom trigger element override */
+  trigger?: ReactNode;
+  /** Popover menu alignment ('left' | 'right') */
+  align?: 'left' | 'right';
+  /** Structured data-driven sections and items */
+  sections?: DropdownSectionDef[];
+  /** Flat list of items (convenience) */
+  items?: DropdownItemDef[];
+  /** Declarative compound subcomponents */
+  children?: ReactNode;
 }
-
-// ─── Default Figma-matching SVGs ─────────────────────────────────────────────
-
-const ChevronDownIcon = () => (
-  <svg
-    width="20"
-    height="20"
-    viewBox="0 0 20 20"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className="fmdqui-dropdown__chevron"
-  >
-    <path
-      d="M5 7.5L10 12.5L15 7.5"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-const HeartIcon = () => (
-  <svg
-    width="20"
-    height="20"
-    viewBox="0 0 20 20"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className="fmdqui-dropdown__leading-icon"
-  >
-    <path
-      d="M10 16.5C10 16.5 2.5 12.5 2.5 7.5C2.5 4.5 4.5 2.5 7.5 2.5C9.24 2.5 10 3.5 10 3.5C10 3.5 10.76 2.5 12.5 2.5C15.5 2.5 17.5 4.5 17.5 7.5C17.5 12.5 10 16.5 10 16.5Z"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-const DefaultAvatar = ({ url, initials = 'U' }: { url?: string; initials?: string }) => {
-  if (url) {
-    return (
-      <span className="fmdqui-dropdown__avatar">
-        <img src={url} alt="Avatar" className="fmdqui-dropdown__avatar-img" />
-      </span>
-    );
-  }
-  return (
-    <span className="fmdqui-dropdown__avatar fmdqui-dropdown__avatar--placeholder">
-      {initials}
-    </span>
-  );
-};
-
-const StatusIndicator = ({ color = '#04802E' }: { color?: string }) => (
-  <span className="fmdqui-dropdown__status-dot" style={{ backgroundColor: color }} />
-);
-
-// ─── Component Implementation ────────────────────────────────────────────────
 
 export const Dropdown: React.FC<DropdownProps> = ({
   type = 'default',
   state: stateProp,
   extended,
-  label = 'Label',
-  hasLabel = true,
-  helperText = 'Helper text',
-  hasHelperText = false,
-  placeholder = 'Placeholder',
-  value: controlledValue,
-  defaultValue,
-  onChange,
-  options,
-  items,
-  trigger,
-  leadingIcon,
-  avatarUrl = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&h=80&q=80',
-  statusColor = '#04802E',
-  disabled = false,
-  align = 'left',
   isOpen: controlledIsOpen,
   defaultIsOpen = false,
   onOpenChange,
+  disabled = false,
+  label = 'Options',
+  avatarUrl = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=64&h=64&q=80',
+  iconName = 'more-vertical',
+  trigger,
+  align = 'left',
+  sections,
+  items,
+  children,
   className = '',
   style,
-  name,
-  id,
+  ...props
 }) => {
-  const generatedId = useId();
-  const fieldId = id || generatedId;
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  // Normalize options/items
-  const resolvedOptions: DropdownItem[] = options || items || [];
-
-  // Internal selection state
-  const isControlledValue = controlledValue !== undefined;
-  const [internalValue, setInternalValue] = useState<string | number | undefined>(defaultValue);
-  const selectedValue = isControlledValue ? controlledValue : internalValue;
-
-  // Internal open state
   const isControlledOpen = controlledIsOpen !== undefined || extended !== undefined;
   const effectiveControlledOpen = controlledIsOpen !== undefined ? controlledIsOpen : extended;
   const [internalIsOpen, setInternalIsOpen] = useState(defaultIsOpen);
   const isOpen = isControlledOpen ? Boolean(effectiveControlledOpen) : internalIsOpen;
 
-  // Resolve active option object if any
-  const selectedOption = resolvedOptions.find(
-    (opt) => (opt.value ?? opt.id) === selectedValue
-  );
-
-  // Derive visual state
   const isDisabled = disabled || stateProp === 'disabled';
-  const isFilled = stateProp === 'filled' || (Boolean(selectedValue) && stateProp !== 'default');
-  const isHover = stateProp === 'hover';
   const isActive = stateProp === 'active' || isOpen;
+  const isHover = stateProp === 'hover';
 
   const derivedState: DropdownState = isDisabled
     ? 'disabled'
@@ -198,16 +305,13 @@ export const Dropdown: React.FC<DropdownProps> = ({
     ? 'active'
     : isHover
     ? 'hover'
-    : isFilled
-    ? 'filled'
     : 'default';
 
-  // Click outside listener
   useEffect(() => {
     if (!isOpen) return;
 
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
         if (!isControlledOpen) {
           setInternalIsOpen(false);
         }
@@ -221,198 +325,159 @@ export const Dropdown: React.FC<DropdownProps> = ({
 
   const handleToggle = () => {
     if (isDisabled) return;
-    const nextOpen = !isOpen;
+    const next = !isOpen;
     if (!isControlledOpen) {
-      setInternalIsOpen(nextOpen);
+      setInternalIsOpen(next);
     }
-    onOpenChange?.(nextOpen);
+    onOpenChange?.(next);
   };
 
-  const handleSelectOption = (item: DropdownItem) => {
-    if (item.disabled || isDisabled) return;
-    const optValue = item.value ?? item.id;
-    if (!isControlledValue && optValue !== undefined) {
-      setInternalValue(optValue);
-    }
-    if (optValue !== undefined) {
-      onChange?.(optValue, item);
-    }
-    item.onClick?.();
-
-    if (!isControlledOpen) {
-      setInternalIsOpen(false);
-    }
-    onOpenChange?.(false);
-  };
-
-  // ── Render Leading Content based on Figma type variant ──
-  const renderLeadingVisual = (itemOption?: DropdownItem) => {
-    if (type === 'icon leading') {
+  const renderTrigger = () => {
+    if (trigger) {
       return (
-        <span className="fmdqui-dropdown__leading-wrapper">
-          {itemOption?.icon || leadingIcon || <HeartIcon />}
-        </span>
-      );
-    }
-    if (type === 'avatar leading') {
-      const url = itemOption?.avatarUrl || avatarUrl;
-      return <DefaultAvatar url={url} />;
-    }
-    if (type === 'status') {
-      const color = itemOption?.statusColor || statusColor;
-      return <StatusIndicator color={color} />;
-    }
-    if (leadingIcon) {
-      return <span className="fmdqui-dropdown__leading-wrapper">{leadingIcon}</span>;
-    }
-    return null;
-  };
-
-  // Backward compatibility: If custom trigger is provided without selector frame
-  if (trigger) {
-    return (
-      <div className={`fmdqui-dropdown ${className}`} ref={dropdownRef} style={style}>
         <div
-          className={`fmdqui-dropdown__trigger ${isDisabled ? 'is-disabled' : ''}`}
+          className={`fmdqui-dropdown__custom-trigger ${isDisabled ? 'is-disabled' : ''}`}
           onClick={handleToggle}
-          role="button"
-          tabIndex={isDisabled ? -1 : 0}
-          aria-haspopup="listbox"
-          aria-expanded={isOpen}
         >
           {trigger}
         </div>
-        {isOpen && (
-          <div className={`fmdqui-dropdown__menu fmdqui-dropdown__menu--align-${align}`}>
-            <ul className="fmdqui-dropdown__list" role="listbox">
-              {resolvedOptions.map((item, index) => {
-                const itemKey = item.id ?? item.value ?? index;
-                const isItemDisabled = item.disabled;
-                return (
-                  <li
-                    key={itemKey}
-                    role="option"
-                    aria-selected={item.value === selectedValue}
-                    className={`fmdqui-dropdown__item ${isItemDisabled ? 'is-disabled' : ''} ${item.destructive ? 'is-destructive' : ''}`}
-                    onClick={() => handleSelectOption(item)}
-                  >
-                    {item.icon && <span className="fmdqui-dropdown__item-icon">{item.icon}</span>}
-                    <div className="fmdqui-dropdown__item-texts">
-                      <span className="fmdqui-dropdown__item-label">{item.label}</span>
-                      {item.sublabel && (
-                        <span className="fmdqui-dropdown__item-sublabel">{item.sublabel}</span>
-                      )}
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        )}
-      </div>
-    );
-  }
+      );
+    }
 
-  // ── Full Figma Dropdown / Selectors Component ──
-  const displayText = selectedOption?.label ?? (derivedState === 'filled' ? 'Input' : placeholder);
-  const isDisplayingPlaceholder = !selectedOption && derivedState !== 'filled';
+    if (type === 'avatar') {
+      return (
+        <button
+          type="button"
+          className={`fmdqui-dropdown__avatar-btn ${isOpen ? 'is-open' : ''} ${isDisabled ? 'is-disabled' : ''}`}
+          onClick={handleToggle}
+          disabled={isDisabled}
+          aria-haspopup="menu"
+          aria-expanded={isOpen}
+          aria-label="User menu"
+        >
+          <Avatar size="sm" type="Image" imageUrl={avatarUrl} />
+        </button>
+      );
+    }
+
+    if (type === 'icon-only') {
+      return (
+        <button
+          type="button"
+          className={`fmdqui-dropdown__icon-btn ${isOpen ? 'is-open' : ''} ${isDisabled ? 'is-disabled' : ''}`}
+          onClick={handleToggle}
+          disabled={isDisabled}
+          aria-haspopup="menu"
+          aria-expanded={isOpen}
+          aria-label="More options"
+        >
+          <Icon name={iconName} variant="linear" size={18} />
+        </button>
+      );
+    }
+
+    // Default trigger: Button with chevron
+    return (
+      <Button
+        size="sm"
+        variant="secondary"
+        buttonType="outlined"
+        disabled={isDisabled}
+        onClick={handleToggle}
+        className={`fmdqui-dropdown__btn-trigger ${isOpen ? 'is-open' : ''}`}
+        aria-haspopup="menu"
+        aria-expanded={isOpen}
+      >
+        <span className="fmdqui-dropdown__btn-content">
+          <span>{label}</span>
+          <Icon
+            name="chevron-down"
+            variant="linear"
+            size={16}
+            className={`fmdqui-dropdown__chevron ${isOpen ? 'is-open' : ''}`}
+          />
+        </span>
+      </Button>
+    );
+  };
+
+  const containerClasses = [
+    'fmdqui-dropdown',
+    `fmdqui-dropdown--type-${type}`,
+    `fmdqui-dropdown--state-${derivedState}`,
+    isOpen ? 'fmdqui-dropdown--open' : '',
+    isDisabled ? 'fmdqui-dropdown--disabled' : '',
+    className,
+  ].filter(Boolean).join(' ');
 
   return (
-    <div
-      className={`fmdqui-dropdown-field fmdqui-dropdown-field--${type.replace(' ', '-')} fmdqui-dropdown-field--state-${derivedState} ${className}`}
-      ref={dropdownRef}
-      style={style}
-    >
-      {/* Label */}
-      {hasLabel && (
-        <label htmlFor={fieldId} className="fmdqui-dropdown__label">
-          {label}
-        </label>
-      )}
+    <div className={containerClasses} ref={containerRef} style={style} {...props}>
+      <div className="fmdqui-dropdown__trigger-wrapper">{renderTrigger()}</div>
 
-      {/* Selector Trigger Frame (Height: 56px, Radius: 12px) */}
-      <div
-        id={fieldId}
-        className={`fmdqui-dropdown__selector ${isOpen ? 'is-open' : ''} ${isDisabled ? 'is-disabled' : ''}`}
-        onClick={handleToggle}
-        role="combobox"
-        tabIndex={isDisabled ? -1 : 0}
-        aria-haspopup="listbox"
-        aria-expanded={isOpen}
-        aria-disabled={isDisabled}
-      >
-        <div className="fmdqui-dropdown__selector-left">
-          {renderLeadingVisual(selectedOption)}
-          <span
-            className={`fmdqui-dropdown__selector-text ${
-              isDisplayingPlaceholder ? 'is-placeholder' : 'is-filled'
-            }`}
-          >
-            {displayText}
-          </span>
-        </div>
-
-        <div className="fmdqui-dropdown__selector-right">
-          <ChevronDownIcon />
-        </div>
-      </div>
-
-      {/* Hidden input for HTML form submission */}
-      {name && (
-        <input
-          type="hidden"
-          name={name}
-          value={selectedValue !== undefined ? String(selectedValue) : ''}
-          disabled={isDisabled}
-        />
-      )}
-
-      {/* Helper Text */}
-      {hasHelperText && (
-        <span className="fmdqui-dropdown__helper-text">{helperText}</span>
-      )}
-
-      {/* Menu List (.Selector menu / menu list) */}
-      {isOpen && (
-        <div className={`fmdqui-dropdown__menu fmdqui-dropdown__menu--align-${align}`}>
-          <ul className="fmdqui-dropdown__list" role="listbox">
-            {resolvedOptions.map((item, index) => {
-              const itemKey = item.id ?? item.value ?? index;
-              const isSelected = (item.value ?? item.id) === selectedValue;
-              const isItemDisabled = item.disabled;
-
-              return (
-                <li
-                  key={itemKey}
-                  role="option"
-                  aria-selected={isSelected}
-                  className={`fmdqui-dropdown__item ${isItemDisabled ? 'is-disabled' : ''} ${
-                    isSelected ? 'is-selected' : ''
-                  } ${item.destructive ? 'is-destructive' : ''}`}
-                  onClick={() => handleSelectOption(item)}
-                >
-                  {/* Leading visual matching current type */}
-                  {type !== 'default' && (
-                    <span className="fmdqui-dropdown__item-leading">
-                      {renderLeadingVisual(item)}
-                    </span>
-                  )}
-
-                  {/* Texts row: Primary label + Secondary @sublabel */}
-                  <div className="fmdqui-dropdown__item-texts">
-                    <span className="fmdqui-dropdown__item-label">{item.label}</span>
-                    {item.sublabel && (
-                      <span className="fmdqui-dropdown__item-sublabel">{item.sublabel}</span>
-                    )}
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      )}
+      <DropdownMenu isOpen={isOpen} align={align}>
+        {children ? (
+          children
+        ) : sections ? (
+          sections.map((sec, secIdx) => (
+            <DropdownSection
+              key={secIdx}
+              header={
+                sec.header ? (
+                  <DropdownHeader
+                    title={sec.header.title}
+                    subtitle={sec.header.subtitle}
+                    borders={sec.header.borders}
+                  />
+                ) : undefined
+              }
+              hasDivider={sec.hasDivider ?? secIdx < sections.length - 1}
+            >
+              {sec.items.map((item, itemIdx) => (
+                <DropdownItem
+                  key={item.id ?? itemIdx}
+                  type={item.type}
+                  state={item.state}
+                  label={item.label}
+                  icon={item.icon}
+                  avatarUrl={item.avatarUrl}
+                  shortcut={item.shortcut}
+                  hasCheckbox={item.hasCheckbox}
+                  selected={item.selected}
+                  disabled={item.disabled}
+                  destructive={item.destructive}
+                  onClick={() => {
+                    item.onClick?.();
+                    if (!isControlledOpen) setInternalIsOpen(false);
+                  }}
+                />
+              ))}
+            </DropdownSection>
+          ))
+        ) : items ? (
+          <DropdownSection>
+            {items.map((item, itemIdx) => (
+              <DropdownItem
+                key={item.id ?? itemIdx}
+                type={item.type}
+                state={item.state}
+                label={item.label}
+                icon={item.icon}
+                avatarUrl={item.avatarUrl}
+                shortcut={item.shortcut}
+                hasCheckbox={item.hasCheckbox}
+                selected={item.selected}
+                disabled={item.disabled}
+                destructive={item.destructive}
+                onClick={() => {
+                  item.onClick?.();
+                  if (!isControlledOpen) setInternalIsOpen(false);
+                }}
+              />
+            ))}
+          </DropdownSection>
+        ) : null}
+      </DropdownMenu>
     </div>
   );
 };
-
-export const DropdownSelector = Dropdown;
+Dropdown.displayName = 'Dropdown';

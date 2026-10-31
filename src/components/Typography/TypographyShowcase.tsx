@@ -198,14 +198,14 @@ export const TypographyShowcase = () => {
         </TypeBlock>
       </section>
 
-      {/* ── Rubik Section (Secondary) ── */}
+      {/* ── Rubik Section (FMDQ NEXT) ── */}
       <TypefaceHero 
         family="rubik"
-        name="Rubik Typeface (Secondary / Brand Accent)"
+        name="Rubik Typeface (FMDQ NEXT)"
         sample="Aa"
-        description="Rubik is a Google Fonts sans-serif with slightly rounded corners. Added to Figma text styles with adjusted letter-spacing (-4% display/H1/H2, -2% H3-H6, 0% body)."
+        description="Rubik is used exclusively for FMDQ NEXT with adjusted letter-spacing (-4% display/H1/H2, -2% H3-H6, 0% body). It is not a secondary UI font."
         weights="Light (300), Regular (400), Medium (500), SemiBold (600), Bold (700)"
-        usage="Secondary Brand Typeface, Alternate Display & Accents"
+        usage="FMDQ NEXT Typeface"
       />
 
       <section>

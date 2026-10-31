@@ -1,6 +1,7 @@
 import React from 'react';
 import './MetricsCard.css';
 import { Badge, type BadgeColor, type BadgeType } from '../../elements/Badge';
+import { Icon } from '../../foundations/icons';
 
 export type MetricsCardType = 'data only' | 'data + CTA';
 export type MetricsCardOrientation = 'left' | 'center';
@@ -43,15 +44,7 @@ export interface MetricsCardProps {
 }
 
 const ChevronRightIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-    <path
-      d="M6 12L10 8L6 4"
-      stroke="currentColor"
-      strokeWidth="1.75"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
+  <Icon name="chevron-right" variant="linear" size={16} />
 );
 
 export const MetricsCard: React.FC<MetricsCardProps> = ({

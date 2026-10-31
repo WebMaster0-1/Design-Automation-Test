@@ -36,7 +36,7 @@
   stroke: var(--color-primary-600, #1671D9);
 }
 .fmdqui-progress-circle__fill--navy {
-  stroke: #1D326D;
+  stroke: var(--color-fmdq-blue, #1D326D);
 }
 .fmdqui-progress-circle__fill--success {
   stroke: var(--color-success-500, #12B76A);
@@ -71,7 +71,7 @@
   height: 48px;
 }
 .fmdqui-progress-circle--xs .fmdqui-progress-circle__text {
-  font-size: 12px;
+  font-size: var(--font-size-p-xs, 12px);
 }
 
 .fmdqui-progress-circle--sm {
@@ -79,7 +79,7 @@
   height: 56px;
 }
 .fmdqui-progress-circle--sm .fmdqui-progress-circle__text {
-  font-size: 12px;
+  font-size: var(--font-size-p-xs, 12px);
 }
 
 .fmdqui-progress-circle--md {
@@ -87,7 +87,7 @@
   height: 72px;
 }
 .fmdqui-progress-circle--md .fmdqui-progress-circle__text {
-  font-size: 14px;
+  font-size: var(--font-size-p-sm, 14px);
 }
 
 .fmdqui-progress-circle--lg {
@@ -95,7 +95,7 @@
   height: 90px;
 }
 .fmdqui-progress-circle--lg .fmdqui-progress-circle__text {
-  font-size: 16px;
+  font-size: var(--font-size-p-md, 16px);
 }
 
 .fmdqui-progress-circle--xl {
@@ -103,5 +103,5 @@
   height: 120px;
 }
 .fmdqui-progress-circle--xl .fmdqui-progress-circle__text {
-  font-size: 18px;
+  font-size: var(--font-size-p-lg, 18px);
 }

@@ -1,10 +1,10 @@
-import { FoldedGlassShader } from './components/FoldedGlassShader';
+import { DrpApp } from './drp/DrpApp';
 import './App.css';
 
 function App() {
   return (
     <main className="app-main">
-      <FoldedGlassShader />
+      <DrpApp />
     </main>
   );
 }

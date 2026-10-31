@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import { Icon } from '../../foundations/icons';
 import './FormControl.css';
 
 export type FormControlType = 'checkbox' | 'radio' | 'checkcircle' | 'toggle' | 'switch';
@@ -21,22 +22,15 @@ export interface ToggleProps
   active?: boolean;
 }
 
-// ─── SVG check icon (13×10, white) ─────────────────────────────────────────
+// ─── SVG check icon (from foundations icon set) ───────────────────────────
 const CheckIcon = () => (
-  <svg
+  <Icon
+    name="check"
+    variant="linear"
+    size={14}
+    color="var(--color-neutral-white)"
     className="fmdqui-toggle__check-icon"
-    viewBox="0 0 13 10"
-    fill="none"
-    aria-hidden="true"
-  >
-    <path
-      d="M1 5L4.5 8.5L12 1"
-      stroke="white"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
+  />
 );
 
 // ─── Standalone Toggle Atom ───────────────────────────────────────────────
