@@ -649,6 +649,83 @@
     "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/6ac31a1"
   },
   {
+    "hash": "e6be9ca",
+    "date": "2026-06-03",
+    "author": "Busayo Ojo",
+    "email": "ojobusayo99@gmail.com",
+    "subject": "Merge pull request #4 from Busayo-ojo/main",
+    "category": "other",
+    "scope": "",
+    "message": "Merge pull request #4 from Busayo-ojo/main",
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/e6be9ca"
+  },
+  {
+    "hash": "9a864c0",
+    "date": "2026-06-03",
+    "author": "Busayo Ojo",
+    "email": "ojobusayo99@gmail.com",
+    "subject": "Merge branch 'main' into main",
+    "category": "other",
+    "scope": "",
+    "message": "Merge branch 'main' into main",
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/9a864c0"
+  },
+  {
+    "hash": "3042999",
+    "date": "2026-06-03",
+    "author": "Busayo Ojo",
+    "email": "ojobusayo99@gmail.com",
+    "subject": "docs: move local clone setup from Getting Started into Contributing",
+    "category": "docs",
+    "scope": "",
+    "message": "move local clone setup from Getting Started into Contributing",
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/3042999"
+  },
+  {
+    "hash": "a7aaade",
+    "date": "2026-06-03",
+    "author": "dudesoamazing",
+    "email": "marvinogah@gmail.com",
+    "subject": "docs: refine punctuation and sentence structure across documentation files",
+    "category": "docs",
+    "scope": "",
+    "message": "refine punctuation and sentence structure across documentation files",
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/a7aaade"
+  },
+  {
+    "hash": "d2f86bd",
+    "date": "2026-06-03",
+    "author": "Busayo Ojo",
+    "email": "ojobusayo99@gmail.com",
+    "subject": "Merge branch 'WebMaster0-1:main' into main",
+    "category": "other",
+    "scope": "",
+    "message": "Merge branch 'WebMaster0-1:main' into main",
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/d2f86bd"
+  },
+  {
+    "hash": "1dc6fab",
+    "date": "2026-06-03",
+    "author": "dudesoamazing",
+    "email": "marvinogah@gmail.com",
+    "subject": "docs: append migration guide and icon showcase updates to changelog data",
+    "category": "docs",
+    "scope": "",
+    "message": "append migration guide and icon showcase updates to changelog data",
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/1dc6fab"
+  },
+  {
+    "hash": "6ac31a1",
+    "date": "2026-06-03",
+    "author": "Busayo Ojo",
+    "email": "ojobusayo99@gmail.com",
+    "subject": "docs: fix incorrect token references in foundations pages",
+    "category": "docs",
+    "scope": "",
+    "message": "fix incorrect token references in foundations pages",
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/6ac31a1"
+  },
+  {
     "hash": "e3b09b9",
     "date": "2026-06-03",
     "author": "Busayo Ojo",
@@ -657,7 +734,73 @@
     "category": "other",
     "scope": "",
     "message": "Migration Guide Docuemntation  (#3)",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/e3b09b9"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/e3b09b9"
+  },
+  {
+    "hash": "47cfa1a",
+    "date": "2026-06-03",
+    "author": "Busayo Ojo",
+    "email": "ojobusayo99@gmail.com",
+    "subject": "docs: round out Welcome navigation and add support section",
+    "category": "docs",
+    "scope": "",
+    "message": "round out Welcome navigation and add support section",
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/47cfa1a"
+  },
+  {
+    "hash": "4da014c",
+    "date": "2026-06-03",
+    "author": "Busayo Ojo",
+    "email": "ojobusayo99@gmail.com",
+    "subject": "docs: rewrite Playground with concrete Controls and prototyping guidance",
+    "category": "docs",
+    "scope": "",
+    "message": "rewrite Playground with concrete Controls and prototyping guidance",
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/4da014c"
+  },
+  {
+    "hash": "fe8df3c",
+    "date": "2026-06-03",
+    "author": "Busayo Ojo",
+    "email": "ojobusayo99@gmail.com",
+    "subject": "docs: expand Contributing with repo conventions and Figma-first workflow",
+    "category": "docs",
+    "scope": "",
+    "message": "expand Contributing with repo conventions and Figma-first workflow",
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/fe8df3c"
+  },
+  {
+    "hash": "28a83b7",
+    "date": "2026-06-03",
+    "author": "Busayo Ojo",
+    "email": "ojobusayo99@gmail.com",
+    "subject": "Merge branch 'WebMaster0-1:main' into main",
+    "category": "other",
+    "scope": "",
+    "message": "Merge branch 'WebMaster0-1:main' into main",
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/28a83b7"
+  },
+  {
+    "hash": "f1b8757",
+    "date": "2026-06-03",
+    "author": "Busayo Ojo",
+    "email": "ojobusayo99@gmail.com",
+    "subject": "docs: document the two local MCP servers and their tools",
+    "category": "docs",
+    "scope": "",
+    "message": "document the two local MCP servers and their tools",
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/f1b8757"
+  },
+  {
+    "hash": "327377b",
+    "date": "2026-06-03",
+    "author": "Busayo Ojo",
+    "email": "ojobusayo99@gmail.com",
+    "subject": "docs: expand Migration Guide with versioning policy and upgrade steps",
+    "category": "docs",
+    "scope": "",
+    "message": "expand Migration Guide with versioning policy and upgrade steps",
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/327377b"
   },
   {
     "hash": "47cfa1a",
@@ -734,7 +877,7 @@
     "category": "docs",
     "scope": "",
     "message": "update IconShowcase badge styles, append changelog data, and remove Icon export from index",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/d49b7db"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/d49b7db"
   },
   {
     "hash": "9b5d7a1",
@@ -745,7 +888,7 @@
     "category": "docs",
     "scope": "",
     "message": "add recent commit history to changelog data",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/9b5d7a1"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/9b5d7a1"
   },
   {
     "hash": "51b7b7a",
@@ -756,7 +899,7 @@
     "category": "other",
     "scope": "",
     "message": "Merge branch 'main' of github.com:WebMaster0-1/Design-Automation-Test",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/51b7b7a"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/51b7b7a"
   },
   {
     "hash": "c89c33d",
@@ -767,7 +910,7 @@
     "category": "chore",
     "scope": "",
     "message": "ignore auto-generated markdown file in public directory",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/c89c33d"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/c89c33d"
   },
   {
     "hash": "99808fd",
@@ -778,7 +921,7 @@
     "category": "fix",
     "scope": "",
     "message": "update Storybook brand logo path",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/99808fd"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/99808fd"
   },
   {
     "hash": "84071d2",
@@ -789,7 +932,7 @@
     "category": "refactor",
     "scope": "",
     "message": "Updated all SVG icon strokes to use currentColor for improved theme compatibility",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/84071d2"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/84071d2"
   },
   {
     "hash": "05633d7",
@@ -800,7 +943,7 @@
     "category": "feat",
     "scope": "",
     "message": "Added extensive icon library and implement automated extraction and assembly scripts. It is well.",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/05633d7"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/05633d7"
   },
   {
     "hash": "5b92185",
@@ -811,7 +954,7 @@
     "category": "feat",
     "scope": "",
     "message": "Implemented Icon component with flexible color and variant support and add icon showcase documentation",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/5b92185"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/5b92185"
   },
   {
     "hash": "5e19163",
@@ -822,7 +965,7 @@
     "category": "refactor",
     "scope": "",
     "message": "Updated Storybook imports, add sidebar navigation tokens, and append recent commits to changelog data",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/5e19163"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/5e19163"
   },
   {
     "hash": "8be865a",
@@ -833,7 +976,7 @@
     "category": "other",
     "scope": "",
     "message": "Merge branch 'main' of https://github.com/WebMaster0-1/Design-Automation-Test",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/8be865a"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/8be865a"
   },
   {
     "hash": "c6c1874",
@@ -844,7 +987,7 @@
     "category": "other",
     "scope": "",
     "message": "Update changelog data",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/c6c1874"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/c6c1874"
   },
   {
     "hash": "7cf0892",
@@ -855,7 +998,7 @@
     "category": "other",
     "scope": "",
     "message": "Merge branch 'main' of github.com:WebMaster0-1/Design-Automation-Test",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/7cf0892"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/7cf0892"
   },
   {
     "hash": "4b02a02",
@@ -866,7 +1009,7 @@
     "category": "refactor",
     "scope": "",
     "message": "Migrated CSS files to use global design system tokens instead of hardcoded hex values",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/4b02a02"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/4b02a02"
   },
   {
     "hash": "df8a7a5",
@@ -877,7 +1020,7 @@
     "category": "other",
     "scope": "",
     "message": "Merge pull request #2 from Busayo-ojo/main",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/df8a7a5"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/df8a7a5"
   },
   {
     "hash": "e8904c8",
@@ -888,7 +1031,7 @@
     "category": "other",
     "scope": "",
     "message": "Merge branch 'WebMaster0-1:main' into main",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/e8904c8"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/e8904c8"
   },
   {
     "hash": "99fd86c",
@@ -899,7 +1042,7 @@
     "category": "other",
     "scope": "",
     "message": "welcome page fixed",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/99fd86c"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/99fd86c"
   },
   {
     "hash": "ab6ca2a",
@@ -910,7 +1053,7 @@
     "category": "other",
     "scope": "",
     "message": "Welcome Page Setup",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/ab6ca2a"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/ab6ca2a"
   },
   {
     "hash": "62efe75",
@@ -921,7 +1064,7 @@
     "category": "refactor",
     "scope": "",
     "message": "remove all files from src/stories directory",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/62efe75"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/62efe75"
   },
   {
     "hash": "d427927",
@@ -932,7 +1075,7 @@
     "category": "refactor",
     "scope": "",
     "message": "Decouple test configuration by migrating vitest settings from vite.config.ts to a dedicated vitest.config.ts file",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/d427927"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/d427927"
   },
   {
     "hash": "f851087",
@@ -943,7 +1086,7 @@
     "category": "other",
     "scope": "",
     "message": "Merge pull request #1 from Busayo-ojo/main",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/f851087"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/f851087"
   },
   {
     "hash": "4de0e37",
@@ -954,7 +1097,7 @@
     "category": "other",
     "scope": "",
     "message": "Update Storybook configuration by modifying addons",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/4de0e37"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/4de0e37"
   },
   {
     "hash": "2eb2971",
@@ -965,7 +1108,7 @@
     "category": "other",
     "scope": "",
     "message": "Welcome Page",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/2eb2971"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/2eb2971"
   },
   {
     "hash": "73441ae",
@@ -976,7 +1119,7 @@
     "category": "docs",
     "scope": "",
     "message": "add recent commit entries to changelog data",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/73441ae"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/73441ae"
   },
   {
     "hash": "47e30a2",
@@ -987,7 +1130,7 @@
     "category": "other",
     "scope": "",
     "message": "Merge branch 'main' of github.com:WebMaster0-1/Design-Automation-Test",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/47e30a2"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/47e30a2"
   },
   {
     "hash": "80c44c2",
@@ -998,7 +1141,7 @@
     "category": "other",
     "scope": "",
     "message": "Simplified Storybook navigation sorting, update changelog data, and adjust ButtonGroup hover background color",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/80c44c2"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/80c44c2"
   },
   {
     "hash": "3fa2b1b",
@@ -1009,7 +1152,7 @@
     "category": "docs",
     "scope": "",
     "message": "update changelog data post-publish",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/3fa2b1b"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/3fa2b1b"
   },
   {
     "hash": "e04508a",
@@ -1020,7 +1163,7 @@
     "category": "feat",
     "scope": "",
     "message": "Added branding UI quality checklist documentation and an interactive checklist tracker. Saw like 2m shege per second.",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/e04508a"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/e04508a"
   },
   {
     "hash": "938de3a",
@@ -1031,7 +1174,7 @@
     "category": "docs",
     "scope": "",
     "message": "Added brand quality checklist and interactive todo component to documentation. Saw shege with this commit.",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/938de3a"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/938de3a"
   },
   {
     "hash": "78d906d",
@@ -1042,7 +1185,7 @@
     "category": "feat",
     "scope": "",
     "message": "Enhance ChangelogComponent with date-based search, style refinements, and improved timeline layout.",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/78d906d"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/78d906d"
   },
   {
     "hash": "1dd93e1",
@@ -1053,7 +1196,7 @@
     "category": "style",
     "scope": "",
     "message": "Update design tokens, refine Storybook UI search styling, and standardize typography font-family. God i hate frontend...ugh",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/1dd93e1"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/1dd93e1"
   },
   {
     "hash": "1bf6f71",
@@ -1064,7 +1207,7 @@
     "category": "style",
     "scope": "",
     "message": "simplify search field appearance and remove redundant DOM-mutation script in Storybook manager",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/1bf6f71"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/1bf6f71"
   },
   {
     "hash": "b5bd859",
@@ -1075,7 +1218,7 @@
     "category": "feat",
     "scope": "",
     "message": "Implemented StartHere landing pages for documentation categories and add automated changelog generation. Doings!!!",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/b5bd859"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/b5bd859"
   },
   {
     "hash": "1b9649d",
@@ -1086,7 +1229,7 @@
     "category": "feat",
     "scope": "",
     "message": "enhance figma deep-scan token extractor, update brand logo, and configure Storybook router and story sorting",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/1b9649d"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/1b9649d"
   },
   {
     "hash": "66b1cf1",
@@ -1097,7 +1240,7 @@
     "category": "feat",
     "scope": "",
     "message": "enhance Storybook documentation with categorizing emojis and improved custom story sorting logic",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/66b1cf1"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/66b1cf1"
   },
   {
     "hash": "781cbd5",
@@ -1108,7 +1251,7 @@
     "category": "feat",
     "scope": "",
     "message": "update brand palette to gold, refine Storybook styling, and improve type safety in typography components",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/781cbd5"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/781cbd5"
   },
   {
     "hash": "b7b5842",
@@ -1119,7 +1262,7 @@
     "category": "refactor",
     "scope": "",
     "message": "move design system rules from docs/ to rules/",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/b7b5842"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/b7b5842"
   },
   {
     "hash": "544a115",
@@ -1130,7 +1273,7 @@
     "category": "feat",
     "scope": "",
     "message": "update typography system to DM Sans and expand font scale tokens and documentation",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/544a115"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/544a115"
   },
   {
     "hash": "20d5f7a",
@@ -1141,7 +1284,7 @@
     "category": "chore",
     "scope": "",
     "message": "enforce DM Sans typography across Storybook UI and root application",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/20d5f7a"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/20d5f7a"
   },
   {
     "hash": "bfff35a",
@@ -1152,7 +1295,7 @@
     "category": "docs",
     "scope": "",
     "message": "improve typography documentation visibility and unify font to DM Sans",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/bfff35a"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/bfff35a"
   },
   {
     "hash": "c33eafa",
@@ -1163,7 +1306,7 @@
     "category": "revert",
     "scope": "",
     "message": "typography navigation to Foundations/Typography and move components back to Components/Typography",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/c33eafa"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/c33eafa"
   },
   {
     "hash": "b3b489e",
@@ -1174,7 +1317,7 @@
     "category": "other",
     "scope": "",
     "message": "Enhance typography documentation and consolidate under a single Typography entry",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/b3b489e"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/b3b489e"
   },
   {
     "hash": "65950c9",
@@ -1185,7 +1328,7 @@
     "category": "refactor",
     "scope": "",
     "message": "Refine Tabs component styling and state handling to match Figma specs. Update various storybook stories for consistency.",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/65950c9"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/65950c9"
   },
   {
     "hash": "ca54358",
@@ -1196,7 +1339,7 @@
     "category": "feat",
     "scope": "",
     "message": "update design system elements and add Input Dropdown state",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/ca54358"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/ca54358"
   },
   {
     "hash": "852f0a5",
@@ -1207,7 +1350,7 @@
     "category": "fix",
     "scope": "imports",
     "message": "fix Typography.docs.mdx Button import path after restructure",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/852f0a5"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/852f0a5"
   },
   {
     "hash": "67f0dfe",
@@ -1218,7 +1361,7 @@
     "category": "fix",
     "scope": "imports",
     "message": "update cross-folder imports after elements/layout restructure",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/67f0dfe"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/67f0dfe"
   },
   {
     "hash": "018c1d8",
@@ -1229,7 +1372,7 @@
     "category": "refactor",
     "scope": "structure",
     "message": "move elements to src/elements/, layout to src/layout/, update index.ts",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/018c1d8"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/018c1d8"
   },
   {
     "hash": "4cac390",
@@ -1240,7 +1383,7 @@
     "category": "feat",
     "scope": "nav",
     "message": "add Elements category, move Badge, Button, Checkbox, Input, Radio, Select; update logo and sorting",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/4cac390"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/4cac390"
   },
   {
     "hash": "0b071cf",
@@ -1251,7 +1394,7 @@
     "category": "other",
     "scope": "",
     "message": "Reverted the naming conv",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/0b071cf"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/0b071cf"
   },
   {
     "hash": "b3d9378",
@@ -1262,7 +1405,7 @@
     "category": "other",
     "scope": "",
     "message": "Fixed Style Guide",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/b3d9378"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/b3d9378"
   },
   {
     "hash": "00cb171",
@@ -1273,7 +1416,7 @@
     "category": "chore",
     "scope": "storybook",
     "message": "update brand logo and implement alphabetical sorting",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/00cb171"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/00cb171"
   },
   {
     "hash": "085ddb7",
@@ -1284,7 +1427,7 @@
     "category": "docs",
     "scope": "typography",
     "message": "update typography foundations and add google fonts link",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/085ddb7"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/085ddb7"
   },
   {
     "hash": "849ff52",
@@ -1295,7 +1438,7 @@
     "category": "feat",
     "scope": "typography",
     "message": "extract figma design tokens and update components namespace",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/849ff52"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/849ff52"
   },
   {
     "hash": "df40096",
@@ -1306,7 +1449,7 @@
     "category": "feat",
     "scope": "tokens",
     "message": "sync design system updates — 1 token file(s)",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/df40096"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/df40096"
   },
   {
     "hash": "26405fe",
@@ -1317,7 +1460,7 @@
     "category": "feat",
     "scope": "automation",
     "message": "add Figma-to-Code handoff pipeline infrastructure",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/26405fe"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/26405fe"
   },
   {
     "hash": "4807c87",
@@ -1328,7 +1471,7 @@
     "category": "feat",
     "scope": "docs",
     "message": "Transform Storybook to FMDQ Design Portal",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/4807c87"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/4807c87"
   },
   {
     "hash": "e31834e",
@@ -1339,7 +1482,7 @@
     "category": "fix",
     "scope": "",
     "message": "resolve verbatim TS imports and story prop bugs for stable library compilation",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/e31834e"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/e31834e"
   },
   {
     "hash": "03f7363",
@@ -1350,7 +1493,7 @@
     "category": "feat",
     "scope": "",
     "message": "complete Phase 4 aesthetic polish and Phase 5 Tier-4 layout assemblies alongside brand gold update",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/03f7363"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/03f7363"
   },
   {
     "hash": "eb78088",
@@ -1361,7 +1504,7 @@
     "category": "feat",
     "scope": "",
     "message": "implement Tier 2 and Tier 3 UI components",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/eb78088"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/eb78088"
   },
   {
     "hash": "14b6fc7",
@@ -1372,7 +1515,7 @@
     "category": "chore",
     "scope": "",
     "message": "setup @fmdq/ui library build infrastructure",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/14b6fc7"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/14b6fc7"
   },
   {
     "hash": "ca6c927",
@@ -1383,7 +1526,7 @@
     "category": "fix",
     "scope": "",
     "message": "resolve Storybook documentation indexing collision",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/ca6c927"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/ca6c927"
   },
   {
     "hash": "9c4833b",
@@ -1394,7 +1537,7 @@
     "category": "feat",
     "scope": "",
     "message": "update Button component to match Figma design system specs",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/9c4833b"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/9c4833b"
   },
   {
     "hash": "4af37b6",
@@ -1405,7 +1548,7 @@
     "category": "other",
     "scope": "",
     "message": "Remove macOS-specific meta-data (__MACOSX) and its contents",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/4af37b6"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/4af37b6"
   },
   {
     "hash": "abe1909",
@@ -1416,7 +1559,7 @@
     "category": "other",
     "scope": "",
     "message": "Ignore macOS-specific meta-data (__MACOSX)",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/abe1909"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/abe1909"
   },
   {
     "hash": "eb8e167",
@@ -1427,7 +1570,7 @@
     "category": "other",
     "scope": "",
     "message": "Initialize project and sync with GitHub",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/eb8e167"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/eb8e167"
   },
   {
     "hash": "d882703",
@@ -1438,6 +1581,6 @@
     "category": "other",
     "scope": "",
     "message": "first commit",
-    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/d882703"
+    "url": "https://github.com/Busayo-ojo/Design-Automation-Test/commit/d882703"
   }
 ]
