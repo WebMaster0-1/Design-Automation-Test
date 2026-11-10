@@ -8,10 +8,11 @@ import * as DashboardStories from './Dashboard.stories';
 The `Dashboard` component represents the primary command center for Market Service Group (MSG Admin) users on the FMDQ Data Reporting Portal (DRP), matching Figma frame **DRP / Dashboard** (node `10301:78467`).
 
 It assembles the core design system components into a responsive desktop layout:
-- **`Sidebar`**: Left navigation column (`variant="2"`, `theme="dark-blue"`) with user profile header, global search, badge counts, and categorized module items
-- **`PageHeader`**: Screen title, date subtitle, summary export button, and quick navigation CTA
+- **`Portal Badge`**: Centered top pill badge (`<Badge color="blue" type="filled" size="lg">DATA REPORTING PORTAL</Badge>`)
+- **`Sidebar`**: Left navigation column (`variant="1"`, `theme="light"` by default) with logo at top, global search, badge counts, categorized module items, and user profile at the bottom footer (supports `variant="2"` and `theme="dark-blue"`)
+- **`PageHeader`**: Screen title, date subtitle, summary export button (`Button / secondary`), and quick navigation CTA (`Button / primary`)
 - **`MetricsCard`**: 4 top KPI tiles tracking pending approvals, daily contributions, weekly returns, and rejections
-- **`Approvals Card & Table`**: Interactive data table displaying queued contributions with module badges and review triggers
+- **`Approvals Card & Table`**: Interactive data table displaying queued contributions with module badges and review text button
 - **`Contributions Card`**: Visual progress bars showing daily completion ratios across major market segments (NIBOR, NITTY, NAFEX, Money market)
 - **`Recent Activity Card`**: Audit log of recent authorisation and rejection decisions with timestamps
 - **`Quick Actions Card`**: 2×2 button grid for common operational workflows
@@ -26,9 +27,13 @@ It assembles the core design system components into a responsive desktop layout:
   allowFullScreen
 />
 
-## Default View
+## Default View (Light Theme, Variant 1)
 
 <Canvas of={DashboardStories.Default} sourceState="shown" />
+
+## Dark Blue Sidebar View (Variant 2)
+
+<Canvas of={DashboardStories.DarkBlueSidebar} sourceState="shown" />
 
 ## Queue Clear State
 

@@ -10,7 +10,7 @@ const meta: Meta<typeof Dashboard> = {
     docs: {
       description: {
         component:
-          'DRP Market Service Group (MSG Admin) Dashboard page matching Figma frame "DRP / Dashboard" (node 10301:78467). Assembles the full-height Sidebar (variant 2, dark-blue theme), 4-column Metrics row, Awaiting Approval table card, Today\'s Contributions progress card, Recent Activity log, and Quick Actions grid into a responsive desktop layout.',
+          'DRP Market Service Group (MSG Admin) Dashboard page matching Figma frame "DRP / Dashboard" (node 10301:78467). Features the centered top "DATA REPORTING PORTAL" badge, full-height Sidebar (variant 1, light theme default with logo at top and profile at bottom footer), 4-column Metrics row, Awaiting Approval table card, Today\'s Contributions progress card, Recent Activity log, and Quick Actions grid into a responsive desktop layout.',
       },
     },
   },
@@ -20,10 +20,32 @@ const meta: Meta<typeof Dashboard> = {
       email: 'MSG Admin',
       avatarSrc: defaultAvatar,
     },
+    sidebarVariant: '1',
+    sidebarTheme: 'light',
+    portalBadge: 'DATA REPORTING PORTAL',
+    showPortalBadge: true,
     dateText: 'Monday, 26 October 2026 · Market Service Group',
     activeMenuId: 'dashboard',
   },
   argTypes: {
+    sidebarVariant: {
+      control: 'radio',
+      options: ['1', '2'],
+      description: 'Sidebar variant: "1" has logo at top and user profile at bottom footer; "2" has user profile at top and logo at bottom.',
+    },
+    sidebarTheme: {
+      control: 'radio',
+      options: ['light', 'dark', 'dark-blue'],
+      description: 'Sidebar color theme.',
+    },
+    portalBadge: {
+      control: 'text',
+      description: 'Text inside the top header pill badge.',
+    },
+    showPortalBadge: {
+      control: 'boolean',
+      description: 'Controls visibility of the top portal pill badge.',
+    },
     dateText: { control: 'text' },
     activeMenuId: { control: 'text' },
     onDownloadSummary: { action: 'download-summary' },
@@ -40,9 +62,19 @@ export default meta;
 type Story = StoryObj<typeof Dashboard>;
 
 /**
- * Standard DRP Dashboard matching Figma frame 10301:78467 1:1.
+ * Standard DRP Dashboard matching Figma frame 10301:78467 1:1 (Sidebar variant 1, light theme, with top portal badge).
  */
 export const Default: Story = {};
+
+/**
+ * Alternative Dark Blue Sidebar (variant 2, dark-blue theme) configuration.
+ */
+export const DarkBlueSidebar: Story = {
+  args: {
+    sidebarVariant: '2',
+    sidebarTheme: 'dark-blue',
+  },
+};
 
 /**
  * Clean Queue state where all approvals and submissions are processed.

@@ -30,7 +30,7 @@
 | Pagination | Complete | Components/📄 Pagination | 2026-11-06 | Figma 347:10062 & 2767:76362; lowest base elements: PageNumber (2608:66376, 12 variants), TruncatedPages (2775:76546), PageIndicator (2609:67848), NavigationControls (2607:66246, 15 variants), PaginationList (2767:76342, 15 variants), full Pagination bar (2767:76362, 15 variants with 5 variations and 4 alignments). Updated 2026-11-06 with table footer containment strokes (hasTopDivider, hasLeftStroke, hasRightStroke, hasBottomStroke in Grey/200 #E4E7EC, transparent surface) |
 | Tables | Complete | Components/🔳 Table | 2026-11-06 | Figma 347:10049; Header (2804:80528, 30 variants), Leading Cell (5604:43632, 12 variants), Content Cell (5604:44353, 16 variants), GranularComposedTable, InteractiveRowSelection, DeclarativeDataTable. Updated 2026-11-06 with ColumnMenu popover infusion on header cells (Figma 11185:1015636), eliminated nested cell <td> duplicate borders, and aligned pagination footer positioning |
 | Table Column Menu | Complete | Components/📑 ColumnMenu | 2026-11-06 | Figma 11185:1015636 (Table / Column menu); 4 variants (filter: text, range, date, options); 240px popover card with sort ascending/descending items, 1px dividers, contextual filter inputs, and Clear/Apply action buttons |
-| DRP / Dashboard | Complete | Layout/📊 Dashboard | 2026-11-01 | Figma 10301:78467; full responsive desktop layout assembling Sidebar (v2, dark-blue), MetricsCard (×4), Approvals Table Card, Contributions ProgressBar Card, Recent Activity, and Quick Actions grid |
+| DRP / Dashboard | Complete | Layout/📊 Dashboard | 2026-11-10 | Figma 10301:78467; full responsive desktop layout assembling top Portal Badge ("DATA REPORTING PORTAL", 11041:684742), Sidebar (variant 1, light theme default with logo top & profile bottom footer, 10301:78468), PageHeader with design system Buttons, MetricsCard (×4), Approvals Table Card, Contributions ProgressBar Card, Recent Activity, and Quick Actions grid |
 | 1.15 Welcome email | Complete | Layout/✉️ WelcomeEmail | 2026-11-01 | Figma 10306:12506; email envelope header, logo, salutation, summary box, CTA button, disclaimer, and automated footer |
 | Flow 1 Prototype Orchestrator | Complete | Flows/Authentication/Flow 1 - Prototype | 2026-11-01 | Figma 10303:161102 & 10306:12506; client-side interactive journey connecting Welcome Email → Password Setup → 2FA Setup → Sign In → 2FA OTP → DRP Dashboard, with reviewer controls toolbar |
 | Calendar & Date Selectors | Complete | Components/📅 Calendar | 2026-11-05 | Figma 6335:28236 (Calendar, 3 variants: Date Picker, Date Picker + Last Day, Month & Year Picker), 6335:28189 (Month & Year, 1 variant), 6335:28092 (Date, 10 variants); composes Button (primary & text), Chip, and foundation icons. `InteractiveDateSelector` / `InteractiveCalendar` adds single + range selection, month navigation and Month & Year picker |
@@ -243,14 +243,15 @@ Curvature refinement (2026-10-31): reduced spatial frequency, domain-warp streng
 | Active State | existing tokens | `--color-secondary-500` / gold (`#CC9933`) label, `--color-primary-500` (`#0D5EBA`) icon, `--color-neutral-400` (`#98A2B3`) separator |
 | Disabled State | existing tokens | `--color-neutral-400` (`#98A2B3`) label/icon/separator |
 
-## Reuse mapping — DRP / Dashboard (2026-11-01)
+## Reuse mapping — DRP / Dashboard (Updated 2026-11-10)
 
 | Figma element (Node 10301:78467) | Decision | Implementation |
 | :--- | :--- | :--- |
-| Sidebar (`10301:78468`) | existing component as-is | `<Sidebar variant="2" theme="dark-blue">` (`src/components/Sidebar`) |
-| Page header (`10301:79039`) | composite from existing | Title (24px DM Sans Bold), Subtitle (14px Regular), `<Button variant="secondary" size="sm">` + `<Button variant="primary" size="sm">` |
+| Portal Badge (`11041:684742`) | existing component as-is | `<Badge color="blue" type="filled" size="lg">` ("DATA REPORTING PORTAL") |
+| Sidebar (`10301:78468`) | existing component as-is | `<Sidebar variant="1" theme="light">` (`src/components/Sidebar`) |
+| Page header (`11041:684725`) | composite from existing | Title (24px DM Sans Bold), Subtitle (14px Regular), `<Button variant="secondary" size="sm">` + `<Button variant="primary" size="sm">` |
 | Metrics Cards (`10301:79056`) | existing component as-is | 4 × `<MetricsCard orientation="left">` (`src/components/Metrics`) with gold (`#CC9933`) bold icons |
-| Approvals Card & Table (`10301:79208`) | existing components as-is | `<Card>`, `<Table>`, `<TableRow>`, `<TableCell>` (`badge`, `text-stack`, `text`, `actions`), `<Badge color="blue">`, `<Button>` |
+| Approvals Card & Table (`10301:79208`) | existing components as-is | `<Card>`, `<Table>`, `<TableRow>`, `<TableCell>` (`badge`, `text-stack`, `text`, `actions`), `<Badge color="blue">`, `<Button variant="text" buttonType="primary" size="sm">` |
 | Contributions Card (`10301:79209`) | existing components as-is | `<Card>`, 4 × `<ProgressBar size="lg" hasPercentages percentagePosition="bottom">`, `<Button>` |
 | Recent Activity Card (`10301:81893`) | existing components as-is | `<Card>`, `<Badge color="success" \| "error" type="filled">`, typography |
 | Quick Actions Card (`10301:81894`) | existing components as-is | `<Card>`, 2×2 grid with 4 × `<Button variant="secondary" size="sm">` using bold icons (`user-tick`, `coin-swap`, `calendar-tick`, `upload`) |

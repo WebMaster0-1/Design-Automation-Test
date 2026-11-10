@@ -51,11 +51,23 @@
 .fmdqui-dashboard-layout__main-inner {
   max-width: 1168px;
   margin: 0 auto;
-  padding: 32px;
+  padding: 0 32px 32px 32px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 24px;
   box-sizing: border-box;
+}
+
+.fmdqui-dashboard-layout__main-inner:not(:has(.fmdqui-dashboard-layout__badge-wrap)) {
+  padding-top: 32px;
+}
+
+/* Top Portal Badge (Figma node 11041:684742) */
+.fmdqui-dashboard-layout__badge-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 /* ─── 1. Page Header ───────────────────────────────────────────────────────── */

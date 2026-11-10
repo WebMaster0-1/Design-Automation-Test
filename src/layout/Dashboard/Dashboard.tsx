@@ -4,6 +4,8 @@ import {
   Sidebar,
   SidebarSection,
   SidebarMenuItem,
+  type SidebarVariant,
+  type SidebarTheme,
 } from '../../components/Sidebar';
 import { MetricsCard } from '../../components/Metrics';
 import {
@@ -17,6 +19,7 @@ import {
 } from '../../components/Table';
 import { ProgressBar } from '../../components/ProgressBar';
 import { Badge } from '../../elements/Badge';
+import { Button } from '../../elements/Button';
 import { Icon } from '../../foundations/icons';
 import defaultAvatar from '../../assets/avatar-marvin.png';
 
@@ -105,6 +108,10 @@ export interface DashboardProps extends React.HTMLAttributes<HTMLDivElement> {
     avatarSrc?: string;
     onSignOut?: () => void;
   };
+  sidebarVariant?: SidebarVariant;
+  sidebarTheme?: SidebarTheme;
+  portalBadge?: string;
+  showPortalBadge?: boolean;
   dateText?: string;
   metrics?: DashboardMetrics;
   approvals?: ApprovalItem[];
@@ -260,6 +267,10 @@ export const Dashboard: React.FC<DashboardProps> = ({
     email: 'MSG Admin',
     avatarSrc: defaultAvatar,
   },
+  sidebarVariant = '1',
+  sidebarTheme = 'light',
+  portalBadge = 'DATA REPORTING PORTAL',
+  showPortalBadge = true,
   dateText = 'Monday, 26 October 2026 · Market Service Group',
   metrics = DEFAULT_METRICS,
   approvals = DEFAULT_APPROVALS,
@@ -297,7 +308,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
 
   return (
     <div className={`fmdqui-dashboard-layout ${className}`.trim()} {...props}>
-      {/* ─── Sidebar Navigation (Variant 2, Theme Dark Blue) ─────────────── */}
+      {/* ─── Sidebar Navigation (Variant 1, Theme Light by default) ──────── */}
       <aside
         className={`fmdqui-dashboard-layout__sidebar ${
           isSidebarCollapsed ? 'fmdqui-dashboard-layout__sidebar--collapsed' : ''
@@ -310,8 +321,8 @@ export const Dashboard: React.FC<DashboardProps> = ({
         }}
       >
         <Sidebar
-          variant="2"
-          theme="dark-blue"
+          variant={sidebarVariant}
+          theme={sidebarTheme}
           collapsed={isSidebarCollapsed}
           onToggleCollapse={
             onToggleSidebar ??
@@ -323,17 +334,17 @@ export const Dashboard: React.FC<DashboardProps> = ({
           hasSearch
           searchPlaceholder="Search"
           footerSection={
-            <SidebarSection title="Administration" theme="dark-blue">
+            <SidebarSection title="Administration" theme={sidebarTheme}>
               <SidebarMenuItem
                 id="users-members"
-                theme="dark-blue"
+                theme={sidebarTheme}
                 label="Users & Members"
                 icon={<Icon name="users" variant="bold" size={20} />}
                 counter={2}
               />
               <SidebarMenuItem
                 id="reference-data"
-                theme="dark-blue"
+                theme={sidebarTheme}
                 label="Reference Data"
                 icon={<Icon name="calendar" variant="bold" size={20} />}
               />
@@ -341,16 +352,16 @@ export const Dashboard: React.FC<DashboardProps> = ({
           }
         >
           {/* Top section: Overview items with divider below Approvals */}
-          <SidebarSection hasTitle={false} hasDivider theme="dark-blue">
+          <SidebarSection hasTitle={false} hasDivider theme={sidebarTheme}>
             <SidebarMenuItem
               id="dashboard"
-              theme="dark-blue"
+              theme={sidebarTheme}
               label="Dashboard"
               icon={<Icon name="home" variant="bold" size={20} />}
             />
             <SidebarMenuItem
               id="approvals"
-              theme="dark-blue"
+              theme={sidebarTheme}
               label="Approvals"
               icon={<Icon name="check-circle" variant="bold" size={20} />}
               counter={42}
@@ -358,50 +369,50 @@ export const Dashboard: React.FC<DashboardProps> = ({
           </SidebarSection>
 
           {/* Modules Section */}
-          <SidebarSection title="Modules" theme="dark-blue">
+          <SidebarSection title="Modules" theme={sidebarTheme}>
             <SidebarMenuItem
               id="benchmark-contributions"
-              theme="dark-blue"
+              theme={sidebarTheme}
               label="Benchmark Contributions"
               icon={<Icon name="chart-up" variant="bold" size={20} />}
               counter={12}
             />
             <SidebarMenuItem
               id="trade-data-reporting"
-              theme="dark-blue"
+              theme={sidebarTheme}
               label="Trade Data Reporting"
               icon={<Icon name="data" variant="bold" size={20} />}
               counter={14}
             />
             <SidebarMenuItem
               id="securities-settlement"
-              theme="dark-blue"
+              theme={sidebarTheme}
               label="Securities & Settlement"
               icon={<Icon name="bank" variant="bold" size={20} />}
               counter={3}
             />
             <SidebarMenuItem
               id="fx-market-data"
-              theme="dark-blue"
+              theme={sidebarTheme}
               label="FX Market Data"
               icon={<Icon name="coin-swap" variant="bold" size={20} />}
               counter={11}
             />
             <SidebarMenuItem
               id="prices"
-              theme="dark-blue"
+              theme={sidebarTheme}
               label="Prices"
               icon={<Icon name="bar-chart-v" variant="bold" size={20} />}
             />
             <SidebarMenuItem
               id="fees-billing"
-              theme="dark-blue"
+              theme={sidebarTheme}
               label="Fees & Billing"
               icon={<Icon name="receipt" variant="bold" size={20} />}
             />
             <SidebarMenuItem
               id="reports"
-              theme="dark-blue"
+              theme={sidebarTheme}
               label="Reports"
               icon={<Icon name="pie-chart" variant="bold" size={20} />}
             />
@@ -412,29 +423,40 @@ export const Dashboard: React.FC<DashboardProps> = ({
       {/* ─── Main Content Canvas ─────────────────────────────────────────── */}
       <main className="fmdqui-dashboard-layout__main">
         <div className="fmdqui-dashboard-layout__main-inner">
-          {/* 1. Page Header */}
+          {/* Top Portal Badge (Figma node 11041:684742) */}
+          {showPortalBadge && portalBadge && (
+            <div className="fmdqui-dashboard-layout__badge-wrap">
+              <Badge color="blue" type="filled" size="lg">
+                {portalBadge}
+              </Badge>
+            </div>
+          )}
+
+          {/* 1. Page Header (Figma node 11041:684725) */}
           <header className="fmdqui-dashboard-layout__header">
             <div className="fmdqui-dashboard-layout__title-group">
               <h1 className="fmdqui-dashboard-layout__title">Dashboard</h1>
               <p className="fmdqui-dashboard-layout__subtitle">{dateText}</p>
             </div>
             <div className="fmdqui-dashboard-layout__actions">
-              <button
-                type="button"
-                className="fmdqui-dashboard-btn--download"
+              <Button
+                variant="secondary"
+                size="sm"
+                iconStyle="leading icon"
+                icon={<Icon name="download" variant="bold" size={16} />}
                 onClick={onDownloadSummary}
               >
-                <Icon name="download" variant="bold" size={16} />
-                <span>Download summary</span>
-              </button>
-              <button
-                type="button"
-                className="fmdqui-dashboard-btn--review-approvals"
+                Download summary
+              </Button>
+              <Button
+                variant="primary"
+                size="sm"
+                iconStyle="trailing icon"
+                icon={<Icon name="arrow-right" variant="linear" size={16} />}
                 onClick={onReviewApprovals}
               >
-                <span>Review approvals</span>
-                <Icon name="arrow-right" variant="linear" size={16} />
-              </button>
+                Review approvals
+              </Button>
             </div>
           </header>
 
@@ -583,13 +605,14 @@ export const Dashboard: React.FC<DashboardProps> = ({
                           secondaryText={item.submittedDay}
                         />
                         <TableCell variant="actions" align="right">
-                          <button
-                            type="button"
-                            className="fmdqui-dashboard-table__review-btn"
+                          <Button
+                            variant="text"
+                            buttonType="primary"
+                            size="sm"
                             onClick={() => onReviewItem?.(item.id)}
                           >
                             Review
-                          </button>
+                          </Button>
                         </TableCell>
                       </TableRow>
                     ))}
