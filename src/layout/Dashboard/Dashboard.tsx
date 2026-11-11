@@ -110,6 +110,7 @@ export interface DashboardProps extends React.HTMLAttributes<HTMLDivElement> {
   };
   sidebarVariant?: SidebarVariant;
   sidebarTheme?: SidebarTheme;
+  sidebarHasShadow?: boolean;
   portalBadge?: string;
   showPortalBadge?: boolean;
   dateText?: string;
@@ -269,6 +270,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
   },
   sidebarVariant = '1',
   sidebarTheme = 'light',
+  sidebarHasShadow = true,
   portalBadge = 'DATA REPORTING PORTAL',
   showPortalBadge = true,
   dateText = 'Monday, 26 October 2026 · Market Service Group',
@@ -323,6 +325,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
         <Sidebar
           variant={sidebarVariant}
           theme={sidebarTheme}
+          hasShadow={sidebarHasShadow}
           collapsed={isSidebarCollapsed}
           onToggleCollapse={
             onToggleSidebar ??

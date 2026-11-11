@@ -7,7 +7,7 @@
 | Special Primary Buttons / warning | Complete | Elements/➡️ Button → Warning | 2026-05-29 | hover + focused states added |
 | Special Primary Buttons / information | Complete | Elements/➡️ Button → Information | 2026-05-29 | hover + focused states added |
 | Special Primary Buttons / destructive | Complete | Elements/➡️ Button → SpecialDestructive | 2026-05-29 | New variant (error), all 3 states |
-| Sidebars | Complete | Components/🍺 Sidebar | 2026-10-26 | Replaced NavMenu; cell primitives, sections, variants 1 & 2, 4 themes |
+| Sidebars | Complete | Components/🍺 Sidebar | 2026-11-11 | Figma 3167:145002 & 347:10108; cell primitives, sections, variants 1 & 2, 4 themes. Updated 2026-11-11 with boolean "has shadow" (hasShadow) casting --shadow-sidebar-contrast (0px 0px 220px -35px rgba(223, 174, 77, 0.5)) for light mode container contrast against pale backgrounds |
 | Sidebar / sub-menu item | Complete | Components/🍺 Sidebar → Cells / Sub-Menu Item Matrix | 2026-11-07 | Figma 2437:57101; 12 variants (3 states [default, selected, disabled] × 4 themes); 208px hug width, 44px height, 16px left/right padding (nested 29px indent in Frame 3), 4px radius, exact tokens |
 | Dropdown / Menu | Superseded | Components/🔽 Dropdowns | 2026-10-27 | Earlier singular Dropdown stories removed; use Dropdowns |
 | Dropdown / Selectors | Complete | Elements/🔤 Input → Input Dropdown | 2026-10-27 | Figma 2198:54679; merged into Input with 4 types and 5 states |

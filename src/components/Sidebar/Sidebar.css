@@ -32,6 +32,11 @@
   cursor: pointer;
 }
 
+/* ─── Has Shadow (Figma boolean "has shadow" contrast drop shadow) ──────── */
+.fmdqui-sidebar--has-shadow {
+  box-shadow: var(--shadow-sidebar-contrast, 0px 0px 220px -35px rgba(223, 174, 77, 0.5));
+}
+
 /* ─── Themes ──────────────────────────────────────────────────────────── */
 
 /* 1. Light Theme */

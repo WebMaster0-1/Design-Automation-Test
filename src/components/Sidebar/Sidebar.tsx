@@ -655,6 +655,7 @@ export interface SidebarProps extends React.HTMLAttributes<HTMLElement> {
   searchPlaceholder?: string;
   searchValue?: string;
   onSearchChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  hasShadow?: boolean;
   logo?: ReactNode;
   profile?: ReactNode;
   isAccountMenuOpen?: boolean;
@@ -682,6 +683,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   searchPlaceholder = 'Search',
   searchValue,
   onSearchChange,
+  hasShadow = false,
   logo,
   profile,
   isAccountMenuOpen: propIsAccountMenuOpen,
@@ -718,6 +720,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     `fmdqui-sidebar--variant-${variant}`,
     `fmdqui-sidebar--theme-${theme.replace(' ', '-')}`,
     isCollapsed ? 'fmdqui-sidebar--collapsed' : 'fmdqui-sidebar--default',
+    hasShadow ? 'fmdqui-sidebar--has-shadow' : '',
     className,
   ].filter(Boolean).join(' ');
 

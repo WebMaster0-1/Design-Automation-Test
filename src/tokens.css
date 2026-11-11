@@ -246,6 +246,9 @@
   /* ── Auth card glow elevation (Figma: Auth card node 10303:161103) ── */
   --shadow-auth-card: 0px 0px 220px -35px rgba(223, 174, 77, 1);
 
+  /* ── Sidebar contrast shadow (Figma: Sidebar node 3167:145002, boolean "has shadow") ── */
+  --shadow-sidebar-contrast: 0px 0px 220px -35px rgba(223, 174, 77, 0.5);
+
   /* ── Semantic Color Aliases ── */
   --color-primary-default: var(--color-primary-600);
   --color-primary-hover: var(--color-primary-800);

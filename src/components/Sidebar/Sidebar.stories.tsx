@@ -45,6 +45,10 @@ const meta: Meta<typeof Sidebar> = {
       control: 'boolean',
       description: 'Toggle search input visibility',
     },
+    hasShadow: {
+      control: 'boolean',
+      description: 'Toggle contrast drop shadow behind the sidebar (Figma component boolean "has shadow")',
+    },
     searchPlaceholder: {
       control: 'text',
       description: 'Search placeholder text',
@@ -67,6 +71,7 @@ const meta: Meta<typeof Sidebar> = {
     theme: 'light',
     state: 'default',
     hasSearch: true,
+    hasShadow: false,
     searchPlaceholder: 'Search',
   },
 };
@@ -826,6 +831,7 @@ export const Playground: Story = {
     theme: 'light',
     state: 'default',
     hasSearch: true,
+    hasShadow: false,
     searchPlaceholder: 'Search',
   },
   render: args => {
@@ -881,9 +887,60 @@ export const Playground: Story = {
             <div><strong>Theme:</strong> {args.theme}</div>
             <div><strong>State:</strong> {args.state} ({isCollapsed ? '82px Collapsed' : '272px Default'})</div>
             <div><strong>Search:</strong> {args.hasSearch ? 'Visible' : 'Hidden'}</div>
+            <div><strong>Shadow:</strong> {args.hasShadow ? 'Contrast Glow (ON)' : 'None (OFF)'}</div>
           </div>
         </main>
       </div>
     );
   },
+};
+
+// ─── 10. Light Mode with Contrast Shadow (Figma "has shadow: true") ───────────
+
+export const LightWithContrastShadow: Story = {
+  name: 'Theme / Light with Contrast Shadow',
+  args: {
+    variant: '1',
+    theme: 'light',
+    state: 'default',
+    hasSearch: true,
+    hasShadow: true,
+  },
+  render: args => (
+    <div
+      style={{
+        display: 'flex',
+        height: '100vh',
+        backgroundColor: 'var(--color-neutral-50, #F9FAFB)',
+      }}
+    >
+      <Sidebar
+        {...args}
+        variant={args.variant}
+        theme="light"
+        state={args.state}
+        hasShadow={true}
+        activeId="shadow-m1"
+      >
+        {renderDemoSections('light', 'shadow-')}
+      </Sidebar>
+
+      <main
+        style={{
+          flex: 1,
+          padding: '48px',
+          fontFamily: 'var(--font-family-primary)',
+          color: '#101928',
+        }}
+      >
+        <h2 style={{ margin: '0 0 8px 0', fontSize: '24px', fontWeight: 600 }}>
+          Light Mode Sidebar with Contrast Drop Shadow
+        </h2>
+        <p style={{ margin: '0 0 24px 0', color: 'var(--color-neutral-500)', fontSize: '14px' }}>
+          Matches Figma boolean property <code>has shadow: true</code> (node 3167:145002 / DRP node 10301:78468).
+          Casts a warm gold diffusion glow (<code>0px 0px 220px -35px rgba(223, 174, 77, 0.5)</code>) behind the white container for elevated edge contrast against pale backgrounds.
+        </p>
+      </main>
+    </div>
+  ),
 };

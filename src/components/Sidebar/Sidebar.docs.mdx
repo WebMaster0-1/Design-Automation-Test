@@ -52,10 +52,15 @@ Base component atom for sub-navigation items across 4 themes (`light`, `secondar
    - **Variant 1**: Brand logo top, search bar, menu sections, user profile card & account flyout at bottom.
    - **Variant 2**: User profile card top with chevron selector, search bar, menu sections, brand logo at bottom.
    - **Collapsed Mode**: 82px width with `align-justify` (☰) hamburger button and centered icon-only items.
+   - **Contrast Shadow**: Opt-in boolean prop `hasShadow` (Figma `has shadow`) casting `--shadow-sidebar-contrast` (`0px 0px 220px -35px rgba(223, 174, 77, 0.5)`) behind the container for elevated contrast against pale background canvases.
 
 ## Variant 1 (Light Theme)
 
 <Canvas of={SidebarStories.Variant1Light} />
+
+## Light Mode with Contrast Shadow (has shadow: true)
+
+<Canvas of={SidebarStories.LightWithContrastShadow} />
 
 ## Variant 1 (Dark Blue Theme)
 

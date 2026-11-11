@@ -22,6 +22,7 @@ const meta: Meta<typeof Dashboard> = {
     },
     sidebarVariant: '1',
     sidebarTheme: 'light',
+    sidebarHasShadow: true,
     portalBadge: 'DATA REPORTING PORTAL',
     showPortalBadge: true,
     dateText: 'Monday, 26 October 2026 · Market Service Group',
@@ -37,6 +38,10 @@ const meta: Meta<typeof Dashboard> = {
       control: 'radio',
       options: ['light', 'dark', 'dark-blue'],
       description: 'Sidebar color theme.',
+    },
+    sidebarHasShadow: {
+      control: 'boolean',
+      description: 'Controls contrast drop shadow behind the sidebar (Figma "has shadow").',
     },
     portalBadge: {
       control: 'text',

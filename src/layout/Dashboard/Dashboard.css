@@ -21,7 +21,7 @@
   height: 100vh;
   border-radius: 0 var(--radius-12, 12px) var(--radius-12, 12px) 0;
   z-index: 30;
-  overflow: hidden;
+  overflow: visible;
   box-sizing: border-box;
   transition: width 0.2s ease;
 }
