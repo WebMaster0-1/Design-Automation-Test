@@ -1,0 +1,30 @@
+import { Meta, Story, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as SearchResultsStories from './SearchResults.stories';
+
+<Meta of={SearchResultsStories} />
+
+# Search Results
+
+Search results panel that opens under the sidebar search field. Built from Dropdown / menu item headers (borders=false) and Dropdown / menu item (type=icon), like DropdownMenuList → DropdownMenuSection → DropdownMenuItem in Storybook. Results are grouped by module; the matching part of each label is SemiBold; the keyboard-focused row shows ↵.
+
+## Variants / States
+
+### Results
+Displays matches grouped by module header with search term highlighting in SemiBold and a focused item showing the enter shortcut.
+
+<Canvas of={SearchResultsStories.StateResults} />
+
+### Recent
+Displays recently accessed pages and modules before typing a search query.
+
+<Canvas of={SearchResultsStories.StateRecent} />
+
+### No Results
+Displays empty feedback when a search returns zero results, offering alternative suggestions.
+
+<Canvas of={SearchResultsStories.StateNoResults} />
+
+## Props
+
+<Controls of={SearchResultsStories.Playground} />
+

@@ -944,3 +944,163 @@ export const LightWithContrastShadow: Story = {
     </div>
   ),
 };
+
+// ─── 11. Search Results Integration (Figma "Dropdown / search results" 11267:1275191) ─
+
+export const WithSearchResults: Story = {
+  name: 'Search / With Results Dropdown',
+  args: {
+    variant: '1',
+    theme: 'light',
+    state: 'default',
+    hasSearch: true,
+    searchValue: 'upload',
+    isSearchResultsOpen: true,
+    searchResultsState: 'results',
+  },
+  render: args => (
+    <div
+      style={{
+        display: 'flex',
+        height: '100vh',
+        backgroundColor: 'var(--color-neutral-50, #F9FAFB)',
+      }}
+    >
+      <Sidebar
+        {...args}
+        variant="1"
+        theme="light"
+        state="default"
+        hasSearch={true}
+        searchValue={args.searchValue}
+        isSearchResultsOpen={true}
+        searchResultsState="results"
+        activeId="sr-m1"
+      >
+        {renderDemoSections('light', 'sr-')}
+      </Sidebar>
+
+      <main
+        style={{
+          flex: 1,
+          padding: '48px',
+          fontFamily: 'var(--font-family-primary)',
+          color: '#101928',
+        }}
+      >
+        <h2 style={{ margin: '0 0 8px 0', fontSize: '24px', fontWeight: 600 }}>
+          Sidebar with Search Results Panel (Figma 11267:1275191)
+        </h2>
+        <p style={{ margin: '0 0 24px 0', color: 'var(--color-neutral-500)', fontSize: '14px' }}>
+          Opens directly beneath the sidebar search bar. Results are grouped by module header,
+          matched text is highlighted in SemiBold, keyboard-focused item displays <code>↵</code>,
+          and the footer displays keyboard navigation hints.
+        </p>
+      </main>
+    </div>
+  ),
+};
+
+export const WithSearchRecent: Story = {
+  name: 'Search / With Recent Dropdown',
+  args: {
+    variant: '1',
+    theme: 'light',
+    state: 'default',
+    hasSearch: true,
+    searchValue: '',
+    isSearchResultsOpen: true,
+    searchResultsState: 'recent',
+  },
+  render: args => (
+    <div
+      style={{
+        display: 'flex',
+        height: '100vh',
+        backgroundColor: 'var(--color-neutral-50, #F9FAFB)',
+      }}
+    >
+      <Sidebar
+        {...args}
+        variant="1"
+        theme="light"
+        state="default"
+        hasSearch={true}
+        searchValue=""
+        isSearchResultsOpen={true}
+        searchResultsState="recent"
+        activeId="srr-m1"
+      >
+        {renderDemoSections('light', 'srr-')}
+      </Sidebar>
+
+      <main
+        style={{
+          flex: 1,
+          padding: '48px',
+          fontFamily: 'var(--font-family-primary)',
+          color: '#101928',
+        }}
+      >
+        <h2 style={{ margin: '0 0 8px 0', fontSize: '24px', fontWeight: 600 }}>
+          Sidebar with Recent Searches
+        </h2>
+        <p style={{ margin: '0 0 24px 0', color: 'var(--color-neutral-500)', fontSize: '14px' }}>
+          Shows recently visited modules and pages before a search query is entered.
+        </p>
+      </main>
+    </div>
+  ),
+};
+
+export const WithSearchNoResults: Story = {
+  name: 'Search / With No Results Dropdown',
+  args: {
+    variant: '1',
+    theme: 'light',
+    state: 'default',
+    hasSearch: true,
+    searchValue: 'uplod',
+    isSearchResultsOpen: true,
+    searchResultsState: 'no results',
+  },
+  render: args => (
+    <div
+      style={{
+        display: 'flex',
+        height: '100vh',
+        backgroundColor: 'var(--color-neutral-50, #F9FAFB)',
+      }}
+    >
+      <Sidebar
+        {...args}
+        variant="1"
+        theme="light"
+        state="default"
+        hasSearch={true}
+        searchValue="uplod"
+        isSearchResultsOpen={true}
+        searchResultsState="no results"
+        activeId="srnr-m1"
+      >
+        {renderDemoSections('light', 'srnr-')}
+      </Sidebar>
+
+      <main
+        style={{
+          flex: 1,
+          padding: '48px',
+          fontFamily: 'var(--font-family-primary)',
+          color: '#101928',
+        }}
+      >
+        <h2 style={{ margin: '0 0 8px 0', fontSize: '24px', fontWeight: 600 }}>
+          Sidebar with No Results Feedback
+        </h2>
+        <p style={{ margin: '0 0 24px 0', color: 'var(--color-neutral-500)', fontSize: '14px' }}>
+          Displays empty state messaging and helpful query guidance when no search matches exist.
+        </p>
+      </main>
+    </div>
+  ),
+};

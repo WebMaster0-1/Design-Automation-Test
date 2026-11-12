@@ -138,12 +138,21 @@
 
 /* ── Search Container (Figma: padding 0 16px) ────────────────────────── */
 .fmdqui-sidebar__search-wrap {
+  position: relative;
   padding: 0 16px;
   box-sizing: border-box;
 }
 
 .fmdqui-sidebar__search-wrap .fmdqui-input-container {
   width: 100% !important;
+}
+
+.fmdqui-sidebar__search-results-popover {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 16px;
+  width: 240px;
+  z-index: 100;
 }
 
 .fmdqui-sidebar__search-collapsed-btn {

@@ -1,5 +1,16 @@
 [
   {
+    "hash": "1481cbf",
+    "date": "2026-11-12",
+    "author": "dudesoamazing",
+    "email": "marvinogah@gmail.com",
+    "subject": "fix(sidebar,dashboard): match light sidebar gold icons and portal badge asymmetric radius",
+    "category": "fix",
+    "scope": "sidebar,dashboard",
+    "message": "match light sidebar gold icons and portal badge asymmetric radius",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/1481cbf"
+  },
+  {
     "hash": "9917104",
     "date": "2026-11-11",
     "author": "dudesoamazing",

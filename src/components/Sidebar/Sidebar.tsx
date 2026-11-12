@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, forwardRef } from 'react';
+import React, { createContext, useContext, useState, useEffect, useRef, useCallback, forwardRef } from 'react';
 import type { ReactNode } from 'react';
 import './Sidebar.css';
 import { Icon } from '../../foundations/icons';
@@ -7,6 +7,12 @@ import { Avatar, type AvatarStatus } from '../../elements/Avatar';
 import { Input } from '../../elements/Input';
 import { Logo, FmdqLogo } from '../../elements/Logo';
 import type { LogoProps } from '../../elements/Logo';
+import {
+  SearchResults,
+  type SearchResultsState,
+  type SearchResultItem,
+  type SearchResultGroup,
+} from '../SearchResults';
 
 // ─── Types & Context ──────────────────────────────────────────────────────────
 
@@ -655,6 +661,22 @@ export interface SidebarProps extends React.HTMLAttributes<HTMLElement> {
   searchPlaceholder?: string;
   searchValue?: string;
   onSearchChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  /** Whether the search results popover is visible. Controlled */
+  isSearchResultsOpen?: boolean;
+  /** Initial visibility of the search results popover when uncontrolled. Default: false */
+  defaultSearchResultsOpen?: boolean;
+  /** Callback when search results visibility toggles */
+  onSearchResultsOpenToggle?: (open: boolean) => void;
+  /** Explicit state for SearchResults ('results' | 'recent' | 'no results') */
+  searchResultsState?: SearchResultsState;
+  /** Groups of search results to display in 'results' state */
+  searchResultsGroups?: SearchResultGroup[];
+  /** Recent search items to display in 'recent' state */
+  searchResultsRecentItems?: SearchResultItem[];
+  /** Callback when a search result item is clicked */
+  onSelectSearchResult?: (item: SearchResultItem) => void;
+  /** Custom SearchResults node or escape hatch */
+  searchResultsNode?: ReactNode;
   hasShadow?: boolean;
   logo?: ReactNode;
   profile?: ReactNode;
@@ -683,6 +705,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
   searchPlaceholder = 'Search',
   searchValue,
   onSearchChange,
+  isSearchResultsOpen: propIsSearchResultsOpen,
+  defaultSearchResultsOpen = false,
+  onSearchResultsOpenToggle,
+  searchResultsState,
+  searchResultsGroups,
+  searchResultsRecentItems,
+  onSelectSearchResult,
+  searchResultsNode,
   hasShadow = false,
   logo,
   profile,
@@ -704,6 +734,43 @@ export const Sidebar: React.FC<SidebarProps> = ({
   const [internalAccountMenuOpen, setInternalAccountMenuOpen] = useState(defaultAccountMenuOpen);
   const isAccountMenuOpen = propIsAccountMenuOpen !== undefined ? propIsAccountMenuOpen : internalAccountMenuOpen;
 
+  const [internalSearchValue, setInternalSearchValue] = useState(searchValue ?? '');
+  const effectiveSearchValue = searchValue !== undefined ? searchValue : internalSearchValue;
+
+  const [internalSearchResultsOpen, setInternalSearchResultsOpen] = useState(defaultSearchResultsOpen);
+  const isSearchResultsOpen = propIsSearchResultsOpen !== undefined ? propIsSearchResultsOpen : internalSearchResultsOpen;
+
+  const toggleSearchResults = useCallback(
+    (open?: boolean) => {
+      const next = open !== undefined ? open : !isSearchResultsOpen;
+      setInternalSearchResultsOpen(next);
+      onSearchResultsOpenToggle?.(next);
+    },
+    [isSearchResultsOpen, onSearchResultsOpenToggle]
+  );
+
+  const searchWrapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isSearchResultsOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        toggleSearchResults(false);
+      }
+    };
+    const handleClickOutside = (e: MouseEvent) => {
+      if (searchWrapRef.current && !searchWrapRef.current.contains(e.target as Node)) {
+        toggleSearchResults(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isSearchResultsOpen, toggleSearchResults]);
+
   const toggleAccountMenu = (open?: boolean) => {
     const next = open !== undefined ? open : !isAccountMenuOpen;
     setInternalAccountMenuOpen(next);
@@ -714,6 +781,24 @@ export const Sidebar: React.FC<SidebarProps> = ({
     setInternalActiveId(id);
     onActiveChange?.(id);
   };
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (searchValue === undefined) {
+      setInternalSearchValue(e.target.value);
+    }
+    onSearchChange?.(e);
+    if (!isSearchResultsOpen) {
+      toggleSearchResults(true);
+    }
+  };
+
+  const effectiveSearchResultsState: SearchResultsState =
+    searchResultsState ??
+    (effectiveSearchValue.trim().length > 0
+      ? searchResultsGroups !== undefined && searchResultsGroups.length === 0
+        ? 'no results'
+        : 'results'
+      : 'recent');
 
   const classNames = [
     'fmdqui-sidebar',
@@ -801,12 +886,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
           {/* Search bar (Variant 1: under logo; Variant 2: under profile) */}
           {hasSearch && !isCollapsed && (
-            <div className="fmdqui-sidebar__search-wrap">
+            <div className="fmdqui-sidebar__search-wrap" ref={searchWrapRef}>
               <Input
                 size="sm"
                 placeholder={searchPlaceholder}
-                value={searchValue}
-                onChange={onSearchChange}
+                value={effectiveSearchValue}
+                onChange={handleSearchChange}
+                onFocus={() => toggleSearchResults(true)}
                 leadingIcon={<Icon name="search" variant="linear" size={16} />}
                 hasLabel={false}
                 hasHelperText={false}
@@ -814,6 +900,22 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 hasLeftIcon={true}
                 className="fmdqui-sidebar__search-input"
               />
+              {isSearchResultsOpen && (
+                <div className="fmdqui-sidebar__search-results-popover">
+                  {searchResultsNode ?? (
+                    <SearchResults
+                      state={effectiveSearchResultsState}
+                      query={effectiveSearchValue}
+                      groups={searchResultsGroups}
+                      recentItems={searchResultsRecentItems}
+                      onItemSelect={(item) => {
+                        onSelectSearchResult?.(item);
+                        toggleSearchResults(false);
+                      }}
+                    />
+                  )}
+                </div>
+              )}
             </div>
           )}
 

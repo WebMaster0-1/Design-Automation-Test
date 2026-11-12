@@ -113,6 +113,8 @@ export interface CommandShortcutProps extends React.HTMLAttributes<HTMLSpanEleme
   type?: CommandShortcutType;
   /** Key character(s) after the modifier glyph. Figma default: "C" */
   keyLabel?: string;
+  /** Whether to show the OS modifier glyph (⌘ or ^). When false, displays only keyLabel. Default: true */
+  showModifier?: boolean;
 }
 
 /** Modifier glyph per OS — Figma renders "⌘C" for Mac OS, "^C" for windows OS. */
@@ -124,12 +126,13 @@ const MODIFIER: Record<CommandShortcutType, string> = {
 export const CommandShortcut: React.FC<CommandShortcutProps> = ({
   type = 'mac os',
   keyLabel = 'C',
+  showModifier = true,
   className,
   ...rest
 }) => (
   <span className={cx('fmdqui-dropdowns-shortcut', className)} {...rest}>
     <span className="fmdqui-dropdowns-shortcut__key">
-      {MODIFIER[type]}
+      {showModifier ? MODIFIER[type] : null}
       {keyLabel}
     </span>
   </span>
@@ -142,12 +145,15 @@ CommandShortcut.displayName = 'CommandShortcut';
    Figma: Dropdown / menu item headers (COMPONENT_SET 2159:85848), 240×56
    borders=true → 1px neutral-100 stroke. Title DM Sans SemiBold 14 neutral-900,
    subtitle DM Sans Regular 14 neutral-500. pad 8/16, gap 4.
+   style=label → 240×29, pad 8/16/4/16, Title DM Sans SemiBold 12 neutral-500.
    ═══════════════════════════════════════════════════════════════════════════ */
 
 export interface DropdownMenuItemHeaderProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   /** Figma `borders` variant — draws the 1px neutral-100 outline */
   borders?: boolean;
+  /** Figma `style` variant — 'default' (14px title) | 'label' (12px neutral-500 label) */
+  headerStyle?: 'default' | 'label';
   /** Figma `has supporting texts` boolean property */
   hasSupportingTexts?: boolean;
   /** Figma text layer 1. Default mirrors the Figma content. */
@@ -158,6 +164,7 @@ export interface DropdownMenuItemHeaderProps
 
 export const DropdownMenuItemHeader: React.FC<DropdownMenuItemHeaderProps> = ({
   borders = true,
+  headerStyle = 'default',
   hasSupportingTexts = true,
   title = 'Menu Title',
   subtitle = 'This is a subheading for the title',
@@ -168,6 +175,7 @@ export const DropdownMenuItemHeader: React.FC<DropdownMenuItemHeaderProps> = ({
     className={cx(
       'fmdqui-dropdowns-header',
       borders && 'fmdqui-dropdowns-header--borders',
+      headerStyle === 'label' && 'fmdqui-dropdowns-header--style-label',
       className
     )}
     {...rest}
@@ -217,6 +225,8 @@ export interface DropdownMenuItemProps
   shortcutType?: CommandShortcutType;
   /** Key character inside the command shortcut */
   shortcutKey?: string;
+  /** Whether to show modifier glyph in shortcut. Default: true (or false if shortcutKey is '↵') */
+  showShortcutModifier?: boolean;
 }
 
 export const DropdownMenuItem = forwardRef<HTMLLIElement, DropdownMenuItemProps>(
@@ -232,6 +242,7 @@ export const DropdownMenuItem = forwardRef<HTMLLIElement, DropdownMenuItemProps>
       avatarUrl,
       shortcutType = 'mac os',
       shortcutKey = 'C',
+      showShortcutModifier,
       className,
       ...rest
     },
@@ -281,7 +292,11 @@ export const DropdownMenuItem = forwardRef<HTMLLIElement, DropdownMenuItemProps>
         )}
 
         {showShortcut && (
-          <CommandShortcut type={shortcutType} keyLabel={shortcutKey} />
+          <CommandShortcut
+            type={shortcutType}
+            keyLabel={shortcutKey}
+            showModifier={showShortcutModifier ?? (shortcutKey !== '↵')}
+          />
         )}
 
         {showToggle && (

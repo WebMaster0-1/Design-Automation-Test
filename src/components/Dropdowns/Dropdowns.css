@@ -69,6 +69,19 @@
   border: 1px solid var(--color-neutral-100);
 }
 
+/* Figma `style=label` — 240×29, pad 8/16/4/16, Title DM Sans SemiBold 12 neutral-500 */
+.fmdqui-dropdowns-header--style-label {
+  padding: var(--spacing-8) var(--spacing-16) var(--spacing-4) var(--spacing-16);
+}
+
+.fmdqui-dropdowns-header--style-label .fmdqui-dropdowns-header__title {
+  font-size: var(--font-size-xs, 12px);
+  color: var(--color-neutral-500, #667185);
+  font-weight: 600;
+  line-height: 145%;
+  letter-spacing: -0.04em;
+}
+
 .fmdqui-dropdowns-header__heading {
   display: flex;
   flex-direction: column;
