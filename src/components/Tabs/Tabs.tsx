@@ -14,7 +14,9 @@ interface TabsContextType {
 const TabsContext = createContext<TabsContextType | undefined>(undefined);
 
 export interface TabsProps {
-  defaultValue: string;
+  defaultValue?: string;
+  value?: string;
+  onValueChange?: (value: string) => void;
   className?: string;
   children: React.ReactNode;
   style?: TabsStyle;
@@ -22,16 +24,26 @@ export interface TabsProps {
 }
 
 export const Tabs: React.FC<TabsProps> = ({ 
-  defaultValue, 
+  defaultValue = '', 
+  value: propValue,
+  onValueChange,
   className = '', 
   children,
   style = 'Line',
   fullWidth = false
 }) => {
-  const [activeTab, setActiveTab] = useState(defaultValue);
+  const [internalActiveTab, setInternalActiveTab] = useState(defaultValue);
+  const activeTab = propValue !== undefined ? propValue : internalActiveTab;
+
+  const handleSetActiveTab = (val: string) => {
+    if (propValue === undefined) {
+      setInternalActiveTab(val);
+    }
+    onValueChange?.(val);
+  };
   
   return (
-    <TabsContext.Provider value={{ activeTab, setActiveTab, style, fullWidth }}>
+    <TabsContext.Provider value={{ activeTab, setActiveTab: handleSetActiveTab, style, fullWidth }}>
       <div className={`fmdqui-tabs fmdqui-tabs--${style.toLowerCase()} ${fullWidth ? 'fmdqui-tabs--full-width' : ''} ${className}`}>
         {children}
       </div>

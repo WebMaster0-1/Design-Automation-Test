@@ -43,39 +43,21 @@
   padding: 0 !important;
 }
 
-/* ── 2. Line Tabs ── */
-.fmdqui-notification-panel__tabs {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+/* ── 2. Line Tabs (reusing Tabs component) ── */
+.fmdqui-notification-panel__tabs-root {
+  width: 100%;
+}
+
+.fmdqui-notification-panel__tabs.fmdqui-tab-list--line {
   padding: 0 16px;
+  gap: 16px;
   border-bottom: 1px solid var(--color-neutral-200, #E4E7EC);
   box-sizing: border-box;
 }
 
-.fmdqui-notification-panel__tab {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.fmdqui-notification-panel__tab.fmdqui-tab--line {
   padding: 8px 4px 10px 4px;
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid transparent;
-  cursor: pointer;
-  font-family: var(--font-family-primary, 'DM Sans', sans-serif);
   font-size: 14px;
-  color: var(--color-neutral-600, #475367);
-  transition: all var(--transition-fast, 0.15s ease);
-}
-
-.fmdqui-notification-panel__tab:hover {
-  color: var(--color-neutral-900, #101928);
-}
-
-.fmdqui-notification-panel__tab--active {
-  color: var(--color-primary-700, #1D326D);
-  font-weight: 600;
-  border-bottom-color: var(--color-primary-700, #1D326D);
 }
 
 /* ── 3. Body & Notification List ── */
@@ -156,7 +138,7 @@
 .fmdqui-notification-item__description {
   margin: 0;
   font-family: var(--font-family-primary, 'DM Sans', sans-serif);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 400;
   line-height: 145%;
   color: var(--color-neutral-600, #475367);
@@ -193,3 +175,4 @@
   font-weight: 500 !important;
   color: var(--color-primary-700, #1D326D) !important;
 }
+

@@ -50,7 +50,7 @@ export const Playground: Story = {
     state: 'default',
     hasTabs: true,
     hasFooter: true,
-    hasMarkAllAsRead: true,
+    hasMarkAllAsRead: false,
   },
 };
 
@@ -60,7 +60,7 @@ export const StateDefault: Story = {
     state: 'default',
     hasTabs: true,
     hasFooter: true,
-    hasMarkAllAsRead: true,
+    hasMarkAllAsRead: false,
   },
 };
 
@@ -71,6 +71,15 @@ export const StateEmpty: Story = {
     hasTabs: true,
     hasFooter: true,
     hasMarkAllAsRead: false,
+  },
+};
+
+export const WithMarkAllAsRead: Story = {
+  args: {
+    state: 'default',
+    hasTabs: true,
+    hasFooter: true,
+    hasMarkAllAsRead: true,
   },
 };
 
@@ -85,7 +94,7 @@ export const NotificationItemVariants: Story = {
           title="Market spread alert triggered"
           description="NIGB 15.45 06/21/38 spread widened to 1.2%, above the 0.8% threshold."
           meta="Alerts · 2 mins ago"
-          iconName="alert-triangle"
+          iconName="chart"
           iconColor="Error"
         />
       </div>
@@ -94,11 +103,11 @@ export const NotificationItemVariants: Story = {
         <h4 style={{ margin: '0 0 8px 0', fontSize: 13, color: '#667185' }}>State = Read (no dot, white background)</h4>
         <NotificationItem
           state="read"
-          title="User authorization approved"
-          description="Surveillance Officer access granted for Halima Yusuf."
-          meta="Admin · Yesterday"
-          iconName="shield-tick"
-          iconColor="Success"
+          title="RFQ response below 90%"
+          description="DMB 2 responded to 82% of RFQs today."
+          meta="Alerts · 3 hrs ago"
+          iconName="clock"
+          iconColor="Gray"
         />
       </div>
 
@@ -109,7 +118,7 @@ export const NotificationItemVariants: Story = {
           title="System maintenance scheduled"
           hasDescription={false}
           meta="System · 3 hours ago"
-          iconName="info-circle"
+          iconName="settings"
           iconColor="Primary"
         />
       </div>
@@ -126,35 +135,35 @@ export const Interactive: Story = {
         title: 'Market spread alert triggered',
         description: 'NIGB 15.45 06/21/38 spread widened to 1.2%, above the 0.8% threshold.',
         meta: 'Alerts · 2 mins ago',
-        iconName: 'alert-triangle',
+        iconName: 'chart',
         iconColor: 'Error',
       },
       {
         id: 'n2',
         state: 'unread',
-        title: 'New trade submission awaiting review',
-        description: 'Stanbic IBTC Bank submitted FGN Bond 2027 (₦2,500,000,000.00).',
-        meta: 'Trades · 14 mins ago',
-        iconName: 'folder',
+        title: 'Unsettled trades above limit',
+        description: 'DMB 6 has 4 trades past T+2 worth ₦1.2b.',
+        meta: 'Settlement · 18 mins ago',
+        iconName: 'money',
         iconColor: 'Warning',
       },
       {
         id: 'n3',
         state: 'unread',
-        title: 'Daily closing rates published',
-        description: 'Official NIBOR and NIFEX benchmarks have been finalized.',
-        meta: 'Benchmarks · 1 hour ago',
-        iconName: 'chart-bar',
-        iconColor: 'Primary',
+        title: 'Request approved',
+        description: 'Ngozi Eze approved your Price deviation alert.',
+        meta: 'My Requests · 1 hr ago',
+        iconName: 'check-circle',
+        iconColor: 'Success',
       },
       {
         id: 'n4',
         state: 'read',
-        title: 'User authorization approved',
-        description: 'Surveillance Officer access granted for Halima Yusuf.',
-        meta: 'Admin · Yesterday',
-        iconName: 'shield-tick',
-        iconColor: 'Success',
+        title: 'RFQ response below 90%',
+        description: 'DMB 2 responded to 82% of RFQs today.',
+        meta: 'Alerts · 3 hrs ago',
+        iconName: 'clock',
+        iconColor: 'Gray',
       },
     ]);
 

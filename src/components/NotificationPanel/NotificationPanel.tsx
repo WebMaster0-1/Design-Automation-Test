@@ -1,9 +1,9 @@
 import React, { forwardRef, useState } from 'react';
 import './NotificationPanel.css';
 import { MiscIcon, type MiscIconColor } from '../../elements/Icon/MiscIcon';
-import { Badge } from '../../elements/Badge';
 import { Button } from '../../elements/Button';
 import { EmptyState } from '../../layout/EmptyState';
+import { Tabs, TabList, Tab } from '../Tabs';
 
 export type NotificationItemState = 'unread' | 'read';
 export type NotificationPanelState = 'default' | 'empty';
@@ -57,6 +57,7 @@ export const NotificationItem: React.FC<NotificationItemProps> = ({
       <div className="fmdqui-notification-item__icon-wrap">
         <MiscIcon
           size="sm"
+          type="Round"
           color={iconColor}
           icon={iconName}
           iconVariant="bold"
@@ -115,43 +116,34 @@ const DEFAULT_NOTIFICATIONS: NotificationItemProps[] = [
     title: 'Market spread alert triggered',
     description: 'NIGB 15.45 06/21/38 spread widened to 1.2%, above the 0.8% threshold.',
     meta: 'Alerts · 2 mins ago',
-    iconName: 'alert-triangle',
+    iconName: 'chart',
     iconColor: 'Error',
   },
   {
     id: 'n2',
     state: 'unread',
-    title: 'New trade submission awaiting review',
-    description: 'Stanbic IBTC Bank submitted FGN Bond 2027 (₦2,500,000,000.00).',
-    meta: 'Trades · 14 mins ago',
-    iconName: 'folder',
+    title: 'Unsettled trades above limit',
+    description: 'DMB 6 has 4 trades past T+2 worth ₦1.2b.',
+    meta: 'Settlement · 18 mins ago',
+    iconName: 'money',
     iconColor: 'Warning',
   },
   {
     id: 'n3',
     state: 'unread',
-    title: 'Daily closing rates published',
-    description: 'Official NIBOR and NIFEX benchmarks have been finalized.',
-    meta: 'Benchmarks · 1 hour ago',
-    iconName: 'chart-bar',
-    iconColor: 'Primary',
+    title: 'Request approved',
+    description: 'Ngozi Eze approved your Price deviation alert.',
+    meta: 'My Requests · 1 hr ago',
+    iconName: 'check-circle',
+    iconColor: 'Success',
   },
   {
     id: 'n4',
     state: 'read',
-    title: 'User authorization approved',
-    description: 'Surveillance Officer access granted for Halima Yusuf.',
-    meta: 'Admin · Yesterday',
-    iconName: 'shield-tick',
-    iconColor: 'Success',
-  },
-  {
-    id: 'n5',
-    state: 'read',
-    title: 'Weekly compliance report generated',
-    description: 'Download the comprehensive surveillance digest for Week 45.',
-    meta: 'Reports · 2 days ago',
-    iconName: 'book',
+    title: 'RFQ response below 90%',
+    description: 'DMB 2 responded to 82% of RFQs today.',
+    meta: 'Alerts · 3 hrs ago',
+    iconName: 'clock',
     iconColor: 'Gray',
   },
 ];
@@ -216,47 +208,33 @@ export const NotificationPanel = forwardRef<HTMLDivElement, NotificationPanelPro
           )}
         </div>
 
-        {/* 2. Tabs */}
+        {/* 2. Tabs (reusing Tabs, TabList, Tab from design system) */}
         {hasTabs && (
-          <div className="fmdqui-notification-panel__tabs" role="tablist">
-            <button
-              type="button"
-              role="tab"
-              aria-selected={activeTab === 'all'}
-              onClick={() => handleTabClick('all')}
-              className={`fmdqui-notification-panel__tab ${
-                activeTab === 'all' ? 'fmdqui-notification-panel__tab--active' : ''
-              }`}
-            >
-              <span className="fmdqui-notification-panel__tab-label">All</span>
-              <Badge
-                type="filled"
-                size="sm"
-                color={activeTab === 'all' ? 'blue' : 'neutral'}
+          <Tabs
+            style="Line"
+            value={activeTab}
+            onValueChange={val => handleTabClick(val as 'all' | 'unread')}
+            className="fmdqui-notification-panel__tabs-root"
+          >
+            <TabList className="fmdqui-notification-panel__tabs">
+              <Tab
+                value="all"
+                hasNumberTag
+                numberTag={totalCount}
+                className="fmdqui-notification-panel__tab"
               >
-                {totalCount}
-              </Badge>
-            </button>
-
-            <button
-              type="button"
-              role="tab"
-              aria-selected={activeTab === 'unread'}
-              onClick={() => handleTabClick('unread')}
-              className={`fmdqui-notification-panel__tab ${
-                activeTab === 'unread' ? 'fmdqui-notification-panel__tab--active' : ''
-              }`}
-            >
-              <span className="fmdqui-notification-panel__tab-label">Unread</span>
-              <Badge
-                type="filled"
-                size="sm"
-                color={activeTab === 'unread' ? 'blue' : 'neutral'}
+                All
+              </Tab>
+              <Tab
+                value="unread"
+                hasNumberTag
+                numberTag={unreadCount}
+                className="fmdqui-notification-panel__tab"
               >
-                {unreadCount}
-              </Badge>
-            </button>
-          </div>
+                Unread
+              </Tab>
+            </TabList>
+          </Tabs>
         )}
 
         {/* 3. List or Empty State */}
@@ -265,8 +243,8 @@ export const NotificationPanel = forwardRef<HTMLDivElement, NotificationPanelPro
             <div className="fmdqui-notification-panel__empty">
               <EmptyState
                 type="notifications"
-                title="No notifications"
-                description="You're all caught up! Check back later."
+                title="You’re all caught up"
+                description="New alerts and approvals will show here."
               />
             </div>
           ) : (

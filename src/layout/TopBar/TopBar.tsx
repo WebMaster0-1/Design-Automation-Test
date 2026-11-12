@@ -3,6 +3,7 @@ import type { HTMLAttributes, ReactNode } from 'react';
 import './TopBar.css';
 import { Icon } from '../../foundations/icons';
 import { Avatar, type AvatarStatus } from '../../elements/Avatar';
+import { Tabs, TabList, Tab } from '../../components/Tabs';
 import {
   NotificationPanel,
   type NotificationPanelProps,
@@ -208,32 +209,35 @@ export const AppTopBar = forwardRef<HTMLDivElement, AppTopBarProps>(
         {/* ── Left Section: Admin Menu Line Tabs ── */}
         <div className="fmdqui-app-topbar__left">
           {hasAdminMenu && (
-            <nav className="fmdqui-app-topbar__nav" aria-label="Admin Navigation">
-              {tabs.map(tab => {
-                const isActive = activeTab === tab.key;
-                return (
-                  <button
-                    key={tab.key}
-                    type="button"
-                    role="tab"
-                    aria-selected={isActive}
-                    onClick={() => handleTabClick(tab.key)}
-                    className={`fmdqui-app-topbar__tab ${
-                      isActive ? 'fmdqui-app-topbar__tab--active' : ''
-                    }`}
-                  >
-                    <Icon
-                      name={tab.icon}
-                      variant={isActive ? 'bold' : 'linear'}
-                      size={20}
-                      className="fmdqui-app-topbar__tab-icon"
-                    />
-                    <span className="fmdqui-app-topbar__tab-label">{tab.label}</span>
-                    <span className="fmdqui-app-topbar__tab-indicator" />
-                  </button>
-                );
-              })}
-            </nav>
+            <Tabs
+              style="Line"
+              value={activeTab === 'none' ? undefined : activeTab}
+              onValueChange={val => handleTabClick(val as AppTopBarActiveTab)}
+              className="fmdqui-app-topbar__tabs"
+            >
+              <TabList aria-label="Admin Navigation" className="fmdqui-app-topbar__tab-list">
+                {tabs.map(tab => {
+                  const isActive = activeTab === tab.key;
+                  return (
+                    <Tab
+                      key={tab.key}
+                      value={tab.key}
+                      hasIcon
+                      icon={
+                        <Icon
+                          name={tab.icon}
+                          variant={isActive ? 'bold' : 'linear'}
+                          size={20}
+                        />
+                      }
+                      className="fmdqui-app-topbar__tab"
+                    >
+                      {tab.label}
+                    </Tab>
+                  );
+                })}
+              </TabList>
+            </Tabs>
           )}
         </div>
 

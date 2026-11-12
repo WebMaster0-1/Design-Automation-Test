@@ -32,66 +32,28 @@
   justify-content: center;
 }
 
-/* ── 1. Left Admin Menu Line Tabs ── */
+/* ── 1. Left Admin Menu Line Tabs (Reusing Tabs component) ── */
 .fmdqui-app-topbar__left {
   display: flex;
   align-items: center;
   height: 100%;
 }
 
-.fmdqui-app-topbar__nav {
-  display: flex;
-  align-items: center;
+.fmdqui-app-topbar__tabs {
   height: 100%;
+}
+
+.fmdqui-app-topbar__tab-list.fmdqui-tab-list--line {
+  height: 100%;
+  border-bottom: none;
   gap: 0;
 }
 
-.fmdqui-app-topbar__tab {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-8, 8px);
+.fmdqui-app-topbar__tab.fmdqui-tab--line {
   height: 64px;
   padding: 0 var(--spacing-16, 16px);
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  font-family: inherit;
-  font-size: var(--font-size-sm, 14px);
-  line-height: var(--font-line-height-paragraph, 1.45);
-  color: var(--color-neutral-700, #344054);
-  transition: all var(--transition-fast, 0.15s ease);
-}
-
-.fmdqui-app-topbar__tab:hover {
-  color: var(--color-neutral-900, #101928);
-}
-
-.fmdqui-app-topbar__tab--active {
-  color: var(--color-primary-700, #1D326D);
-  font-weight: 600;
-}
-
-.fmdqui-app-topbar__tab-icon {
-  flex-shrink: 0;
-}
-
-.fmdqui-app-topbar__tab-label {
-  white-space: nowrap;
-}
-
-.fmdqui-app-topbar__tab-indicator {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background-color: transparent;
-  transition: background-color var(--transition-fast, 0.15s ease);
-}
-
-.fmdqui-app-topbar__tab--active .fmdqui-app-topbar__tab-indicator {
-  background-color: var(--color-primary-700, #1D326D);
+  margin-bottom: 0;
+  box-sizing: border-box;
 }
 
 /* ── 2. Right Section: Notifications & Account ── */
