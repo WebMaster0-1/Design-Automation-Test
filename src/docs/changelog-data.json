@@ -1,5 +1,16 @@
 [
   {
+    "hash": "9917104",
+    "date": "2026-11-11",
+    "author": "dudesoamazing",
+    "email": "marvinogah@gmail.com",
+    "subject": "feat(sidebar): add hasShadow boolean for light mode contrast glow matching Figma",
+    "category": "feat",
+    "scope": "sidebar",
+    "message": "add hasShadow boolean for light mode contrast glow matching Figma",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/9917104"
+  },
+  {
     "hash": "cf450a8",
     "date": "2026-11-10",
     "author": "dudesoamazing",

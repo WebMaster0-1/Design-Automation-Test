@@ -429,7 +429,12 @@ export const Dashboard: React.FC<DashboardProps> = ({
           {/* Top Portal Badge (Figma node 11041:684742) */}
           {showPortalBadge && portalBadge && (
             <div className="fmdqui-dashboard-layout__badge-wrap">
-              <Badge color="blue" type="filled" size="lg">
+              <Badge
+                className="fmdqui-dashboard-layout__portal-badge"
+                color="blue"
+                type="filled"
+                size="lg"
+              >
                 {portalBadge}
               </Badge>
             </div>

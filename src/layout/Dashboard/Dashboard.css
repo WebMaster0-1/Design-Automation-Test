@@ -70,6 +70,17 @@
   width: 100%;
 }
 
+.fmdqui-dashboard-layout .fmdqui-dashboard-layout__badge-wrap .fmdqui-badge,
+.fmdqui-dashboard-layout__portal-badge {
+  border-radius: 0 0 var(--radius-12, 12px) var(--radius-12, 12px) !important;
+  padding: 4px 12px !important;
+  height: 28px !important;
+  line-height: 20px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  box-sizing: border-box !important;
+}
+
 /* ─── 1. Page Header ───────────────────────────────────────────────────────── */
 
 .fmdqui-dashboard-layout__header {
