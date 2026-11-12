@@ -1,0 +1,38 @@
+import { Meta, Story, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as TopBarStories from './TopBar.stories';
+
+<Meta of={TopBarStories} />
+
+# App Top Bar
+
+App top bar: product top bar beside the Sidebar (1168 wide at 1440). Left: admin menu as Line tabs (Home, Activity, Users, My Requests; set active, rename the 4th to Authorisations for authorisers, never both). Right: notifications bell with unread count (opens Notification / panel) and the account menu (opens Sidebar / account menu). Fixed on scroll. Props: Name, Role, has notifications, has admin menu.
+
+## Variants / Active Tabs
+
+### Active: Home
+<Canvas of={TopBarStories.ActiveHome} />
+
+### Active: Activity
+<Canvas of={TopBarStories.ActiveActivity} />
+
+### Active: Users
+<Canvas of={TopBarStories.ActiveUsers} />
+
+### Active: My Requests
+<Canvas of={TopBarStories.ActiveRequests} />
+
+## Dropdowns & Interactivity
+
+### Notifications Dropdown Open
+Clicking the notification bell reveals the `NotificationPanel` with interactive tabs, unread dot indicators, and alert rows.
+
+<Canvas of={TopBarStories.WithNotificationsOpen} />
+
+### Account Menu Dropdown Open
+Clicking the user profile reveals the `SidebarAccountMenu` with status indicator, navigation options, and sign-out action.
+
+<Canvas of={TopBarStories.WithAccountMenuOpen} />
+
+## Props
+
+<Controls of={TopBarStories.Playground} />

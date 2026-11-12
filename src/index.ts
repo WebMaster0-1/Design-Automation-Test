@@ -30,6 +30,7 @@ export * from './components/Metrics';
 export * from './components/Pagination';
 export * from './components/Sidebar';
 export * from './components/SearchResults';
+export * from './components/NotificationPanel';
 export * from './components/Breadcrumbs';
 export * from './components/Calendar';
 export * from './components/Tooltip';

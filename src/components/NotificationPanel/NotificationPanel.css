@@ -1,0 +1,195 @@
+/* ==========================================================================
+   NOTIFICATION PANEL & ITEM (Figma: Notification / panel 11413:915350 & item 11413:915013)
+   Width 400px · Radius 12px · Border 1px #E4E7EC · Shadow Normal/Large
+   ========================================================================== */
+
+.fmdqui-notification-panel {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  max-width: 400px;
+  background-color: var(--color-neutral-white, #FFFFFF);
+  border: 1px solid var(--color-neutral-200, #E4E7EC);
+  border-radius: var(--radius-12, 12px);
+  box-shadow: 0px 4px 6px -2px rgba(16, 25, 40, 0.03),
+              0px 16px 24px -4px rgba(16, 25, 40, 0.08);
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: left;
+}
+
+/* ── 1. Header ── */
+.fmdqui-notification-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  height: 48px;
+  box-sizing: border-box;
+}
+
+.fmdqui-notification-panel__title {
+  margin: 0;
+  font-family: var(--font-family-primary, 'DM Sans', sans-serif);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 140%;
+  color: var(--color-neutral-900, #101928);
+}
+
+.fmdqui-notification-panel__mark-btn {
+  font-size: 13px !important;
+  color: var(--color-primary-700, #1D326D) !important;
+  padding: 0 !important;
+}
+
+/* ── 2. Line Tabs ── */
+.fmdqui-notification-panel__tabs {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--color-neutral-200, #E4E7EC);
+  box-sizing: border-box;
+}
+
+.fmdqui-notification-panel__tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 4px 10px 4px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  font-family: var(--font-family-primary, 'DM Sans', sans-serif);
+  font-size: 14px;
+  color: var(--color-neutral-600, #475367);
+  transition: all var(--transition-fast, 0.15s ease);
+}
+
+.fmdqui-notification-panel__tab:hover {
+  color: var(--color-neutral-900, #101928);
+}
+
+.fmdqui-notification-panel__tab--active {
+  color: var(--color-primary-700, #1D326D);
+  font-weight: 600;
+  border-bottom-color: var(--color-primary-700, #1D326D);
+}
+
+/* ── 3. Body & Notification List ── */
+.fmdqui-notification-panel__body {
+  display: flex;
+  flex-direction: column;
+}
+
+.fmdqui-notification-panel__list {
+  display: flex;
+  flex-direction: column;
+  max-height: 365px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+/* ── 4. Notification Item ── */
+.fmdqui-notification-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-neutral-100, #F2F4F7);
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background-color var(--transition-fast, 0.15s ease);
+}
+
+.fmdqui-notification-item:hover {
+  background-color: var(--color-neutral-100, #F0F2F5) !important;
+}
+
+.fmdqui-notification-item--unread {
+  background-color: var(--color-neutral-50, #F9FAFB);
+}
+
+.fmdqui-notification-item--read {
+  background-color: var(--color-neutral-white, #FFFFFF);
+}
+
+.fmdqui-notification-item__icon-wrap {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.fmdqui-notification-item__content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.fmdqui-notification-item__title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.fmdqui-notification-item__title {
+  font-family: var(--font-family-primary, 'DM Sans', sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 145%;
+  letter-spacing: -0.04em;
+  color: var(--color-neutral-900, #101928);
+}
+
+.fmdqui-notification-item__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-success-500, #04802E);
+  flex-shrink: 0;
+}
+
+.fmdqui-notification-item__description {
+  margin: 0;
+  font-family: var(--font-family-primary, 'DM Sans', sans-serif);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 145%;
+  color: var(--color-neutral-600, #475367);
+}
+
+.fmdqui-notification-item__meta {
+  font-family: var(--font-family-primary, 'DM Sans', sans-serif);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 145%;
+  color: var(--color-neutral-500, #667185);
+}
+
+/* ── 5. Empty State Container ── */
+.fmdqui-notification-panel__empty {
+  padding: 32px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ── 6. Footer ── */
+.fmdqui-notification-panel__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  border-top: 1px solid var(--color-neutral-200, #E4E7EC);
+  box-sizing: border-box;
+}
+
+.fmdqui-notification-panel__footer-btn {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: var(--color-primary-700, #1D326D) !important;
+}

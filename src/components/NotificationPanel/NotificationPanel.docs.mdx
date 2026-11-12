@@ -1,0 +1,29 @@
+import { Meta, Story, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as NotificationPanelStories from './NotificationPanel.stories';
+
+<Meta of={NotificationPanelStories} />
+
+# Notification Panel
+
+Notification / panel: opens from the top bar bell. Header with Mark all as read (Button / texts), All and Unread Line Tabs with counts, a list of Notification / item rows (newest first, unread on Grey/50 with a dot), and a View all alerts footer. state=empty uses the DS Empty State (Notifications). Width 400, radius 12, Shadow/Normal/large. Dev: list caps at about 5 rows then scrolls with the DS Scrollbar; clicking a row marks it read and opens its source.
+
+## Variants / States
+
+### Default State
+Displays notification list with unread markers, tabs with unread counters, and mark all as read action.
+
+<Canvas of={NotificationPanelStories.StateDefault} />
+
+### Empty State
+Displays empty notification illustration and feedback when there are zero notifications.
+
+<Canvas of={NotificationPanelStories.StateEmpty} />
+
+### Notification Item Elements
+Row items supporting read/unread states, exposed Misc icons with alerts palette, and optional description text.
+
+<Canvas of={NotificationPanelStories.NotificationItemVariants} />
+
+## Props
+
+<Controls of={NotificationPanelStories.Playground} />
