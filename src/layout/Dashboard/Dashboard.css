@@ -72,8 +72,8 @@
 
 .fmdqui-dashboard-layout .fmdqui-dashboard-layout__badge-wrap .fmdqui-badge,
 .fmdqui-dashboard-layout__portal-badge {
-  border-radius: 0 0 var(--radius-12, 12px) var(--radius-12, 12px) !important;
-  padding: 4px 12px !important;
+  border-radius: var(--radius-full, 9999px) !important;
+  padding: 4px 16px !important;
   height: 28px !important;
   line-height: 20px !important;
   font-size: 12px !important;

@@ -139,7 +139,7 @@
 /* Default State */
 .fmdqui-scrollbar--theme-dark .fmdqui-scrollbar__thumb,
 .fmdqui-scrollbar--theme-dark.fmdqui-scrollbar--state-default .fmdqui-scrollbar__thumb {
-  background-color: var(--color-primary-500, #3D89DF);
+  background-color: var(--color-primary-600, #034592);
 }
 
 /* Hover State */
@@ -169,7 +169,7 @@
 
 .fmdqui-scrollable--dark {
   --scrollbar-track: var(--color-primary-800, #012657);
-  --scrollbar-thumb: var(--color-primary-500, #3D89DF);
+  --scrollbar-thumb: var(--color-primary-600, #034592);
   --scrollbar-thumb-hover: var(--color-primary-300, #80BBFF);
 
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);

@@ -60,6 +60,28 @@
   font-size: 14px;
 }
 
+.fmdqui-notification-panel__tab.fmdqui-tab--line .fmdqui-badge {
+  font-size: 12px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  padding: 0 6px !important;
+  border-radius: var(--radius-full, 9999px) !important;
+  font-weight: 500 !important;
+  transition: all var(--transition-fast, 0.15s ease) !important;
+}
+
+/* Active tab badge: dark navy (#012657 / Primary/800) with white text matching Figma Image 3 */
+.fmdqui-notification-panel__tab.fmdqui-tab--active .fmdqui-badge {
+  background-color: var(--color-primary-800, #012657) !important;
+  color: var(--color-neutral-white, #FFFFFF) !important;
+}
+
+/* Inactive tab badge: light grey (#F0F2F5 / Neutral/100) with dark grey text matching Figma Image 3 */
+.fmdqui-notification-panel__tab:not(.fmdqui-tab--active) .fmdqui-badge {
+  background-color: var(--color-neutral-100, #F0F2F5) !important;
+  color: var(--color-neutral-700, #344054) !important;
+}
+
 /* ── 3. Body & Notification List ── */
 .fmdqui-notification-panel__body {
   display: flex;

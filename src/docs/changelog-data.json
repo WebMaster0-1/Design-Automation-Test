@@ -1,5 +1,16 @@
 [
   {
+    "hash": "586c40a",
+    "date": "2026-11-12",
+    "author": "dudesoamazing",
+    "email": "marvinogah@gmail.com",
+    "subject": "refactor(topbar,notification): reuse design system Tabs component in TopBar and NotificationPanel",
+    "category": "refactor",
+    "scope": "topbar,notification",
+    "message": "reuse design system Tabs component in TopBar and NotificationPanel",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/586c40a"
+  },
+  {
     "hash": "bc90ad4",
     "date": "2026-11-12",
     "author": "dudesoamazing",

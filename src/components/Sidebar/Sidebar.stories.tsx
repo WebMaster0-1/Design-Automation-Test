@@ -555,6 +555,132 @@ export const Variant1Light: Story = {
   },
 };
 
+export const Screen9_2LastTradedPrices: Story = {
+  name: 'DRP Screen 9.2 / Light Sidebar (Prices Expanded)',
+  render: () => {
+    const [active, setActive] = useState('last-traded-prices');
+
+    return (
+      <div style={{ display: 'flex', height: '100vh', backgroundColor: '#F8FAFC' }}>
+        <Sidebar
+          variant="1"
+          theme="light"
+          hasShadow
+          activeId={active}
+          onActiveChange={setActive}
+          user={{
+            name: 'David Eno',
+            email: 'david.e@fmdq.ui',
+          }}
+          footerSection={
+            <SidebarSection title="Administration" theme="light" hasDivider>
+              <SidebarMenuItem
+                id="users-members"
+                theme="light"
+                label="Users & Members"
+                icon={<Icon name="users" variant="bold" size={20} />}
+              />
+              <SidebarMenuItem
+                id="reference-data"
+                theme="light"
+                label="Reference Data"
+                icon={<Icon name="calendar" variant="bold" size={20} />}
+              />
+            </SidebarSection>
+          }
+        >
+          <SidebarSection title="Main Navigation" theme="light">
+            <SidebarMenuItem
+              id="dashboard"
+              theme="light"
+              label="Dashboard"
+              icon={<Icon name="home" variant="bold" size={20} />}
+            />
+            <SidebarMenuItem
+              id="approvals"
+              theme="light"
+              label="Approvals"
+              icon={<Icon name="check-circle" variant="bold" size={20} />}
+              counter={42}
+            />
+            <SidebarMenuItem
+              id="benchmark-contributions"
+              theme="light"
+              label="Benchmark Contributions"
+              icon={<Icon name="chart" variant="bold" size={20} />}
+              counter={12}
+              type="multi-layered"
+            />
+            <SidebarMenuItem
+              id="trade-data-reporting"
+              theme="light"
+              label="Trade Data Reporting"
+              icon={<Icon name="branch" variant="bold" size={20} />}
+              counter={14}
+              type="multi-layered"
+            />
+            <SidebarMenuItem
+              id="securities-settlement"
+              theme="light"
+              label="Securities & Settlement"
+              icon={<Icon name="bank" variant="bold" size={20} />}
+              counter={3}
+              type="multi-layered"
+            />
+            <SidebarMenuItem
+              id="fx-market-data"
+              theme="light"
+              label="FX Market Data"
+              icon={<Icon name="coin-swap" variant="bold" size={20} />}
+              counter={11}
+              type="multi-layered"
+            />
+            <SidebarMenuItem
+              id="prices"
+              theme="light"
+              label="Prices"
+              icon={<Icon name="bar-chart-v" variant="bold" size={20} />}
+              defaultExpanded
+            >
+              <SidebarSubMenuItem
+                id="last-traded-prices"
+                theme="light"
+                label="Last traded prices"
+              />
+              <SidebarSubMenuItem
+                id="daily-prices"
+                theme="light"
+                label="Daily prices"
+              />
+            </SidebarMenuItem>
+            <SidebarMenuItem
+              id="fees-billing"
+              theme="light"
+              label="Fees & Billing"
+              icon={<Icon name="receipt" variant="bold" size={20} />}
+            />
+            <SidebarMenuItem
+              id="reports"
+              theme="light"
+              label="Reports"
+              icon={<Icon name="pie-chart" variant="bold" size={20} />}
+            />
+          </SidebarSection>
+        </Sidebar>
+
+        <main style={{ flex: 1, padding: '32px', fontFamily: 'var(--font-family-primary)' }}>
+          <h2 style={{ margin: '0 0 8px 0', fontSize: 'var(--font-size-h5)', color: '#101928' }}>
+            Figma Screen 9.2: Last Traded Prices · Closing Prices Selection
+          </h2>
+          <p style={{ color: 'var(--color-neutral-500)', fontSize: 'var(--font-size-p-sm)' }}>
+            Light mode sidebar with <code>hasShadow</code> glow, gold icons, module counter badges, Prices expanded, and <strong>Last traded prices</strong> selected.
+          </p>
+        </main>
+      </div>
+    );
+  },
+};
+
 // ─── 5. Full Sidebar: Variant 1 (Dark Blue Theme) ───────────────────────────
 
 export const Variant1DarkBlue: Story = {
