@@ -1,5 +1,16 @@
 [
   {
+    "hash": "266d478",
+    "date": "2026-11-13",
+    "author": "dudesoamazing",
+    "email": "marvinogah@gmail.com",
+    "subject": "fix(design-parity): align notifications, portal badge, light sidebar, and scrollbar with Figma",
+    "category": "fix",
+    "scope": "design-parity",
+    "message": "align notifications, portal badge, light sidebar, and scrollbar with Figma",
+    "url": "https://github.com/WebMaster0-1/Design-Automation-Test/commit/266d478"
+  },
+  {
     "hash": "586c40a",
     "date": "2026-11-12",
     "author": "dudesoamazing",
